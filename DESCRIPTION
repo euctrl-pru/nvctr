@@ -1,0 +1,24 @@
+Package: nvctr
+Type: Package
+Title: The n-vector approach to geographical postion calculations using an ellipsoidal model of Earth
+Version: 0.0.999
+Author: Authors@R: c(
+  person("Enrico", "Spinielli", email = "enrico.spinielli@gmail.com", role = c("aut", "cre"),
+         comment = c(ORCID = "0000-0001-8584-9131")))
+  )
+Maintainer: Enrico Spinielli <enrico.spinielli@gmail.com>
+Description: The n-vector library from FFI, the Norwegian Defence Research Establishment,
+  uses the normal vector to the Earth ellipsoid (called n-vector)
+  as a non-singular position representation that turns out to be very
+  convenient for practical position calculations.
+  The n-vector is simple to use and gives exact answers for all global positions,
+  and all distances, for both ellipsoidal and spherical Earth models.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
+Imports: 
+    pracma,
+    magrittr
+RoxygenNote: 6.1.1
