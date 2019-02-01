@@ -3,7 +3,7 @@
 #' @param latitude Geodetic latitude (rad)
 #' @param longitude Geodetic longitude (rad)
 #'
-#' @return n-vector decomposed in E (3x1 vector) (unit less)
+#' @return n-vector decomposed in E (3x1 vector) (no unit)
 #' @export
 #'
 #' @examples

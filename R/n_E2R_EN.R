@@ -1,6 +1,6 @@
 #' Finds the rotation matrix R_EN from n-vector.
 #'
-#' @param n_E n-vector decomposed in E (3x1 vector) (unitless)
+#' @param n_E n-vector decomposed in E (3x1 vector) (no unit)
 #'
 #' @return The resulting rotation matrix (direction cosine matrix)
 #' @export
@@ -8,7 +8,8 @@
 n_E2R_EN <- function(n_E) {
   check_length_deviation(n_E)
 
-  n_E <- unit(R_Ee() %*% n_E) %>%  # Ensures unit length. R_Ee selects correct E-axes, see R_Ee.m for details.
+  n_E <- unit(R_Ee() %*% n_E) %>%  # Ensures unit length.
+                                   # R_Ee selects correct E-axes, see R_Ee.m for details.
     as.vector()
 
   # N coordinate frame (North-East-Down) is defined in Table 2 in Gade (2010)

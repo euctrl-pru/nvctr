@@ -7,7 +7,7 @@
 n_E2R_EN(n_E)
 }
 \arguments{
-\item{n_E}{n-vector decomposed in E (3x1 vector) (unitless)}
+\item{n_E}{n-vector decomposed in E (3x1 vector) (no unit)}
 }
 \value{
 The resulting rotation matrix (direction cosine matrix)

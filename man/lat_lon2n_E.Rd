@@ -12,7 +12,7 @@ lat_lon2n_E(latitude, longitude)
 \item{longitude}{Geodetic longitude (rad)}
 }
 \value{
-n-vector decomposed in E (3x1 vector) (unit less)
+n-vector decomposed in E (3x1 vector) (no unit)
 }
 \description{
 Convert latitude and longitude to n-vector.

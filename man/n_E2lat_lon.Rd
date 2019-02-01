@@ -10,7 +10,7 @@ n_E2lat_lon(n_E)
 \item{n_E}{n-vector decomposed in E (3x1 vector) (no unit)}
 }
 \value{
-A vector of geodetic latitude and longitude (radians)
+A vector of geodetic latitude and longitude (rad)
 }
 \description{
 Convert n-vector to latitude and longitude.
