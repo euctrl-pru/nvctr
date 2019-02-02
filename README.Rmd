@@ -1,5 +1,32 @@
 ---
 output: github_document
+#csl: https://raw.githubusercontent.com/citation-style-language/styles/master/ieee-aerospace-and-electronic-systems-magazine.csl
+link-citations: true
+references:
+- id: gade_2010
+  title: A Non-Singular Horizontal Position Representation
+  author:
+  - family: Gade
+    given: Kenneth
+  volume: 63
+  issn: 0373-4633, 1469-7785
+  URL:  'http://www.journals.cambridge.org/abstract_S0373463309990415'
+  DOI: 10.1017/S0373463309990415
+  issue: 03
+  container-title: Journal of Navigation
+  issued:
+    year: 2010
+    month: 07
+  pages: 395-417
+- id: navigationgroupatffi_2010
+  title: The N-Vector Page
+  URL: 'https://www.navlab.net/nvector/'
+  issued:
+    year: 2010
+#    month: 07
+  author:
+  - family: Navigation Group
+    given:  'FFI'
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -12,15 +39,23 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # nvctr
 
-The goal of nvctr is to The n-vector approach to geographical postion calculations using an ellipsoidal model of Earth
+The goal of `nvctr` package is to implement the n-vector approach to geographical postion calculations using an ellipsoidal model of Earth.
+
+The n-vector approach is described in [@gade_2010], while implementations in various computer
+languages can be found at the [n-vector page](https://www.navlab.net/nvector/) 
+[@navigationgroupatffi_2010].
+
 
 ## Installation
 
 You can install the development version of `nvctr` from 
 [GitHub](https://github.com/espinielli/nvctr) with:
 
-``` r
+```r
 devtools::install_github("espinielli/nvctr")
 ```
+
+## References
