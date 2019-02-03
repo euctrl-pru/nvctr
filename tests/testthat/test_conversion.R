@@ -21,8 +21,24 @@ test_that("basic conversion checks: n-vector to lat, lon", {
     c(0, 0))
 
   expect_equal(
+    n_E2lat_lon(c(1, 0, 0)),
+    c(0, 0))
+
+  expect_equal(
     n_E2lat_lon(c(0.99923861, 0.03489418, 0.01745241)),
     c(rad(1), rad(2)))
+
+  expect_equal(
+    n_E2lat_lon(unit(c(5, 6, 7))),
+    c(0.73074394, 0.87605805))
+
+  expect_equal(
+    n_E2lat_lon(unit(c(-5, 6, 7))),
+    c(0.73074394, 2.2655346))
+
+  expect_equal(
+    n_E2lat_lon(unit(c(-5, 6, -7))),
+    c(-0.73074394, 2.2655346))
 
   expect_equal(
     n_E2lat_lon(c(0.99376802, 0.08694344, 0.06975647)),
@@ -41,9 +57,16 @@ test_that("Find R_EN", {
 
   expect_equal(n_E2R_EN(n_EA_E), result)
 
+  # expect_equal(n_E2R_EN(c(0, 0, 1)),
+  #              matrix(
+  #                c(-1, 0,  0,
+  #                  0, 1,  0,
+  #                  0, 0, -1),
+  #                nrow = 3, ncol = 3, byrow = TRUE))
+
 })
 
-test_that("Test xyz2R", {
+test_that("Test xyz2R and R2xyz", {
   R_AB = xyz2R(rad(10), rad(20), rad(30))
   R_AB1 <- matrix(
     c(0.81379768, -0.46984631, 0.34202014,
@@ -51,17 +74,100 @@ test_that("Test xyz2R", {
       -0.20487413, 0.31879578, 0.92541658),
     nrow = 3, ncol = 3, byrow = TRUE)
   expect_equal(R_AB, R_AB1)
-})
 
-
-
-test_that("Test n_E and wander angle", {
-  n_E <-  c(0, 0, 1)
-  R_EL = n_E_and_wa2R_EL(n_E, wander_azimuth = pi / 2)
-  R_EL1 <- matrix(
-    c(  0, 1.0,    0,
-      1.0,   0,    0,
-        0,   0, -1.0),
+  R_AB = xyz2R(rad(-10), rad(20), rad(-30))
+  R_AB1 <- matrix(
+    c( 0.81379768,  0.46984631,  0.34202014,
+      -0.54383814,  0.82317294,  0.16317591,
+      -0.20487413, -0.31879578,  0.92541658),
     nrow = 3, ncol = 3, byrow = TRUE)
-  expect_equal(R_EL, R_EL1)
+  expect_equal(R_AB, R_AB1)
+
+  R_AB = xyz2R(rad(1), rad(-2), rad(-3))
+  R_AB1 <- matrix(
+    c( 0.9980212 ,  0.05230407, -0.0348995 ,
+           -0.05293623,  0.99844556, -0.01744177,
+            0.03393297,  0.01925471,  0.99923861),
+    nrow = 3, ncol = 3, byrow = TRUE)
+  expect_equal(R_AB, R_AB1)
+
+  expect_equal(xyz2R(rad(1), rad(-2), rad(-3)) %>% R2xyz(),
+               c(rad(1), rad(-2), rad(-3)))
+
+  expect_equal(xyz2R(rad(1), rad(0), rad(1)) %>% R2xyz(),
+               c(rad(1), rad(0), rad(1)))
+
+  expect_equal(xyz2R(rad(-1), rad(2), rad(3)) %>% R2xyz(),
+               c(rad(-1), rad(2), rad(3)))
+
 })
+
+
+test_that("Test zyx2R and R2zyx", {
+  x <- rad(10)
+  y <- rad(20)
+  z <- rad(30)
+  R_AB1 = zyx2R(z, y, x)
+  R_AB = matrix(
+    c(0.813798, -0.44097, 0.378522,
+      0.469846, 0.882564, 0.018028,
+      -0.34202, 0.163176, 0.925417),
+    nrow = 3, ncol = 3, byrow = TRUE)
+  expect_equal(R_AB, R_AB1, tolerance = 1e-5)
+
+  zyx = R2zyx(R_AB1)
+  expect_equal(c(x, y, z), c(zyx[3], zyx[2], zyx[1]), tolerance = 1e-5)
+
+  expect_equal(zyx2R(rad(1), rad(-2), rad(-3)) %>% R2zyx(),
+               c(rad(1), rad(-2), rad(-3)))
+
+  expect_equal(zyx2R(rad(1), rad(0), rad(1)) %>% R2zyx(),
+               c(rad(1), rad(0), rad(1)))
+
+  expect_equal(zyx2R(rad(-1), rad(2), rad(3)) %>% R2zyx(),
+               c(rad(-1), rad(2), rad(3)))
+
+})
+
+test_that("Test R_EL2n_E", {
+  n_E <- c(0, 0, 1)
+
+  R_EN <- n_E2R_EN(n_E)
+  expect_equal(R_EN,
+               matrix(
+                 c(-1, 0,  0,
+                    0, 1,  0,
+                    0, 0, -1),
+                 nrow = 3, ncol = 3, byrow = TRUE))
+
+  n_E1 <- R_EL2n_E(R_EN)
+  expect_equal(n_E, n_E1)
+
+  n_E2 <- R_EN2n_E(R_EN)
+  expect_equal(n_E, n_E2)
+
+})
+
+
+
+
+
+# test_that("Test n_E and wander angle", {
+#   n_E <-  c(0, 0, 1)
+#   R_EL = n_E_and_wa2R_EL(n_E, wander_azimuth = (pi / 2))
+#   R_EL1 <- matrix(
+#     c(0, 1,  0,
+#       1, 0,  0,
+#       0, 0, -1),
+#     nrow = 3, ncol = 3, byrow = TRUE)
+#   expect_equal(R_EL, R_EL1)
+#
+#   expect_equal(
+#     n_E_and_wa2R_EL(c(0, 0, 1), wander_azimuth = pi / 2),
+#     matrix(
+#       c(0, 1,  0,
+#         1, 0,  0,
+#         0, 0, -1),
+#       nrow = 3, ncol = 3, byrow = TRUE)
+#   )
+# })

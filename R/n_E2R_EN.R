@@ -27,7 +27,7 @@ n_E2R_EN <- function(n_E) {
   if (pracma::Norm(Ny_E_direction) != 0)  { # outside Poles:
     Ny_E <- unit(Ny_E_direction)
   } else {                            # Pole position:
-    Ny_E <- base::t(c(0, 1, 0))   # selected y-axis direction
+    Ny_E <- base::t(c(0, 1, 0)) %>% as.vector()   # selected y-axis direction
   }
 
   # Find x-axis of N (North):

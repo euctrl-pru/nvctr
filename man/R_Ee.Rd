@@ -42,3 +42,8 @@ There are two choices of E-axes that are described in Table 2 in Gade (2010):
      forward, starboard, down) has this orientation. In this manner, the
      axes of E is chosen to correspond with the axes of N and B.
 }
+\examples{
+\dontrun{
+R_Ee()
+}
+}

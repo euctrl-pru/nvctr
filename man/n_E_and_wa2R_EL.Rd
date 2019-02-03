@@ -11,9 +11,20 @@ n_E_and_wa2R_EL(n_E, wander_azimuth)
 
 \item{wander_azimuth}{The angle between L's x-axis and north, pos about L's z-axis (rad)}
 }
+\value{
+The resulting rotation matrix (3x3) (no unit)
+}
 \description{
 Calculates the rotation matrix (direction cosine matrix) R_EL using
 n-vector (n_E) and the wander azimuth angle.
 When wander_azimuth=0, we have that N=L (See Table 2 in Gade (2010) for
 details)
+}
+\examples{
+\dontrun{
+# Calculates the rotation matrix (direction cosine matrix) R_EL
+# using n-vector (n_E) and the wander azimuth angle.
+R_EL <-  n_E_and_wa2R_EL(n_E, wander_azimuth)
+}
+
 }
