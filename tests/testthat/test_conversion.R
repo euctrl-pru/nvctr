@@ -57,12 +57,12 @@ test_that("Find R_EN", {
 
   expect_equal(n_E2R_EN(n_EA_E), result)
 
-  # expect_equal(n_E2R_EN(c(0, 0, 1)),
-  #              matrix(
-  #                c(-1, 0,  0,
-  #                  0, 1,  0,
-  #                  0, 0, -1),
-  #                nrow = 3, ncol = 3, byrow = TRUE))
+  expect_equal(n_E2R_EN(c(0, 0, 1)),
+               matrix(
+                 c(-1, 0,  0,
+                    0, 1,  0,
+                    0, 0, -1),
+                 nrow = 3, ncol = 3, byrow = TRUE))
 
 })
 
