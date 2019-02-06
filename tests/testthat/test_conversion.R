@@ -148,7 +148,25 @@ test_that("Test R_EL2n_E", {
 
 })
 
+test_that("Test n_EB_E2p_EB_E", {
+  lat_EB <- rad(1)
+  lon_EB <- rad(2)
+  h_EB <- 3
 
+  # Find the vector p_EB_E ("ECEF-vector")
+
+  # SOLUTION:
+  # Step1: Convert to n-vector:
+  n_EB_E  <- lat_lon2n_E(lat_EB, lon_EB)
+
+  # Step2: Find the ECEF-vector p_EB_E:
+  p_EB_E <- n_EB_E2p_EB_E(n_EB_E, -h_EB)
+
+  expect_equal(p_EB_E,
+    c(6373290.27721828,
+       222560.20067474,
+       110568.82718179))
+})
 
 
 
