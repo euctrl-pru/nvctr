@@ -2,7 +2,7 @@
 % Please edit documentation in R/n_EB_E2p_EB_E.R
 \name{n_EB_E2p_EB_E}
 \alias{n_EB_E2p_EB_E}
-\title{Convert n-vector to Cartesian position vector in meters.}
+\title{Convert n-vector to cartesian position vector in meters.}
 \usage{
 n_EB_E2p_EB_E(n_EB_E, z_EB = 0, a = 6378137, f = 1/298.257223563)
 }
@@ -23,9 +23,20 @@ The function converts the position of B (typically body) relative to E (typicall
 the n-vector \code{n_EB_E} to cartesian position vector ("ECEF-vector"), \code{p_EB_E},
 in meters.
 }
+\details{
+The calculation is exact, taking the ellipticity of the Earth into account.
+It is also nonsingular as both n-vector and p-vector are nonsingular
+(except for the center of the Earth).
+The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) might be specified
+via the optional parameters \code{a} and \code{f}.
+}
 \examples{
 \\donotrun{
 n_EB_E2p_EB_E(n_EB_E)
 }
 
+}
+\seealso{
+\code{\link{p_EB_E2n_EB_E}}, \code{\link{n_EA_E_and_p_AB_E2n_EB_E}},
+         \code{\link{n_EA_E_and_n_EB_E2p_AB_E}}.
 }
