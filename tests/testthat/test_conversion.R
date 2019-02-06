@@ -168,6 +168,27 @@ test_that("Test n_EB_E2p_EB_E", {
        110568.82718179))
 })
 
+test_that("Test n_EA_E_and_n_EB_E2p_AB_E", {
+  lat_EA <- rad(1)
+  lon_EA <- rad(2)
+  z_EA   <- 3
+
+  lat_EB <- rad(4)
+  lon_EB <- rad(5)
+  z_EB   <- 6
+
+  n_EA_E <- lat_lon2n_E(lat_EA, lon_EA)
+  n_EB_E <- lat_lon2n_E(lat_EB, lon_EB)
+
+  p_AB_E <- n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA, z_EB)
+
+  expect_equal(p_AB_E,
+    c(-34798.44233365,
+      331985.66356208,
+      331375.96424181))
+})
+
+
 
 
 # test_that("Test n_E and wander angle", {
