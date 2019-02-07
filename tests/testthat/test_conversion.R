@@ -203,6 +203,38 @@ test_that("Test p_EB_E2n_EB_E", {
 })
 
 
+test_that("Test n_EA_E_and_p_AB_E2n_EB_E", {
+  # delta vector from B to C, decomposed in B is given:
+  p_BC_B <- c(3000, 2000, 100)
+
+  # Position and orientation of B is given:
+  n_EB_E <- unit(c(1,2,3))  # unit to get unit length of vector
+  z_EB <- -400
+  R_NB  <- zyx2R(rad(10), rad(20), rad(30)) # yaw, pitch, and roll
+
+  # A custom reference ellipsoid is given (replacing WGS-84):
+  a <-  6378135
+  f <- 1.0 / 298.26  # (WGS-72)
+
+  R_EN <- n_E2R_EN(n_EB_E)
+  R_EB <- R_EN %*% R_NB
+
+  # Decompose the delta vector in E:
+  p_BC_E <- (R_EB %*% p_BC_B) %>% as.vector() # no transpose of R_EB, since the vector is in B
+
+  # Find the position of C, using the functions that goes from one
+  # position and a delta, to a new position:
+  n_EB_E <- n_EA_E_and_p_AB_E2n_EB_E(n_EB_E, p_BC_E, z_EB, a, f)
+  r <- n_EB_E[['n_EB_E']]
+  expect_equal(r,
+    c(0.26679163,
+      0.53435653,
+      0.8020507)
+  )
+  r <- n_EB_E[['z_EB']]
+  expect_equal(r, -406.00719607)
+})
+
 
 # test_that("Test n_E and wander angle", {
 #   n_E <-  c(0, 0, 1)
