@@ -189,6 +189,19 @@ test_that("Test n_EA_E_and_n_EB_E2p_AB_E", {
 })
 
 
+test_that("Test p_EB_E2n_EB_E", {
+  p_EB_E <- 6371e3 * c(0.9, -1, 1.1)
+
+  n_EB_E <- p_EB_E2n_EB_E(p_EB_E)
+  r <- n_EB_E[['n_EB_E']]
+  expect_equal(r,
+    c(0.51708896,
+      -0.57454329,
+       0.63444386))
+  r <- n_EB_E[['z_EB']]
+  expect_equal(r, -4702059.83429485)
+})
+
 
 
 # test_that("Test n_E and wander angle", {
