@@ -30,8 +30,13 @@
 #'   p_AB_E <- n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA, z_EB)
 #' }
 #'
-#' @seealso \code{\link{n_EA_E_and_p_AB_E2n_EB_E}}, \code{\link{p_EB_E2n_EB_E}},
+#' @seealso \code{\link{n_EA_E_and_p_AB_E2n_EB_E}}, \code{\link{p_EB_E2n_EB_E}} and
 #'          \code{\link{n_EB_E2p_EB_E}}
+#'
+#' @references
+#' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+#' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+#'
 n_EA_E_and_n_EB_E2p_AB_E <- function(n_EA_E, n_EB_E, z_EA = 0, z_EB = 0,
   a = 6378137, f = 1.0 / 298.257223563) {
   p_EA_E <- n_EB_E2p_EB_E(n_EA_E, z_EA, a, f)

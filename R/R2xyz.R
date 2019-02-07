@@ -1,16 +1,15 @@
 #' Find the three rotation angles about new axes in the xyz order from a rotation matrix
 #'
-#'  The angles (called Euler angles or Tait–Bryan angles) are defined by the
-#'  following procedure of successive rotations:
-#'  Given two arbitrary coordinate frames A and B. Consider a temporary frame
-#'  T that initially coincides with A. In order to make T align with B, we
-#'  first rotate T an angle x about its x-axis (common axis for both A and T).
-#'  Secondly, T is rotated an angle y about the NEW y-axis of T. Finally, T
-#'  is rotated an angle z about its NEWEST z-axis. The final orientation of
-#'  T now coincides with the orientation of B.
-#'
-#'  The signs of the angles are given by the directions of the axes and the
-#'  right hand rule.
+#' The angles (called Euler angles or Tait–Bryan angles) are defined by the
+#' following procedure of successive rotations:
+#' Given two arbitrary coordinate frames A and B, consider a temporary frame
+#' T that initially coincides with A. In order to make T align with B, we
+#' first rotate T an angle x about its x-axis (common axis for both A and T).
+#' Secondly, T is rotated an angle y about the NEW y-axis of T. Finally, T
+#' is rotated an angle z about its NEWEST z-axis. The final orientation of
+#' T now coincides with the orientation of B.
+#' The signs of the angles are given by the directions of the axes and the
+#' right hand rule.
 
 #' @param R_AB a 3x3 rotation matrix (direction cosine matrix) such that the
 #'             relation between a vector v decomposed in A and B is
@@ -23,6 +22,12 @@
 #' \dontrun{
 #' R2xyz(R_AB)
 #' }
+#' @seealso \code{\link{xyz2R}}, \code{\link{R2zyx}} and \code{\link{zyx2R}}.
+#'
+#' @references
+#' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+#' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+#'
 R2xyz <- function(R_AB) {
   # atan2: [-pi pi]
   z <- atan2(-R_AB[1, 2], R_AB[1, 1])

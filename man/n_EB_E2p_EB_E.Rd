@@ -36,7 +36,11 @@ n_EB_E2p_EB_E(n_EB_E)
 }
 
 }
+\references{
+Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+\emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+}
 \seealso{
-\code{\link{p_EB_E2n_EB_E}}, \code{\link{n_EA_E_and_p_AB_E2n_EB_E}},
+\code{\link{p_EB_E2n_EB_E}}, \code{\link{n_EA_E_and_p_AB_E2n_EB_E}} and
          \code{\link{n_EA_E_and_n_EB_E2p_AB_E}}.
 }

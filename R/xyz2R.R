@@ -1,3 +1,39 @@
+#' Create a rotation matrix from 3 angles about new axes in the xyz order.
+#'
+#' The rotation matrix \code{R_AB} is created based on 3 angles \code{x}, \code{y} and \code{z}
+#' about new axes (intrinsic) in the order x-y-z.
+#' The angles (called Euler angles or Tait-Bryan angles) are defined by the following
+#' procedure of successive rotations:
+#' \enumerate{
+#'    \item Given two arbitrary coordinate frames \code{A} and \code{B}, consider a temporary frame
+#'          \code{T} that initially coincides with \code{A}.
+#'          In order to make \code{T} align with \code{B}, we first rotate \code{T}
+#'          an angle \code{x} about its x-axis (common axis for both \code{A} and \code{T}).
+#'    \item Secondly, \code{T} is rotated an angle \code{y} about the NEW y-axis of \code{T}.
+#'    \item Finally, code{T} is rotated an angle \code{z} about its NEWEST z-axis.
+#'          The final orientation of \code{T} now coincides with the orientation of \code{B}.
+#' }
+#' The signs of the angles are given by the directions of the axes and the right hand rule.
+#'
+#' @param x Angle of rotation about new x axis (rad)
+#' @param y Angle of rotation about new y axis (rad)
+#' @param z Angle of rotation about new z axis (rad)
+#'
+#' @return 3x3 rotation matrix (direction cosine matrix) such that the relation between
+#'         a vector v decomposed in A and B is given by: v_A = R_AB * v_B
+#' @export
+#'
+#' @examples
+#' \donotrun{
+#' R_AB <- xyz2R(x, y, z)
+#' }
+#'
+#' @seealso \code{\link{R2xyz}}, \code{\link{zyx2R}} and \code{\link{R2zyx}}.
+#'
+#' @references
+#' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+#' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+#'
 xyz2R <- function(x, y, z) {
   cz <- cos(z)
   sz <- sin(z)

@@ -1,7 +1,29 @@
+#' Convert angle in degrees to radians.
+#'
+#' @param degrees angle in degrees.
+#'
+#' @return angle in radians.
+#' @export
+#'
+#' @seealso \code{\link{deg}}.
+#'
+#' @examples
+#' rad(30)
 rad <- function(degrees) {
   degrees * pi / 180
 }
 
+#' Convert angle in radians to degrees.
+#'
+#' @param degrees angle in radians.
+#'
+#' @return angle in degrees.
+#' @export
+#'
+#' @seealso \code{\link{rad}}.
+#'
+#' @examples
+#' deg(pi/2)
 deg <- function(radians) {
   radians * 180 / pi
 }
@@ -28,6 +50,11 @@ check_length_deviation <- function(n_E) {
 #' @param vector a vector
 #'
 #' @return a unit length vector
+#'
+#' @export
+#'
+#' @examples
+#' unit(c(1,2,3))
 #'
 unit <- function(vector) {
   sumsquared <- sum(vector ^ 2)

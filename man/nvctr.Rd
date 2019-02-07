@@ -4,8 +4,12 @@
 \name{nvctr}
 \alias{nvctr}
 \alias{nvctr-package}
-\title{nvctr: A package for computating .}
+\title{nvctr: non-singular geographical position calculations}
 \description{
-The `nvctr` package provides functions to calculate geographical
+nvctr provides functions to calculate geographical
 positions for  both the ellipsoidal and spherical Earth models.
+}
+\references{
+Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+\emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
 }

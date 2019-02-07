@@ -15,3 +15,16 @@ A vector of geodetic latitude and longitude (rad)
 \description{
 Convert n-vector to latitude and longitude.
 }
+\examples{
+\\donotrun{
+n_E <- c(1, 0, 0)
+p <-  n_E2lat_long(n_E)
+}
+}
+\references{
+Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+\emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+}
+\seealso{
+\code{\link{lat_lon2n_E}}.
+}

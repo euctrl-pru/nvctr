@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_EL2n_E.R
 \name{R_EL2n_E}
 \alias{R_EL2n_E}
-\title{Find n-vector from R_EL}
+\title{Find n-vector from the rtation matrix (direction cosine matrix) \code{R_EL}.}
 \usage{
 R_EL2n_E(R_EL)
 }
@@ -13,10 +13,18 @@ R_EL2n_E(R_EL)
 n-vector decomposed in E (3x1 vector) (no unit)
 }
 \description{
-Find n-vector from R_EL
+Find n-vector from the rtation matrix (direction cosine matrix) \code{R_EL}.
 }
 \examples{
 \dontrun{
 R_EL2n_E(R_EL)
 }
+
+}
+\references{
+Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+\emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+}
+\seealso{
+\code{\link{n_E2R_EN}}, \code{\link{R_EL2n_E}} and \code{\link{n_E_and_wa2R_EL}}.
 }

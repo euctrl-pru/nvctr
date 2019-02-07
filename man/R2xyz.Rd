@@ -16,20 +16,25 @@ x,y,z 	Angles of rotation about new axes (rad)
 }
 \description{
 The angles (called Euler angles or Tait–Bryan angles) are defined by the
- following procedure of successive rotations:
- Given two arbitrary coordinate frames A and B. Consider a temporary frame
- T that initially coincides with A. In order to make T align with B, we
- first rotate T an angle x about its x-axis (common axis for both A and T).
- Secondly, T is rotated an angle y about the NEW y-axis of T. Finally, T
- is rotated an angle z about its NEWEST z-axis. The final orientation of
- T now coincides with the orientation of B.
-}
-\details{
+following procedure of successive rotations:
+Given two arbitrary coordinate frames A and B, consider a temporary frame
+T that initially coincides with A. In order to make T align with B, we
+first rotate T an angle x about its x-axis (common axis for both A and T).
+Secondly, T is rotated an angle y about the NEW y-axis of T. Finally, T
+is rotated an angle z about its NEWEST z-axis. The final orientation of
+T now coincides with the orientation of B.
 The signs of the angles are given by the directions of the axes and the
- right hand rule.
+right hand rule.
 }
 \examples{
 \dontrun{
 R2xyz(R_AB)
 }
+}
+\references{
+Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+\emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+}
+\seealso{
+\code{\link{xyz2R}}, \code{\link{R2zyx}} and \code{\link{zyx2R}}.
 }

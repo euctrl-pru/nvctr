@@ -1,19 +1,18 @@
 #' Create a rotation matrix from 3 angles about new axes in the zyx order.
 #'
-#' The rotation matrix R_AB is created based on 3 angles z,y,x about new
-#' axes (intrinsic) in the order z-y-x. The angles (called Euler angles or
-#' Tait–Bryan angles) are defined by the following procedure of successive
-#' rotations:
-#'  Given two arbitrary coordinate frames A and B. Consider a temporary frame
-#'  T that initially coincides with A. In order to make T align with B, we
-#'  first rotate T an angle z about its z-axis (common axis for both A and T).
-#'  Secondly, T is rotated an angle y about the NEW y-axis of T. Finally, T
-#'  is rotated an angle x about its NEWEST x-axis. The final orientation of
-#'  T now coincides with the orientation of B.
-#'
-#'  The signs of the angles are given by the directions of the axes and the
-#'  right hand rule.
-#'
+#' The rotation matrix \code{R_AB} is created based on 3 angles \code{z}, \code{y} and \code{x}
+#' about new axes (intrinsic) in the order z-y-x.
+#' The angles (called Euler angles or Tait–Bryan angles) are defined by the following procedure
+#' of successive rotations:
+#' \enumerate{
+#'    \item Given two arbitrary coordinate frames A and B, consider a temporary frame
+#'          T that initially coincides with A. In order to make T align with B, we
+#'          first rotate T an angle z about its z-axis (common axis for both A and T).
+#'    \item Secondly, T is rotated an angle y about the NEW y-axis of T.
+#'    \item Finally, T is rotated an angle x about its NEWEST x-axis.
+#'          The final orientation of T now coincides with the orientation of B.
+#' }
+#'  The signs of the angles are given by the directions of the axes and the right hand rule.
 #'  Note that if A is a north-east-down frame and B is a body frame, we
 #'  have that z=yaw, y=pitch and x=roll.
 #'
@@ -26,10 +25,17 @@
 #'         given by: v_A = R_AB * v_B
 #' @export
 #'
+#' @seealso \code{\link{R2zyx}}, \code{\link{xyz2R}} and \code{\link{R2xyz}}.
+#'
 #' @examples
 #' \dontrun{
 #' R_AB <- zyx2R(z, y, x)
 #' }
+#'
+#' @references
+#' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+#' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+#'
 zyx2R <- function(z, y, x) {
   cz <- cos(z)
   sz <- sin(z)

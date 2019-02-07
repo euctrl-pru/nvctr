@@ -2,29 +2,37 @@
 % Please edit documentation in R/n_E_and_wa2R_EL.R
 \name{n_E_and_wa2R_EL}
 \alias{n_E_and_wa2R_EL}
-\title{Find R_EL from n-vector and wander azimuth angle.}
+\title{Find \code{R_EL} from n-vector and wander azimuth angle.}
 \usage{
 n_E_and_wa2R_EL(n_E, wander_azimuth)
 }
 \arguments{
 \item{n_E}{n-vector decomposed in E (3x1 vector) (no unit)}
 
-\item{wander_azimuth}{The angle between L's x-axis and north, pos about L's z-axis (rad)}
+\item{wander_azimuth}{The angle between L's x-axis and north, positive about L's z-axis (rad)}
 }
 \value{
 The resulting rotation matrix (3x3) (no unit)
 }
 \description{
-Calculates the rotation matrix (direction cosine matrix) R_EL using
-n-vector (n_E) and the wander azimuth angle.
-When wander_azimuth=0, we have that N=L (See Table 2 in Gade (2010) for
+Calculate the rotation matrix (direction cosine matrix) \code{R_EL} using
+n-vector (\code{n_E}) and the wander azimuth angle.
+When \code{wander_azimuth = 0}, we have that N = L (See Table 2 in Gade (2010) for
 details)
 }
 \examples{
 \dontrun{
 # Calculates the rotation matrix (direction cosine matrix) R_EL
 # using n-vector (n_E) and the wander azimuth angle.
-R_EL <-  n_E_and_wa2R_EL(n_E, wander_azimuth)
+n_E <- c(1, 0, 0)
+R_EL <-  n_E_and_wa2R_EL(n_E, wander_azimuth = pi / 2)
 }
 
+}
+\references{
+Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+\emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
+}
+\seealso{
+\code{\link{R_EL2n_E}}, \code{\link{R_EN2n_E}} and \code{\link{n_E2R_EN}}.
 }

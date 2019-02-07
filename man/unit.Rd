@@ -15,3 +15,7 @@ a unit length vector
 \description{
 Make input vector unit length, i.e. norm == 1.
 }
+\examples{
+unit(c(1,2,3))
+
+}
