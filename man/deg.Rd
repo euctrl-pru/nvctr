@@ -7,7 +7,7 @@
 deg(radians)
 }
 \arguments{
-\item{degrees}{angle in radians.}
+\item{radians}{angle in radians.}
 }
 \value{
 angle in degrees.

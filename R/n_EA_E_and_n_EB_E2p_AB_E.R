@@ -20,7 +20,7 @@
 #' @export
 #'
 #' @examples
-#' \donotrun{
+#' \dontrun{
 #'   lat_EA <- rad(1); lon_EA <- rad(2); z_EA   <- 3
 #'   lat_EB <- rad(4); lon_EB <- rad(5); z_EB   <- 6
 #'

@@ -24,7 +24,7 @@
 #' @export
 #'
 #' @examples
-#' \donotrun{
+#' \dontrun{
 #' R_AB <- xyz2R(x, y, z)
 #' }
 #'

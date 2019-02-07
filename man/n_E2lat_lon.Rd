@@ -16,7 +16,7 @@ A vector of geodetic latitude and longitude (rad)
 Convert n-vector to latitude and longitude.
 }
 \examples{
-\\donotrun{
+\dontrun{
 n_E <- c(1, 0, 0)
 p <-  n_E2lat_long(n_E)
 }

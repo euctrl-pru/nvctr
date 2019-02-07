@@ -15,7 +15,7 @@ rad <- function(degrees) {
 
 #' Convert angle in radians to degrees.
 #'
-#' @param degrees angle in radians.
+#' @param radians angle in radians.
 #'
 #' @return angle in degrees.
 #' @export

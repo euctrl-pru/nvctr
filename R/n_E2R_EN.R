@@ -1,4 +1,4 @@
-#' Find the rotation matrix \code{R_EN} from n-vector.
+#' Find the rotation matrix R_EN from n-vector.
 #'
 #' @param n_E n-vector decomposed in E (3x1 vector) (no unit)
 #'
@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \donotrun{
+#' \dontrun{
 #' n_E <- c(1, 0, 0)
 #' R <- n_E2R_EN(n_E)
 #' }
@@ -16,7 +16,6 @@
 #' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
 #' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
 #'
-
 n_E2R_EN <- function(n_E) {
   check_length_deviation(n_E)
 

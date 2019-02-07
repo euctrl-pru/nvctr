@@ -2,7 +2,7 @@
 % Please edit documentation in R/n_E2R_EN.R
 \name{n_E2R_EN}
 \alias{n_E2R_EN}
-\title{Find the rotation matrix \code{R_EN} from n-vector.}
+\title{Find the rotation matrix R_EN from n-vector.}
 \usage{
 n_E2R_EN(n_E)
 }
@@ -13,10 +13,10 @@ n_E2R_EN(n_E)
 The resulting rotation matrix (direction cosine matrix) (no unit)
 }
 \description{
-Find the rotation matrix \code{R_EN} from n-vector.
+Find the rotation matrix R_EN from n-vector.
 }
 \examples{
-\\donotrun{
+\dontrun{
 n_E <- c(1, 0, 0)
 R <- n_E2R_EN(n_E)
 }

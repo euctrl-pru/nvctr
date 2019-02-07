@@ -2,7 +2,9 @@
 #'
 #' The position of B (typically body) relative to E (typically Earth) is given
 #' as cartesian position vector p_EB_E, in meters ("ECEF-vector").
+#'
 #' The function converts to n-vector, n_EB_E and its depth, z_EB.
+#'
 #' The calculation is exact, taking the ellipsity of the Earth into account.
 #' It is also nonsingular as both n-vector and p-vector are nonsingular
 #' (except for the center of the Earth).
@@ -18,7 +20,7 @@
 #' @export
 #'
 #' @examples
-#' \donotrun{
+#' \dontrun{
 #' c(n_EB_E, z_EB) <- p_EB_E2n_EB_E(p_EB_E)
 #' }
 #'
