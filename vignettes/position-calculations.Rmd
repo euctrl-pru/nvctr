@@ -143,7 +143,6 @@ knitr::include_graphics("ex2img.png")
 ### Solution
 
 
-
 ```{r example-02-init}
 p_BC_B <- c(3000, 2000, 100)
 
@@ -203,10 +202,44 @@ lat_lon_EB <- n_E2lat_lon(n_EB_E)
 
 ## Example 3: ECEF-vector to geodetic latitude
 
+Position B is given as an “ECEF-vector” $\mathbf{p}_{EB}^E$ (i.e. a vector from E,
+the center of the Earth, to B, decomposed in E).
+
+Find the geodetic latitude, longitude and height (`latEB`, `lonEB` and `hEB`),
+assuming WGS-84 ellipsoid.
 
 ```{r example-03-fig,fig.cap='ECEF-vector to geodetic latitude.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex3img.png")
 ```
+
+Position B is given as $\mathbf{p}_{EB}^E$, i.e. "ECEF-vector"
+
+```{r example-03-init}
+(p_EB_E <- 6371e3 * c(0.9, -1, 1.1)) # m
+```
+
+### Solution
+
+Find n-vector from the p-vector
+```{r example-03-step01}
+l <- p_EB_E2n_EB_E(p_EB_E)
+(n_EB_E <- l[['n_EB_E']])
+(z_EB <- l[['z_EB']])
+```
+
+
+Convert to latitude and longitude, and height
+```{r example-03-final}
+lat_lon_EB <- n_E2lat_lon(n_EB_E)
+(latEB  <- lat_lon_EB[1])
+(lonEB <- lat_lon_EB[2])
+
+# height (= - depth)
+(hEB <- -z_EB)
+```
+
+
+
 
 
 ## Example 4: Geodetic latitude to ECEF-vector
