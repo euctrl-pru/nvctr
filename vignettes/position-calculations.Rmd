@@ -2,7 +2,11 @@
 title: "Simple and Exact Solutions to Position Calculation"
 author: "Enrico Spinielli"
 date: "`r Sys.Date()`"
-output:  rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+    fig_caption: true
 references:
 - id: gade2010
   title: A Nonsingular Horizontal Position Representation
@@ -41,6 +45,11 @@ It is inspired and follows the 10 examples given at https://www.navlab.net/nvect
 
 Most of the content is based on [@gade2010].
 
+The color scheme in the Figures is as follows:
+
+* $\mathbf{\color{red}{Red}}$: Given
+* $\mathbf{\color{green}{Green}}$: Find this
+
 
 ## Example 1: A and B to delta
 
@@ -54,8 +63,10 @@ knitr::include_graphics("ex1img.png")
 ```
 
 
+### Solution
+
 Transform the positions A and B to (decimal) degrees and depths:
-```{r example-01}
+```{r example-01-init}
 # Position A:
 lat_EA <- rad(1)
 lon_EA <- rad(2)
@@ -68,24 +79,24 @@ z_EB <- 6
 ```
 
 
-**Step 1**: Convert to n-vectors
+**Step 1**: Convert to n-vectors, $\mathbf{n}_{EA}^E$ and $\mathbf{n}_{EB}^E$
 ```{r example-01-step01}
 (n_EA_E <- lat_lon2n_E(lat_EA, lon_EA))
 (n_EB_E <- lat_lon2n_E(lat_EB, lon_EB))
 ```
 
-**Step 2**: Find p_AB_E (delta decomposed in E). WGS-84 ellipsoid is default
+**Step 2**: Find $\mathbf{p}_{AB}^E$ (delta decomposed in E). WGS-84 ellipsoid is default
 ```{r example-01-step02}
 (p_AB_E <-  n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA, z_EB))
 ```
 
-**Step 3**: Find R_EN for position A
+**Step 3**: Find $\mathbf{R}_{EN}$ for position A
 ```{r example-01-step03}
 (R_EN <- n_E2R_EN(n_EA_E))
 ```
 
 
-**Step 4**: Find p_AB_N
+**Step 4**: Find $\mathbf{p}_{AB}^N = \mathbf{R}_{NE} \mathbf{p}_{AB}^E$
 ```{r example-01-step04}
 # (Note the transpose of R_EN: The "closest-rule" says that when
 # decomposing, the frame in the subscript of the rotation matrix that is
@@ -108,10 +119,86 @@ z_EB <- 6
 
 ## Example 2: B and delta to C
 
+A radar or sonar attached to a vehicle B (**B**ody coordinate frame) measures
+the distance and direction to an object C.
+
+We assume that the distance and two angles (typically bearing and elevation relative to B)
+are already combined to the vector $\mathbf{p}_{BC}^B$ (i.e. the vector from B to C,
+decomposed in B).
+
+The position of B is given as $\mathbf{n}_{EB}^E$ and $z_{EB}$, and the orientation (attitude)
+of B is given as $\mathbf{R}_{NB}$ (this rotation matrix can be found from
+roll/pitch/yaw by using `zyx2R`).
+
+Find the exact position of object C as n-vector and depth ($\mathbf{n}_{EC}^E$ and $z_{EC}$),
+assuming Earth ellipsoid with semi-major axis $a$ and flattening $f$.
+
+For WGS-72, use $a = 6378135~\mathrm{m}$ and $f = \dfrac{1}{298.26}$.
 
 ```{r example-02-fig,fig.cap='B and delta to C.',fig.pos='hbt',fig.height=4}
 knitr::include_graphics("ex2img.png")
 ```
+
+
+### Solution
+
+
+
+```{r example-02-init}
+p_BC_B <- c(3000, 2000, 100)
+
+# Position and orientation of B is given:
+(n_EB_E <- unit(c(1, 2, 3))) # unit() to get unit length of vector
+z_EB <- -400
+(R_NB <- zyx2R(rad(10),rad(20),rad(30))) # the three angles are yaw, pitch, and roll
+
+# A custom reference ellipsoid is given (replacing WGS-84):
+# (WGS-72)
+a <- 6378135
+f <- 1 / 298.26 
+```
+
+
+**Step 1**: Find $\mathbf{R}_{EN}$
+```{r example-02-step01}
+(R_EN <- n_E2R_EN(n_EB_E))
+```
+
+
+
+**Step 2**: Find $\mathbf{R}_{EB}$ from $\mathbf{R}_{EN}$ and $\mathbf{R}_{NB}$
+```{r example-02-step02}
+(R_EB <- R_EN %*% R_NB) # Note: closest frames cancel
+```
+
+
+**Step 3**: Decompose the delta vector $\mathbf{p}_{BC}^B$ in E
+```{r example-02-step03}
+(p_BC_E <- R_EB %*% p_BC_B) # no transpose of R_EB, since the vector is in B)
+```
+
+
+**Step 4**: Find the position of C, using the functions that goes from one
+position and a delta, to a new position
+```{r example-02-step04}
+l <- n_EA_E_and_p_AB_E2n_EB_E(n_EB_E, p_BC_E, z_EB, a, f)
+(n_EB_E <- l[['n_EB_E']])
+(z_EB <- l[['z_EB']])
+```
+
+Convert to latitude and longitude, and height
+```{r example-02-final}
+lat_lon_EB <- n_E2lat_lon(n_EB_E)
+(latitude  <- lat_lon_EB[1])
+(longitude <- lat_lon_EB[2])
+
+# height (= - depth)
+(height <- -z_EB)
+```
+
+
+
+
 
 
 ## Example 3: ECEF-vector to geodetic latitude
