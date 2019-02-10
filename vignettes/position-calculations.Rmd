@@ -51,7 +51,7 @@ The color scheme in the Figures is as follows:
 * $\mathbf{\color{green}{Green}}$: Find this
 
 
-## Example 1: A and B to delta
+## Example 1: A and B to delta {#example-01}
 
 Given two positions A and B, find the exact vector from A to B in meters north, east and down,
 and find the direction (azimuth/bearing) to B, relative to north.
@@ -117,7 +117,7 @@ z_EB <- 6
 
 
 
-## Example 2: B and delta to C
+## Example 2: B and delta to C {#example-02}
 
 A radar or sonar attached to a vehicle B (**B**ody coordinate frame) measures
 the distance and direction to an object C.
@@ -274,7 +274,7 @@ h_EB <- 3
 
 
 
-## Example 5: Surface distance
+## Example 5: Surface distance {#example-05}
 
 Given two positions A $\mathbf{n}_{EA}^E$ and B $\mathbf{n}_{EB}^E$,
 find the surface distance $s_{AB}$ (i.e. great circle distance).
@@ -310,10 +310,10 @@ s_{AB} & = r_{roc} \cdot  \arccos \!\big(\mathbf{n}_{EA}^E \boldsymbol{\cdot} \m
        & = r_{roc} \cdot \arcsin \!\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|\big) \tag{16}
 \end{align}$
 
-The formulation via $\arctan\!2$ of equation (6) in [@gade2010] is instead well conditioned
+The formulation via $\operatorname{atan2}$ of equation (6) in [@gade2010] is instead well conditioned
 for all angles:
 
-$s_{AB} = r_{roc} \cdot  \arctan\!2\!\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|,
+$s_{AB} = r_{roc} \cdot  \operatorname{atan2}\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|,
     \mathbf{n}_{EA}^E \boldsymbol{\cdot} \mathbf{n}_{EB}^E\big) \tag{6}$
 
 ```{r example-05-spherical}
@@ -358,7 +358,7 @@ knitr::include_graphics("ex6img.png")
 Standard interpolation can be used directly with n-vector as
 
 $$
-\mathbf{n}_{EB}^E(t_i) = \mathrm{unit}\Bigg(\mathbf{n}_{EB}^E(t_0) + \frac{t_i − t_0}{t_1 − t_0} \Big(\mathbf{n}_{EB}^E(t_1) − \mathbf{n}_{EB}^E(t_0)\Big)\Bigg)
+\mathbf{n}_{EB}^E(t_i) = \operatorname{unit}\Bigg(\mathbf{n}_{EB}^E(t_0) + \frac{t_i − t_0}{t_1 − t_0} \Big(\mathbf{n}_{EB}^E(t_1) − \mathbf{n}_{EB}^E(t_0)\Big)\Bigg)
 $$
 
 ```{r example-06-init}
@@ -404,7 +404,7 @@ The (geographical) mean position $B_{GM}$ is simply given equation (17) in [@gad
 (assuming spherical Earth)
 
 $$
-\mathbf{n}_{EB_{GM}}^E = \mathrm{unit}\Big( \sum_{i = 1}^{m} \mathbf{n}_{EB_i}^E \Big) \tag{17}
+\mathbf{n}_{EB_{GM}}^E = \operatorname{unit}\Big( \sum_{i = 1}^{m} \mathbf{n}_{EB_i}^E \Big) \tag{17}
 $$
 
 and specifically for the three given points
@@ -435,27 +435,168 @@ and convert to longitude/latitude
 
 ## Example 8: A and azimuth/distance to B
 
+Given a position A as n-vector $\mathbf{n}_{EA}^E$, an initial direction of travel
+as an azimuth (bearing), $\alpha$, relative to north (clockwise),
+and finally the distance to travel along a great circle, $s_{AB}$
+find the destination point B, given as $\mathbf{n}_{EB}^E$.
+
+Use Earth radius $r_{Earth}$.
+
+
+
+In geodesy this is known as "The first geodetic problem" or
+"The direct geodetic problem" for a sphere,
+and we see that this is similar to [Example 2](#example-02),
+but now the delta is given as an azimuth and a great circle distance.
+("The second/inverse geodetic problem" for a sphere is already solved in
+[Examples 1](#example-01) and [5](#example-05).) 
 
 ```{r example-08-fig,fig.cap='A and azimuth/distance to B.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex8img.png")
 ```
 
+### Solution
+
+Given the initial values
+```{r example-08-init}
+n_EA_E <- lat_lon2n_E(rad(80),rad(-90))
+azimuth <- rad(200)
+s_AB <- 1000 # distance (m)
+r_Earth <- 6371e3 # mean Earth radius (m)
+```
+
+**Step 1**: Find unit vectors for north and east as per equations (9) and (10)
+in [@gade2010]
+
+$$
+\begin{align}
+\mathbf{k}_{east}^E  & =   \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \times \mathbf{n}^E \tag{9} \\
+
+\mathbf{k}_{north}^E & =  \mathbf{n}^E  \times  \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}  \times \mathbf{n}^E \tag{10}
+\end{align}
+$$
+
+```{r}
+k_east_E <- unit(pracma::cross(base::t(R_Ee()) %*% c(1, 0, 0) %>% as.vector(), n_EA_E))
+k_north_E <- pracma::cross(n_EA_E, k_east_E)
+```
+
+**Step 2**: Find the initial direction vector $d_E$
+```{r}
+d_E <- k_north_E * cos(azimuth) + k_east_E * sin(azimuth)
+```
+
+**Step 3**: Find $\mathbf{n}_{EB}^E$
+```{r}
+n_EB_E <- n_EA_E * cos(s_AB / r_Earth) + d_E * sin(s_AB / r_Earth)
+```
+
+Convert to longitude/latitude
+```{r example-08-conversion}
+(l  <- n_E2lat_lon(n_EB_E) %>% deg())
+(latitude  <- l[1])
+(longitude <- l[2])
+```
+
 
 ## Example 9: Intersection of two paths
 
+Define a path from two given positions (at the surface of a spherical Earth),
+as the great circle that goes through the two points.
+
+Path A is given by A1 and A2, while path B is given by B1 and B2.
+
+Find the position C where the two great circles intersect.
 
 ```{r example-09-fig,fig.cap='Intersection of two paths.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex9img.png")
 ```
 
+### Solution
+
+```{r example-09-init}
+n_EA1_E <- lat_lon2n_E(rad(50), rad(180))
+n_EA2_E <- lat_lon2n_E(rad(90), rad(180))
+n_EB1_E <- lat_lon2n_E(rad(60), rad(160))
+n_EB2_E <- lat_lon2n_E(rad(80), rad(-140))
+
+# These are from the python version (results are the same ;-)
+# n_EA1_E <- lat_lon2n_E(rad(10), rad(20))
+# n_EA2_E <- lat_lon2n_E(rad(30), rad(40))
+# n_EB1_E <- lat_lon2n_E(rad(50), rad(60))
+# n_EB2_E <- lat_lon2n_E(rad(70), rad(80))
+
+```
+
+Find the intersection between the two paths, $\mathbf{n}_{EC}^E$
+```{r}
+n_EC_E_tmp <- unit(pracma::cross(
+  pracma::cross(n_EA1_E, n_EA2_E),
+  pracma::cross(n_EB1_E, n_EB2_E)))
+```
+
+$\mathbf{n}_{{EC}_{tmp}}^E$ is one of two solutions,
+the other is $-\mathbf{n}_{{EC}_{tmp}}^E$.
+Select the one that is closest to $\mathbf{n}_{EA_1}^E$, by selecting sign from
+the dot product between $\mathbf{n}_{{EC}_{tmp}}^E$ and $\mathbf{n}_{EA_1}^E$
+
+```{r}
+n_EC_E <- sign(pracma::dot(n_EC_E_tmp, n_EA1_E)) * n_EC_E_tmp
+```
+
+Convert to longitude/latitude
+```{r example-09-conversion}
+(l  <- n_E2lat_lon(n_EC_E) %>% deg())
+(latitude  <- l[1])
+(longitude <- l[2])
+```
 
 ## Example 10: Cross track distance (cross track error)
 
+Path A is given by the two positions A1 and A2
+(similar to the previous example).
+
+Find the cross track distance sxt between the path A
+(i.e. the great circle through A1 and A2) and
+the position B (i.e. the shortest distance at the surface,
+between the great circle and B).
+
+Also find the Euclidean distance dxt between B and the plane
+defined by the great circle. 
+
+Use Earth radius $6371~\mathrm{km}$.
+
+Finally, find the intersection point on the great circle and
+determine if it is between position A1 and A2.
 
 ```{r example-10-fig,fig.cap='Cross track distance (cross track error).',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex10img.png")
 ```
 
+### Solution
+Given 
+```{r}
+n_EA1_E <- lat_lon2n_E(rad(0), rad(0))
+n_EA2_E <- lat_lon2n_E(rad(10),rad(0))
+n_EB_E  <- lat_lon2n_E(rad(1), rad(0.1))
+
+r_Earth <- 6371e3  # mean Earth radius (m)
+```
+
+Find the unit normal to the great circle between n_EA1_E and n_EA2_E
+```{r}
+c_E <- unit(pracma::cross(n_EA1_E, n_EA2_E))
+```
+
+Find the great circle cross track distance
+```{r}
+(s_xt <- (acos(pracma::dot(c_E, n_EB_E)) - pi / 2) * r_Earth)
+```
+
+Find the Euclidean cross track distance
+```{r}
+(d_xt <- -pracma::dot(c_E, n_EB_E) * r_Earth)
+```
 
 
 # References
