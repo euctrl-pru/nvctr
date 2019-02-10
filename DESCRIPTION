@@ -19,7 +19,8 @@ LazyData: true
 Suggests: 
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    geosphere
 Imports: 
     pracma,
     magrittr

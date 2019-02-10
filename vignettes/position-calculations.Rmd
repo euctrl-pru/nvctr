@@ -316,7 +316,7 @@ for all angles:
 $s_{AB} = r_{roc} \cdot  \arctan\!2\!\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|,
     \mathbf{n}_{EA}^E \boldsymbol{\cdot} \mathbf{n}_{EB}^E\big) \tag{6}$
 
-```{r example-05-step01}
+```{r example-05-spherical}
 (s_AB <- (atan2(base::norm(pracma::cross(n_EA_E, n_EB_E), type = "2"),
                 pracma::dot(n_EA_E, n_EB_E)) * r_Earth))
 ```
@@ -332,7 +332,11 @@ $d = r_{roc} \cdot \big| \mathbf{n}_{EB}^E - \mathbf{n}_{EA}^E \big|$
 
 #### Elliptical model (WGS-84 ellipsoid)
 
-TODO
+The distance between A and B ca be calculated via `geosphere` package
+```{r example-05-geodesic}
+geosphere::distGeo(c(0, 88), c(-170, 89))
+```
+
 
 
 
