@@ -389,9 +389,47 @@ and converting back to longitude and latitude
 
 ## Example 7: Mean position (center/midpoint)
 
+Given three positions A, B, and C as n-vectors $\mathbf{n}_{EA}^E$, $\mathbf{n}_{EB}^E$,
+and $\mathbf{n}_{EC}^E$, find the mean position, M, as n-vector $\mathbf{n}_{EM}^E$.
+
+Note that the calculation is independent of the depths of the positions.
 
 ```{r example-07-fig,fig.cap='Mean position (center/midpoint).',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex7img.png")
+```
+
+### Solution
+
+The (geographical) mean position $B_{GM}$ is simply given equation (17) in [@gade2010]
+(assuming spherical Earth)
+
+$$
+\mathbf{n}_{EB_{GM}}^E = \mathrm{unit}\Big( \sum_{i = 1}^{m} \mathbf{n}_{EB_i}^E \Big) \tag{17}
+$$
+
+and specifically for the three given points
+
+$$
+\mathbf{n}_{EM}^E = \mathrm{unit}\Big(\mathbf{n}_{EA}^E + \mathbf{n}_{EB}^E + \mathbf{n}_{EC}^E \Big) = \frac{\mathbf{n}_{EA}^E + \mathbf{n}_{EB}^E + \mathbf{n}_{EC}^E}{\Big | \mathbf{n}_{EA}^E + \mathbf{n}_{EB}^E + \mathbf{n}_{EC}^E \Big| }
+$$
+Given the three n-vectors
+```{r example-07-init}
+n_EA_E <- lat_lon2n_E(rad(90), rad(0))
+n_EB_E <- lat_lon2n_E(rad(60), rad(10))
+n_EC_E <- lat_lon2n_E(rad(50), rad(-20))
+```
+
+find the horizontal mean position
+
+```{r example-07-geographical-mean}
+(n_EM_E <- unit(n_EA_E + n_EB_E + n_EC_E))
+```
+
+and convert to longitude/latitude
+```{r example-07-conversion}
+(l  <- n_E2lat_lon(n_EM_E) %>% deg())
+(latitude  <- l[1])
+(longitude <- l[2])
 ```
 
 
