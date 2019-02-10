@@ -342,9 +342,48 @@ geosphere::distGeo(c(0, 88), c(-170, 89))
 
 ## Example 6: Interpolated position
 
+Given the position of B at time $t_0$ and $t_1$, $\mathbf{n}_{EB}^E(t_0)$ and
+$\mathbf{n}_{EB}^E(t_1)$nEEB(t1).
+
+Find an interpolated position at time $t_i$, $\mathbf{n}_{EB}^E(t_i)$.
+All positions are given as n-vectors.
+
 
 ```{r example-06-fig,fig.cap='Interpolated position.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex6img.png")
+```
+
+### Solution
+
+Standard interpolation can be used directly with n-vector as
+
+$$
+\mathbf{n}_{EB}^E(t_i) = \mathrm{unit}\Bigg(\mathbf{n}_{EB}^E(t_0) + \frac{t_i − t_0}{t_1 − t_0} \Big(\mathbf{n}_{EB}^E(t_1) − \mathbf{n}_{EB}^E(t_0)\Big)\Bigg)
+$$
+
+```{r example-06-init}
+n_EB_E_t0 <- lat_lon2n_E(rad(89.9), rad(-150))
+n_EB_E_t1 <- lat_lon2n_E(rad(89.9), rad(150))
+
+# The times are given as:
+t0 <- 10
+t1 <- 20
+ti <- 16 # time of interpolation
+```
+
+Using the expression above
+
+```{r exemple-06-interpolation}
+t_frac <- (ti - t0) / (t1 - t0) 
+(n_EB_E_ti <- unit(n_EB_E_t0 + t_frac * (n_EB_E_t1 - n_EB_E_t0) ))
+```
+
+and converting back to longitude and latitude
+
+```{r example-06-conversion}
+(l  <- n_E2lat_lon(n_EB_E_ti) %>% deg())
+(latitude  <- l[1])
+(longitude <- l[2])
 ```
 
 
