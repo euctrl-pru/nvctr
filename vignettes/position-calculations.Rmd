@@ -33,7 +33,8 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  out.width = "220px"
+  out.width = "220px",
+  fig.align = 'center'
 )
 
 library(png)
