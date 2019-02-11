@@ -1,4 +1,4 @@
-#' Convert (geodetic) latitude and longitude to n-vector.
+#' Convert (geodetic) latitude and longitude to n-vector
 #'
 #' @param latitude  Geodetic latitude (rad)
 #' @param longitude Geodetic longitude (rad)
@@ -7,11 +7,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' latitude <- rad(1)
-#' longitude <- rad(2)
-#' n_E <- lat_lon2n_E(latitude, longitude)
-#' }
+#' lat_lon2n_E(rad(1), rad(2))
+#'
 #' @seealso \code{\link{n_E2lat_lon}}.
 #'
 #' @references

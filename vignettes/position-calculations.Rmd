@@ -32,7 +32,8 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  out.width = "220px"
 )
 
 library(png)
@@ -59,7 +60,7 @@ and find the direction (azimuth/bearing) to $B$, relative to north.
 Use WGS-84 ellipsoid.
 
 
-```{r example-01-fig,fig.cap='A and B to delta.',fig.pos='hbt',fig.width=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-01-fig,fig.cap='A and B to delta.',fig.pos='hbt',fig.width=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex1img.png")
 ```
 
@@ -136,7 +137,7 @@ assuming Earth ellipsoid with semi-major axis $a$ and flattening $f$.
 
 For WGS-72, use $a = 6378135~\mathrm{m}$ and $f = \dfrac{1}{298.26}$.
 
-```{r example-02-fig,fig.cap='B and delta to C.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-02-fig,fig.cap='B and delta to C.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex2img.png")
 ```
 
@@ -209,7 +210,7 @@ the center of the Earth, to $B$, decomposed in E).
 Find the geodetic latitude, longitude and height (`latEB`, `lonEB` and `hEB`),
 assuming WGS-84 ellipsoid.
 
-```{r example-03-fig,fig.cap='ECEF-vector to geodetic latitude.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-03-fig,fig.cap='ECEF-vector to geodetic latitude.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex3img.png")
 ```
 
@@ -248,7 +249,7 @@ lat_lon_EB <- n_E2lat_lon(n_EB_E)
 Find the ECEF-vector $\mathbf{p}_{EB}^E$ for the geodetic position $B$ given as
 latitude $lat_{EB}$, longitude $lon_{EB}$ and height $h_{EB}$.
 
-```{r example-04-fig,fig.cap='Geodetic latitude to ECEF-vector.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-04-fig,fig.cap='Geodetic latitude to ECEF-vector.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex4img.png")
 ```
 
@@ -288,7 +289,7 @@ Assume a spherical model of the Earth with radius $r_{Earth} = 6371~\mathrm{km}$
 
 Compare the results with exact calculations for the WGS-84 ellipsoid.
 
-```{r example-05-fig,fig.cap='Surface distance.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-05-fig,fig.cap='Surface distance.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex5img.png")
 ```
 
@@ -350,7 +351,7 @@ Find an interpolated position at time $t_i$, $\mathbf{n}_{EB}^E(t_i)$.
 All positions are given as n-vectors.
 
 
-```{r example-06-fig,fig.cap='Interpolated position.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-06-fig,fig.cap='Interpolated position.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex6img.png")
 ```
 
@@ -395,7 +396,7 @@ and $\mathbf{n}_{EC}^E$, find the mean position, $M$, as n-vector $\mathbf{n}_{E
 
 Note that the calculation is independent of the depths of the positions.
 
-```{r example-07-fig,fig.cap='Mean position (center/midpoint).',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-07-fig,fig.cap='Mean position (center/midpoint).',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex7img.png")
 ```
 
@@ -452,7 +453,7 @@ but now the delta is given as an azimuth and a great circle distance.
 ("The second/inverse geodetic problem" for a sphere is already solved in
 [Examples 1](#example-01) and [5](#example-05).) 
 
-```{r example-08-fig,fig.cap='A and azimuth/distance to B.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-08-fig,fig.cap='A and azimuth/distance to B.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex8img.png")
 ```
 
@@ -509,7 +510,7 @@ Path A is given by $A_1$ and $A_2$, while path B is given by $B_1$ and $B_2$.
 
 Find the position C where the two great circles intersect.
 
-```{r example-09-fig,fig.cap='Intersection of two paths.',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-09-fig,fig.cap='Intersection of two paths.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex9img.png")
 ```
 
@@ -570,7 +571,7 @@ Use Earth radius $6371~\mathrm{km}$.
 Finally, find the intersection point on the great circle and
 determine if it is between position $A_1$ and $A_2$.
 
-```{r example-10-fig,fig.cap='Cross track distance (cross track error).',fig.pos='hbt',fig.height=4,out.width="50%",echo=FALSE,warning=FALSE,message=FALSE}
+```{r example-10-fig,fig.cap='Cross track distance (cross track error).',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex10img.png")
 ```
 

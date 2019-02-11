@@ -2,7 +2,7 @@
 % Please edit documentation in R/n_E2lat_lon.R
 \name{n_E2lat_lon}
 \alias{n_E2lat_lon}
-\title{Convert n-vector to latitude and longitude.}
+\title{Convert n-vector to latitude and longitude}
 \usage{
 n_E2lat_lon(n_E)
 }
@@ -13,13 +13,11 @@ n_E2lat_lon(n_E)
 A vector of geodetic latitude and longitude (rad)
 }
 \description{
-Convert n-vector to latitude and longitude.
+Convert n-vector to latitude and longitude
 }
 \examples{
-\dontrun{
-n_E <- c(1, 0, 0)
-p <-  n_E2lat_long(n_E)
-}
+n_E2lat_lon(c(1, 0, 0))
+
 }
 \references{
 Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.

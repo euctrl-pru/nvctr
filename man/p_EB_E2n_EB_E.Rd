@@ -30,9 +30,8 @@ It is also nonsingular as both n-vector and p-vector are nonsingular
 The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) might be specified.
 }
 \examples{
-\dontrun{
-c(n_EB_E, z_EB) <- p_EB_E2n_EB_E(p_EB_E)
-}
+p_EB_E <- 6371e3 * c(0.9, -1, 1.1)
+(n_EB_E <- p_EB_E2n_EB_E(p_EB_E))
 
 }
 \references{

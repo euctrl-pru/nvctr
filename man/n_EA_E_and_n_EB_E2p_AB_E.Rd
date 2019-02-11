@@ -2,7 +2,7 @@
 % Please edit documentation in R/n_EA_E_and_n_EB_E2p_AB_E.R
 \name{n_EA_E_and_n_EB_E2p_AB_E}
 \alias{n_EA_E_and_n_EB_E2p_AB_E}
-\title{Find the delta position from two positions A and B.}
+\title{Find the delta position from two positions A and B}
 \usage{
 n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA = 0, z_EB = 0,
   a = 6378137, f = 1/298.257223563)
@@ -35,15 +35,13 @@ The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) mi
 via the optional parameters \code{a} and \code{f}.
 }
 \examples{
-\dontrun{
-  lat_EA <- rad(1); lon_EA <- rad(2); z_EA   <- 3
-  lat_EB <- rad(4); lon_EB <- rad(5); z_EB   <- 6
+lat_EA <- rad(1); lon_EA <- rad(2); z_EA   <- 3
+lat_EB <- rad(4); lon_EB <- rad(5); z_EB   <- 6
 
-  n_EA_E <- lat_lon2n_E(lat_EA, lon_EA)
-  n_EB_E <- lat_lon2n_E(lat_EB, lon_EB)
+n_EA_E <- lat_lon2n_E(lat_EA, lon_EA)
+n_EB_E <- lat_lon2n_E(lat_EB, lon_EB)
 
-  p_AB_E <- n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA, z_EB)
-}
+n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA, z_EB)
 
 }
 \references{

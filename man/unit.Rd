@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{unit}
 \alias{unit}
-\title{Make input vector unit length, i.e. norm == 1.}
+\title{Make input vector unit length, i.e. norm == 1}
 \usage{
 unit(vector)
 }
@@ -13,7 +13,7 @@ unit(vector)
 a unit length vector
 }
 \description{
-Make input vector unit length, i.e. norm == 1.
+Make input vector unit length, i.e. norm == 1
 }
 \examples{
 unit(c(1,2,3))

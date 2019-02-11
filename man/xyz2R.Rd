@@ -34,9 +34,7 @@ procedure of successive rotations:
 The signs of the angles are given by the directions of the axes and the right hand rule.
 }
 \examples{
-\dontrun{
-R_AB <- xyz2R(x, y, z)
-}
+xyz2R(rad(10), rad(20), rad(30))
 
 }
 \references{

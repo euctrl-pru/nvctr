@@ -24,9 +24,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' R_AB <- xyz2R(x, y, z)
-#' }
+#' xyz2R(rad(10), rad(20), rad(30))
 #'
 #' @seealso \code{\link{R2xyz}}, \code{\link{zyx2R}} and \code{\link{R2zyx}}.
 #'

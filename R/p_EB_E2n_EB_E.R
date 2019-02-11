@@ -20,9 +20,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' c(n_EB_E, z_EB) <- p_EB_E2n_EB_E(p_EB_E)
-#' }
+#' p_EB_E <- 6371e3 * c(0.9, -1, 1.1)
+#' (n_EB_E <- p_EB_E2n_EB_E(p_EB_E))
 #'
 #' @seealso \code{\link{n_EB_E2p_EB_E}}, \code{\link{n_EA_E_and_p_AB_E2n_EB_E}} and
 #'          \code{\link{n_EA_E_and_n_EB_E2p_AB_E}}

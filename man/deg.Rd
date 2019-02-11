@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{deg}
 \alias{deg}
-\title{Convert angle in radians to degrees.}
+\title{Convert angle in radians to degrees}
 \usage{
 deg(radians)
 }
@@ -13,7 +13,7 @@ deg(radians)
 angle in degrees.
 }
 \description{
-Convert angle in radians to degrees.
+Convert angle in radians to degrees
 }
 \examples{
 deg(pi/2)

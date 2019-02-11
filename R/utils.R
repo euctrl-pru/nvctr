@@ -2,7 +2,7 @@
 #'
 #' @param degrees angle in degrees.
 #'
-#' @return angle in radians.
+#' @return angle in radians
 #' @export
 #'
 #' @seealso \code{\link{deg}}.
@@ -13,7 +13,7 @@ rad <- function(degrees) {
   degrees * pi / 180
 }
 
-#' Convert angle in radians to degrees.
+#' Convert angle in radians to degrees
 #'
 #' @param radians angle in radians.
 #'
@@ -45,7 +45,7 @@ check_length_deviation <- function(n_E) {
 }
 
 
-#' Make input vector unit length, i.e. norm == 1.
+#' Make input vector unit length, i.e. norm == 1
 #'
 #' @param vector a vector
 #'

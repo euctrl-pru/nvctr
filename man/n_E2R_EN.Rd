@@ -2,7 +2,7 @@
 % Please edit documentation in R/n_E2R_EN.R
 \name{n_E2R_EN}
 \alias{n_E2R_EN}
-\title{Find the rotation matrix R_EN from n-vector.}
+\title{Find the rotation matrix R_EN from n-vector}
 \usage{
 n_E2R_EN(n_E)
 }
@@ -13,13 +13,11 @@ n_E2R_EN(n_E)
 The resulting rotation matrix (direction cosine matrix) (no unit)
 }
 \description{
-Find the rotation matrix R_EN from n-vector.
+Find the rotation matrix R_EN from n-vector
 }
 \examples{
-\dontrun{
-n_E <- c(1, 0, 0)
-R <- n_E2R_EN(n_E)
-}
+n_E2R_EN(c(1, 0, 0))
+
 }
 \references{
 Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.

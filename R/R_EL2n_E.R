@@ -1,16 +1,19 @@
-#' Find n-vector from the rtation matrix (direction cosine matrix) \code{R_EL}.
+#' Find n-vector from the rotation matrix (direction cosine matrix) \code{R_EL}
 #'
 #' @param R_EL Rotation matrix (direction cosine matrix) (no unit)
 #'
 #' @return n-vector decomposed in E (3x1 vector) (no unit)
 #' @export
 #'
-#' @seealso \code{\link{n_E2R_EN}}, \code{\link{R_EL2n_E}} and \code{\link{n_E_and_wa2R_EL}}.
-#'
 #' @examples
-#' \dontrun{
+#' R_EL <- matrix(
+#'    c(-1, 0,  0,
+#'       0, 1,  0,
+#'       0, 0, -1),
+#'    nrow = 3, ncol = 3, byrow = TRUE)
 #' R_EL2n_E(R_EL)
-#' }
+#'
+#' @seealso \code{\link{n_E2R_EN}}, \code{\link{R_EL2n_E}} and \code{\link{n_E_and_wa2R_EL}}.
 #'
 #' @references
 #' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.

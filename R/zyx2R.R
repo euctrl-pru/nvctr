@@ -28,9 +28,7 @@
 #' @seealso \code{\link{R2zyx}}, \code{\link{xyz2R}} and \code{\link{R2xyz}}.
 #'
 #' @examples
-#' \dontrun{
-#' R_AB <- zyx2R(z, y, x)
-#' }
+#' zyx2R(rad(30), rad(20), rad(10))
 #'
 #' @references
 #' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.

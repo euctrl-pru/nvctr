@@ -8,9 +8,12 @@
 #' @seealso \code{\link{n_E2R_EN}}, \code{\link{R_EL2n_E}} and \code{\link{n_E_and_wa2R_EL}}.
 #'
 #' @examples
-#' \dontrun{
-#' R_EN2n_E(R_EN)
-#' }
+#' R_EN <- matrix(
+#'    c(-1, 0,  0,
+#'       0, 1,  0,
+#'       0, 0, -1),
+#'    nrow = 3, ncol = 3, byrow = TRUE)
+#' R_EL2n_E(R_EN)
 #'
 #' @references
 #' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.

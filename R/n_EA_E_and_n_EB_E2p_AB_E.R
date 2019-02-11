@@ -1,4 +1,4 @@
-#' Find the delta position from two positions A and B.
+#' Find the delta position from two positions A and B
 #'
 #' Given the n-vectors for positions A (\code{n_EA_E}) and B (\code{n_EB_E}), the
 #' output is the delta vector from A to B (\code{p_AB_E}).
@@ -20,15 +20,13 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'   lat_EA <- rad(1); lon_EA <- rad(2); z_EA   <- 3
-#'   lat_EB <- rad(4); lon_EB <- rad(5); z_EB   <- 6
+#' lat_EA <- rad(1); lon_EA <- rad(2); z_EA   <- 3
+#' lat_EB <- rad(4); lon_EB <- rad(5); z_EB   <- 6
 #'
-#'   n_EA_E <- lat_lon2n_E(lat_EA, lon_EA)
-#'   n_EB_E <- lat_lon2n_E(lat_EB, lon_EB)
+#' n_EA_E <- lat_lon2n_E(lat_EA, lon_EA)
+#' n_EB_E <- lat_lon2n_E(lat_EB, lon_EB)
 #'
-#'   p_AB_E <- n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA, z_EB)
-#' }
+#' n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA, z_EB)
 #'
 #' @seealso \code{\link{n_EA_E_and_p_AB_E2n_EB_E}}, \code{\link{p_EB_E2n_EB_E}} and
 #'          \code{\link{n_EB_E2p_EB_E}}

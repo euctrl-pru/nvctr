@@ -1,4 +1,4 @@
-#' Convert n-vector to cartesian position vector in meters.
+#' Convert n-vector to cartesian position vector in meters
 #'
 #' The function converts the position of B (typically body) relative to E (typically Earth),
 #' the n-vector \code{n_EB_E} to cartesian position vector ("ECEF-vector"), \code{p_EB_E},
@@ -20,9 +20,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' n_EB_E  <- lat_lon2n_E(rad(1), rad(2))
 #' n_EB_E2p_EB_E(n_EB_E)
-#' }
 #'
 #' @seealso \code{\link{p_EB_E2n_EB_E}}, \code{\link{n_EA_E_and_p_AB_E2n_EB_E}} and
 #'          \code{\link{n_EA_E_and_n_EB_E2p_AB_E}}.

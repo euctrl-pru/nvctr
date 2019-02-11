@@ -2,7 +2,7 @@
 % Please edit documentation in R/n_E_and_wa2R_EL.R
 \name{n_E_and_wa2R_EL}
 \alias{n_E_and_wa2R_EL}
-\title{Find \code{R_EL} from n-vector and wander azimuth angle.}
+\title{Find \code{R_EL} from n-vector and wander azimuth angle}
 \usage{
 n_E_and_wa2R_EL(n_E, wander_azimuth)
 }

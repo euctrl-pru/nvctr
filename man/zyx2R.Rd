@@ -36,9 +36,7 @@ of successive rotations:
  have that z=yaw, y=pitch and x=roll.
 }
 \examples{
-\dontrun{
-R_AB <- zyx2R(z, y, x)
-}
+zyx2R(rad(30), rad(20), rad(10))
 
 }
 \references{

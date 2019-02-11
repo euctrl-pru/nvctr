@@ -2,7 +2,7 @@
 % Please edit documentation in R/R2zyx.R
 \name{R2zyx}
 \alias{R2zyx}
-\title{Find the three angles about new axes in the zyx order from a rotation matrix.}
+\title{Find the three angles about new axes in the zyx order from a rotation matrix}
 \usage{
 R2zyx(R_AB)
 }
@@ -33,9 +33,8 @@ Note that if A is a north-east-down frame and B is a body frame, we
 have that z=yaw, y=pitch and x=roll.
 }
 \examples{
-\dontrun{
-R2zyx(R_AB)
-}
+zyx2R(rad(1), rad(-2), rad(-3))
+
 }
 \references{
 Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.

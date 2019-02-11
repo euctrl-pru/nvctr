@@ -2,7 +2,7 @@
 % Please edit documentation in R/n_EB_E2p_EB_E.R
 \name{n_EB_E2p_EB_E}
 \alias{n_EB_E2p_EB_E}
-\title{Convert n-vector to cartesian position vector in meters.}
+\title{Convert n-vector to cartesian position vector in meters}
 \usage{
 n_EB_E2p_EB_E(n_EB_E, z_EB = 0, a = 6378137, f = 1/298.257223563)
 }
@@ -32,9 +32,8 @@ The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) mi
 via the optional parameters \code{a} and \code{f}.
 }
 \examples{
-\dontrun{
+n_EB_E  <- lat_lon2n_E(rad(1), rad(2))
 n_EB_E2p_EB_E(n_EB_E)
-}
 
 }
 \references{

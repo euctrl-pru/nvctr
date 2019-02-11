@@ -16,9 +16,12 @@ n-vector decomposed in E (3x1 vector) (no unit)
 Find n-vector from R_E
 }
 \examples{
-\dontrun{
-R_EN2n_E(R_EN)
-}
+R_EN <- matrix(
+   c(-1, 0,  0,
+      0, 1,  0,
+      0, 0, -1),
+   nrow = 3, ncol = 3, byrow = TRUE)
+R_EL2n_E(R_EN)
 
 }
 \references{

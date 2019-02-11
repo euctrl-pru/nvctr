@@ -1,14 +1,13 @@
-#' Convert n-vector to latitude and longitude.
+#' Convert n-vector to latitude and longitude
 #'
 #' @param n_E n-vector decomposed in E (3x1 vector) (no unit)
 #'
 #' @return A vector of geodetic latitude and longitude (rad)
 #' @export
+#'
 #' @examples
-#' \dontrun{
-#' n_E <- c(1, 0, 0)
-#' p <-  n_E2lat_long(n_E)
-#' }
+#' n_E2lat_lon(c(1, 0, 0))
+#'
 #' @seealso \code{\link{lat_lon2n_E}}.
 #'
 #' @references

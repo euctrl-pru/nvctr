@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Ee.R
 \name{R_Ee}
 \alias{R_Ee}
-\title{Select the axes of the coordinate frame E.}
+\title{Select the axes of the coordinate frame E}
 \usage{
 R_Ee(axes = "e")
 }
@@ -45,9 +45,8 @@ There are two choices of E-axes that are described in Table 2 in Gade (2010):
 }
 }
 \examples{
-\dontrun{
 R_Ee()
-}
+
 }
 \references{
 Kenneth Gade (2010) \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.

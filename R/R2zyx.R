@@ -1,4 +1,4 @@
-#' Find the three angles about new axes in the zyx order from a rotation matrix.
+#' Find the three angles about new axes in the zyx order from a rotation matrix
 #'
 #' The 3 angles \code{z}, \code{y}, \code{x} about new axes (intrinsic) in the order z-y-x are
 #' found from the rotation matrix \code{R_AB}. The angles (called Euler angles or
@@ -24,9 +24,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' R2zyx(R_AB)
-#' }
+#' zyx2R(rad(1), rad(-2), rad(-3))
+#'
 #' @seealso \code{\link{zyx2R}}, \code{\link{xyz2R}} and \code{\link{R2xyz}}.
 #'
 #' @references

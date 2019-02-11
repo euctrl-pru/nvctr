@@ -10,7 +10,7 @@ rad(degrees)
 \item{degrees}{angle in degrees.}
 }
 \value{
-angle in radians.
+angle in radians
 }
 \description{
 Convert angle in degrees to radians.

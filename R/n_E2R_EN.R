@@ -1,4 +1,4 @@
-#' Find the rotation matrix R_EN from n-vector.
+#' Find the rotation matrix R_EN from n-vector
 #'
 #' @param n_E n-vector decomposed in E (3x1 vector) (no unit)
 #'
@@ -6,10 +6,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' n_E <- c(1, 0, 0)
-#' R <- n_E2R_EN(n_E)
-#' }
+#' n_E2R_EN(c(1, 0, 0))
+#'
 #' @seealso \code{\link{R_EN2n_E}}, \code{\link{n_E_and_wa2R_EL}} and \code{\link{R_EL2n_E}}.
 #'
 #' @references

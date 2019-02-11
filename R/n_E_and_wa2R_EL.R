@@ -1,4 +1,4 @@
-#' Find \code{R_EL} from n-vector and wander azimuth angle.
+#' Find \code{R_EL} from n-vector and wander azimuth angle
 #'
 #' Calculate the rotation matrix (direction cosine matrix) \code{R_EL} using
 #' n-vector (\code{n_E}) and the wander azimuth angle.

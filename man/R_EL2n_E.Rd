@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_EL2n_E.R
 \name{R_EL2n_E}
 \alias{R_EL2n_E}
-\title{Find n-vector from the rtation matrix (direction cosine matrix) \code{R_EL}.}
+\title{Find n-vector from the rotation matrix (direction cosine matrix) \code{R_EL}}
 \usage{
 R_EL2n_E(R_EL)
 }
@@ -13,12 +13,15 @@ R_EL2n_E(R_EL)
 n-vector decomposed in E (3x1 vector) (no unit)
 }
 \description{
-Find n-vector from the rtation matrix (direction cosine matrix) \code{R_EL}.
+Find n-vector from the rotation matrix (direction cosine matrix) \code{R_EL}
 }
 \examples{
-\dontrun{
+R_EL <- matrix(
+   c(-1, 0,  0,
+      0, 1,  0,
+      0, 0, -1),
+   nrow = 3, ncol = 3, byrow = TRUE)
 R_EL2n_E(R_EL)
-}
 
 }
 \references{

@@ -1,4 +1,4 @@
-#' Select the axes of the coordinate frame E.
+#' Select the axes of the coordinate frame E
 #'
 #' This function returns the axes of the coordinate frame E (Earth-Centered,
 #' Earth-Fixed, ECEF).
@@ -36,9 +36,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' R_Ee()
-#' }
+#'
 #' @references
 #' Kenneth Gade (2010) \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
 #' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
