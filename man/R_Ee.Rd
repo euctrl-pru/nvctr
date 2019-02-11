@@ -28,7 +28,7 @@ rotation matrix defining the axes of the coordinate frame E as
         described in Table 2 in Gade (2010)
 }
 \description{
-This function returns the axes of the coordinate frame E (Earth-Centred,
+This function returns the axes of the coordinate frame E (Earth-Centered,
 Earth-Fixed, ECEF).
 }
 \details{

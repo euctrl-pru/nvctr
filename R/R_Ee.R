@@ -1,6 +1,6 @@
 #' Select the axes of the coordinate frame E.
 #'
-#' This function returns the axes of the coordinate frame E (Earth-Centred,
+#' This function returns the axes of the coordinate frame E (Earth-Centered,
 #' Earth-Fixed, ECEF).
 #'
 #' There are two choices of E-axes that are described in Table 2 in Gade (2010):
