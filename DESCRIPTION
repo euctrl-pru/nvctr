@@ -20,7 +20,9 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    geosphere
+    geosphere,
+    png,
+    knitcitations
 Imports: 
     pracma,
     magrittr
