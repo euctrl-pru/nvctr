@@ -3,6 +3,11 @@
 
 # nvctr
 
+[![Travis build
+status](https://travis-ci.org/espinielli/nvctr.svg?branch=master)](https://travis-ci.org/espinielli/nvctr)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/espinielli/nvctr?branch=master&svg=true)](https://ci.appveyor.com/project/espinielli/nvctr)
+
 The goal of `nvctr` package is to implement the n-vector approach to
 geographical postion calculations using an ellipsoidal model of Earth.
 
