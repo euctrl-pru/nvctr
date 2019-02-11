@@ -49,11 +49,10 @@ knitr::opts_chunk$set(
 
 
 
-The goal of `nvctr` package is to implement the n-vector approach to geographical postion calculations using an ellipsoidal model of Earth.
+The `nvctr` package implements the n-vector approach to geographical position calculations using an ellipsoidal model of Earth as described in [@gade_2010].
 
-The n-vector approach is described in [@gade_2010], while implementations in various computer
-languages can be found at the [n-vector page](https://www.navlab.net/nvector/) 
-[@navigationgroupatffi_2010].
+Implementations in various computer languages can be found at the 
+[n-vector page](https://www.navlab.net/nvector/) [@navigationgroupatffi_2010].
 
 
 ## Installation

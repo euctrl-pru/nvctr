@@ -28,7 +28,7 @@ A to position B (\code{p_AB_E}), the output is the n-vector of position
 B (\code{n_EB_E}) and depth of B (\code{z_EB}).
 }
 \details{
-The calculation is exact, taking the ellipsity of the Earth into account.
+The calculation is exact, taking the ellipticity of the Earth into account.
 
 It is also nonsingular as both n-vector and p-vector are nonsingular
 (except for the center of the Earth).

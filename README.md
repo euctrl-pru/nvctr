@@ -10,11 +10,11 @@ Status](https://codecov.io/gh/espinielli/nvctr/branch/master/graph/badge.svg)](h
 
 # nvctr
 
-The goal of `nvctr` package is to implement the n-vector approach to
-geographical postion calculations using an ellipsoidal model of Earth.
+The `nvctr` package implements the n-vector approach to geographical
+position calculations using an ellipsoidal model of Earth as described
+in (Gade [2010](#ref-gade_2010)).
 
-The n-vector approach is described in (Gade [2010](#ref-gade_2010)),
-while implementations in various computer languages can be found at the
+Implementations in various computer languages can be found at the
 [n-vector page](https://www.navlab.net/nvector/) (Navigation Group
 [2010](#ref-navigationgroupatffi_2010)).
 

@@ -5,7 +5,7 @@
 #'
 #' The function converts to n-vector, n_EB_E and its depth, z_EB.
 #'
-#' The calculation is exact, taking the ellipsity of the Earth into account.
+#' The calculation is exact, taking the ellipticity of the Earth into account.
 #' It is also nonsingular as both n-vector and p-vector are nonsingular
 #' (except for the center of the Earth).
 #' The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) might be specified.
