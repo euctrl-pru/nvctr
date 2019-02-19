@@ -4,7 +4,9 @@ Title: The n-vector approach to geographical position calculations using an elli
 Version: 0.0.999
 Authors@R: c(
   person("Enrico", "Spinielli", email = "enrico.spinielli@eurocontrol.int", role = c("aut", "cre"),
-         comment = c(ORCID = "0000-0001-8584-9131")))
+         comment = c(ORCID = "0000-0001-8584-9131")),
+  person("EUROCONTROL", role = c("cph", "fnd"))
+  )
 Maintainer: Enrico Spinielli <enrico.spinielli@eurocontrol.int>
 Description: The n-vector library from FFI, the Norwegian Defence Research Establishment,
   uses the normal vector to the Earth ellipsoid (called n-vector)
