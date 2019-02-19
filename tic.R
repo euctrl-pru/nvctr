@@ -1,6 +1,6 @@
 add_package_checks()
 
-if (Sys.getenv("id_rsa") != "" && !ci()$is_tag()) {
+if (Sys.getenv("BUILD_PKGDOWN") != "" && Sys.getenv("id_rsa") != "") {
   # pkgdown documentation can be built optionally. Other example criteria:
   # - `inherits(ci(), "TravisCI")`: Only for Travis CI
   # - `Sys.getenv("BUILD_PKGDOWN") != ""`: If the env var "BUILD_PKGDOWN" is set
