@@ -1,0 +1,12 @@
+destination: docs
+url: https://nvctr.github.io
+
+authors:
+  Enrico Spinielli:
+    href: https://enrico.spinielli.net
+
+toc:
+  depth: 2
+
+development:
+  mode: devel

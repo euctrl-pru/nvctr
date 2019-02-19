@@ -13,6 +13,14 @@ positions for  both the ellipsoidal and spherical Earth models.
 Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
 \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/espinielli/nvctr}
+  \item Report bugs at \url{https://github.com/espinielli/nvctr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Enrico Spinielli \email{enrico.spinielli@gmail.com} (0000-0001-8584-9131)
 
