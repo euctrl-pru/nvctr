@@ -9,4 +9,4 @@ toc:
   depth: 2
 
 development:
-  mode: devel
+  mode: auto
