@@ -40,9 +40,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis build status](https://travis-ci.org/espinielli/nvctr.svg?branch=master)](https://travis-ci.org/espinielli/nvctr)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/espinielli/nvctr?branch=master&svg=true)](https://ci.appveyor.com/project/espinielli/nvctr)
-[![Coverage Status](https://codecov.io/gh/espinielli/nvctr/branch/master/graph/badge.svg)](https://codecov.io/gh/espinielli/nvctr)
+[![Travis build status](https://travis-ci.org/euctrl-pru/nvctr.svg?branch=master)](https://travis-ci.org/euctrl-pru/nvctr)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/euctrl-pru/nvctr?branch=master&svg=true)](https://ci.appveyor.com/project/euctrl-pru/nvctr)
+[![Coverage Status](https://codecov.io/gh/euctrl-pru/nvctr/branch/master/graph/badge.svg)](https://codecov.io/gh/euctrl-pru/nvctr)
 
 
 # nvctr
@@ -58,10 +58,10 @@ Implementations in various computer languages can be found at the
 ## Installation
 
 You can install the development version of `nvctr` from 
-[GitHub](https://github.com/espinielli/nvctr) with:
+[GitHub](https://github.com/euctrl-pru/nvctr) with:
 
 ```r
-devtools::install_github("espinielli/nvctr")
+devtools::install_github("euctrl-pru/nvctr")
 ```
 
 ## References
