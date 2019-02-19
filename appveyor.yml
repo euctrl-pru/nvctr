@@ -15,6 +15,7 @@ install:
 
 cache:
 - C:\RLibrary
+- C:\Program Files (x86)\Pandoc\
 
 before_build: R -q -e "tic::before_install()"
 build_script: R -q -e "tic::install()"
@@ -31,9 +32,7 @@ on_finish: R -q -e "tic::after_script()"
 # Adapt as necessary starting from here
 
 # begin pandoc fix via https://github.com/krlmlr/r-appveyor/issues/82
-cache:
-  - C:\RLibrary
-  - C:\Program Files (x86)\Pandoc\
+# cache: entry '- C:\Program Files (x86)\Pandoc\'
 
 before_test:
   - ps: >-
