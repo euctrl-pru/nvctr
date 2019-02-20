@@ -12,4 +12,4 @@ toc:
   depth: 2
 
 development:
-  mode: auto
+  mode: release

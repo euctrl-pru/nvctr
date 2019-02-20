@@ -1,14 +1,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# nvctr
+
 [![Travis build
 status](https://travis-ci.org/euctrl-pru/nvctr.svg?branch=master)](https://travis-ci.org/euctrl-pru/nvctr)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/euctrl-pru/nvctr?branch=master&svg=true)](https://ci.appveyor.com/project/euctrl-pru/nvctr)
 [![Coverage
 Status](https://codecov.io/gh/euctrl-pru/nvctr/branch/master/graph/badge.svg)](https://codecov.io/gh/euctrl-pru/nvctr)
+[![CRAN
+version](http://www.r-pkg.org/badges/version/nvctr)](https://cran.r-project.org/package=nvctr)
 
-# nvctr
+## Overview
 
 The `nvctr` package implements the n-vector approach to geographical
 position calculations using an ellipsoidal model of Earth as described
@@ -26,6 +30,27 @@ You can install the development version of `nvctr` from
 ``` r
 devtools::install_github("euctrl-pru/nvctr")
 ```
+
+## Usage
+
+`nvctr` can be used to solve geographical position calculation like
+(example numbers refere to the ones in the
+[vignette](http://ansperformance.eu/nvctr/articles/position-calculations.html "nvctr vignette")):
+
+  - Calculate the surface distance between two geographical positions
+    ([Example
+    5](http://ansperformance.eu/nvctr/articles/position-calculations.html#example-05 "Example 5: Surface distance")).
+  - Find the destination point given start point, azimuth/bearing and
+    distance ([Example
+    8](http://ansperformance.eu/nvctr/articles/position-calculations.html#example-8-a-and-azimuthdistance-to-b "Example 8: A and azimuth/distance to B")).
+  - Find the mean position (center/midpoint) of several geographical
+    positions ([Example
+    6](http://ansperformance.eu/nvctr/articles/position-calculations.html#example-6-interpolated-position "Example 6: Interpolated position")).
+  - Find the intersection between two paths ([Example
+    9](http://ansperformance.eu/nvctr/articles/position-calculations.html#example-9-intersection-of-two-paths "Example 9: Intersection of two paths")).
+  - Find the cross track distance between a path and a position
+    ([Example
+    10](http://ansperformance.eu/nvctr/articles/position-calculations.html#example-10-cross-track-distance-cross-track-error "Example 10: Cross track distance (cross track error)")).
 
 ## References
 
