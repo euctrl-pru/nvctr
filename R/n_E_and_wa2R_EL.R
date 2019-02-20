@@ -11,6 +11,9 @@
 #' @return The resulting rotation matrix (3x3) (no unit)
 #' @export
 #'
+#' @section Warning:
+#' This function is not correctly implemented and needs further work.
+#'
 #' @examples
 #' \dontrun{
 #' # Calculates the rotation matrix (direction cosine matrix) R_EL

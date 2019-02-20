@@ -1,4 +1,7 @@
 ## Test environments
+* local Windows 7 x64 SP 1, R version 3.5.2 (2018-12-20)
+* Ubuntu 14.04 (on TraviCI), R version 3.5.2 (2017-01-27)
+* Windows Server 2012 R2 x64 (on Appveyor), R version 3.5.2 Patched (2019-02-17 r76122)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs or NOTEs.

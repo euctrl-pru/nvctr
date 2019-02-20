@@ -16,12 +16,17 @@ Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/espinielli/nvctr}
-  \item Report bugs at \url{https://github.com/espinielli/nvctr/issues}
+  \item \url{https://github.com/euctrl-pru/nvctr}
+  \item Report bugs at \url{https://github.com/euctrl-pru/nvctr/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Enrico Spinielli \email{enrico.spinielli@gmail.com} (0000-0001-8584-9131)
+\strong{Maintainer}: Enrico Spinielli \email{enrico.spinielli@eurocontrol.int} (0000-0001-8584-9131)
+
+Other contributors:
+\itemize{
+  \item EUROCONTROL [copyright holder, funder]
+}
 
 }
