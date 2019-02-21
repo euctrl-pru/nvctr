@@ -2,7 +2,7 @@
 ^Meta$
 ^doc$
 ^docs$
-^pkgdown/_pkgdown\.yml$
+^pkgdown$
 ^codecov\.yml$
 ^appveyor\.yml$
 ^\.travis\.yml$

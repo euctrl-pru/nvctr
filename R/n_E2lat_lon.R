@@ -19,8 +19,8 @@ n_E2lat_lon <- function(n_E) {
   n_E <- (R_Ee() %*% n_E) %>% # R_Ee selects correct E-axes, see R_Ee.R for details
     as.vector()
 
-  # Equation (5) in Gade (2010):
-  longitude <- atan2(n_E[2], -n_E[3])
+  # Equation (5) in Gade (2010) (I had to put `%% pi` to avoid getting pi for n_E = c(0, 0, 1)):
+  longitude <- atan2(n_E[2], -n_E[3]) %% pi
 
   # Equation (6) in Gade (2010) (Robust numerical solution)
   equatorial_component <- sqrt(n_E[2] ^ 2 + n_E[3] ^ 2) # vector component in the equatorial plane

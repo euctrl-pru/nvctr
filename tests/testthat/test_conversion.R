@@ -21,8 +21,13 @@ test_that("basic conversion checks: n-vector to lat, lon", {
     c(0, 0))
 
   expect_equal(
-    n_E2lat_lon(c(1, 0, 0)),
-    c(0, 0))
+    n_E2lat_lon(c(0, 1, 0)),
+    c(0, 1.57079633))
+
+  expect_equal(
+    n_E2lat_lon(c(0, 0, 1)),
+    c(1.57079633, 0))
+
 
   expect_equal(
     n_E2lat_lon(c(0.99923861, 0.03489418, 0.01745241)),
@@ -236,22 +241,22 @@ test_that("Test n_EA_E_and_p_AB_E2n_EB_E", {
 })
 
 
-# test_that("Test n_E and wander angle", {
-#   n_E <-  c(0, 0, 1)
-#   R_EL = n_E_and_wa2R_EL(n_E, wander_azimuth = (pi / 2))
-#   R_EL1 <- matrix(
-#     c(0, 1,  0,
-#       1, 0,  0,
-#       0, 0, -1),
-#     nrow = 3, ncol = 3, byrow = TRUE)
-#   expect_equal(R_EL, R_EL1)
-#
-#   expect_equal(
-#     n_E_and_wa2R_EL(c(0, 0, 1), wander_azimuth = pi / 2),
-#     matrix(
-#       c(0, 1,  0,
-#         1, 0,  0,
-#         0, 0, -1),
-#       nrow = 3, ncol = 3, byrow = TRUE)
-#   )
-# })
+test_that("Test n_E and wander angle", {
+  n_E <-  c(0, 0, 1)
+  R_EL = n_E_and_wa2R_EL(n_E, wander_azimuth = (pi / 2))
+  R_EL1 <- matrix(
+    c(0, 1,  0,
+      1, 0,  0,
+      0, 0, -1),
+    nrow = 3, ncol = 3, byrow = TRUE)
+  expect_equal(R_EL, R_EL1)
+
+  expect_equal(
+    n_E_and_wa2R_EL(c(0, 0, 1), wander_azimuth = pi / 2),
+    matrix(
+      c(0, 1,  0,
+        1, 0,  0,
+        0, 0, -1),
+      nrow = 3, ncol = 3, byrow = TRUE)
+  )
+})

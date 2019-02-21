@@ -31,10 +31,16 @@ You can install the development version of `nvctr` from
 devtools::install_github("euctrl-pru/nvctr")
 ```
 
+or the CRAN version (when this package will land to CRAN):
+
+``` r
+install.packages("nvctr")
+```
+
 ## Usage
 
 `nvctr` can be used to solve geographical position calculation like
-(example numbers refere to the ones in the
+(example numbers refer to the ones in the
 [vignette](http://ansperformance.eu/nvctr/articles/position-calculations.html "nvctr vignette")):
 
   - Calculate the surface distance between two geographical positions

@@ -20,11 +20,6 @@ n-vector (\code{n_E}) and the wander azimuth angle.
 When \code{wander_azimuth = 0}, we have that N = L (See Table 2 in Gade (2010) for
 details)
 }
-\section{Warning}{
-
-This function is not correctly implemented and needs further work.
-}
-
 \examples{
 \dontrun{
 # Calculates the rotation matrix (direction cosine matrix) R_EL
