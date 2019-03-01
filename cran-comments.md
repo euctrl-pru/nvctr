@@ -1,3 +1,10 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Improved the DESCRIPTION with the requested literature references.
+* Corrected the logo URL in the vignette
+* Fixed a bug in n_E2lat_lon and updated relevant test case.
+
 ## Test environments
 * local Windows 7 x64 SP 1, R version 3.5.2 (2018-12-20)
 * Ubuntu 14.04 (on TraviCI), R version 3.5.2 (2017-01-27)
