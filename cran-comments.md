@@ -1,9 +1,11 @@
 ## Resubmission
-This is a resubmission. In this version I have:
+This is a resubmission. As request by the CRAN maintainer in this version I have:
 
-* Improved the DESCRIPTION with the requested literature references.
-* Corrected the logo URL in the vignette
-* Fixed a bug in n_E2lat_lon and updated relevant test case.
+* written Title in title case in DESCRIPTION file
+* written package names, software names and API names in single quotes,
+  e.g. 'Matlab' in Description in DESCRIPTION file
+* unwrapped the example in `n_E_and_wa2R_EL.R` from \dontrun{}
+
 
 ## Test environments
 * local Windows 7 x64 SP 1, R version 3.5.2 (2018-12-20)

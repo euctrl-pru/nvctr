@@ -21,12 +21,10 @@ When \code{wander_azimuth = 0}, we have that N = L (See Table 2 in Gade (2010) f
 details)
 }
 \examples{
-\dontrun{
 # Calculates the rotation matrix (direction cosine matrix) R_EL
 # using n-vector (n_E) and the wander azimuth angle.
 n_E <- c(1, 0, 0)
-R_EL <-  n_E_and_wa2R_EL(n_E, wander_azimuth = pi / 2)
-}
+(R_EL <-  n_E_and_wa2R_EL(n_E, wander_azimuth = pi / 2))
 
 }
 \references{

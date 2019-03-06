@@ -12,12 +12,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' # Calculates the rotation matrix (direction cosine matrix) R_EL
 #' # using n-vector (n_E) and the wander azimuth angle.
 #' n_E <- c(1, 0, 0)
-#' R_EL <-  n_E_and_wa2R_EL(n_E, wander_azimuth = pi / 2)
-#' }
+#' (R_EL <-  n_E_and_wa2R_EL(n_E, wander_azimuth = pi / 2))
 #'
 #' @seealso \code{\link{R_EL2n_E}}, \code{\link{R_EN2n_E}} and \code{\link{n_E2R_EN}}.
 #'

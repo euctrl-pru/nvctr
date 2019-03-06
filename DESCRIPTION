@@ -1,6 +1,6 @@
 Package: nvctr
 Type: Package
-Title: The n-vector approach to geographical position calculations using an ellipsoidal model of Earth
+Title: The n-vector Approach to Geographical Position Calculations using an Ellipsoidal Model of Earth
 Version: 0.1.1
 Authors@R: c(
   person("Enrico", "Spinielli", email = "enrico.spinielli@eurocontrol.int", role = c("aut", "cre"),
@@ -13,7 +13,7 @@ Description: The n-vector framework uses the normal vector to the Earth ellipsoi
   be very convenient for practical position calculations.
   The n-vector is simple to use and gives exact answers for all global positions,
   and all distances, for both ellipsoidal and spherical Earth models.
-  This package is a translation of the Matlab library from FFI,
+  This package is a translation of the 'Matlab' library from FFI,
   the Norwegian Defence Research Establishment, as described in Gade (2010)
   <doi:10.1017/S0373463309990415>.
 URL: https://github.com/euctrl-pru/nvctr
