@@ -88,12 +88,12 @@ ones in the [vignette][vignette]):
 
 
 
-[vignette]: <http://ansperformance.eu/nvctr/articles/position-calculations.html> "nvctr vignette"
-[ex5]: <http://ansperformance.eu/nvctr/articles/position-calculations.html#example-05> "Example 5: Surface distance"
-[ex6]: <http://ansperformance.eu/nvctr/articles/position-calculations.html#example-6-interpolated-position> "Example 6: Interpolated position"
-[ex8]: <http://ansperformance.eu/nvctr/articles/position-calculations.html#example-8-a-and-azimuthdistance-to-b> "Example 8: A and azimuth/distance to B"
-[ex9]: <http://ansperformance.eu/nvctr/articles/position-calculations.html#example-9-intersection-of-two-paths> "Example 9: Intersection of two paths"
-[ex10]: <http://ansperformance.eu/nvctr/articles/position-calculations.html#example-10-cross-track-distance-cross-track-error> "Example 10: Cross track distance (cross track error)"
+[vignette]: <http://nvctr.ansperformance.eu/articles/position-calculations.html> "nvctr vignette"
+[ex5]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-05> "Example 5: Surface distance"
+[ex6]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-6-interpolated-position> "Example 6: Interpolated position"
+[ex8]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-8-a-and-azimuthdistance-to-b> "Example 8: A and azimuth/distance to B"
+[ex9]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-9-intersection-of-two-paths> "Example 9: Intersection of two paths"
+[ex10]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-10-cross-track-distance-cross-track-error> "Example 10: Cross track distance (cross track error)"
 
 
 
