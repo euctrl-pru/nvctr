@@ -10,7 +10,7 @@ references:
     given: Kenneth
   volume: 63
   issn: 0373-4633, 1469-7785
-  URL:  'http://www.journals.cambridge.org/abstract_S0373463309990415'
+  URL:  'www.journals.cambridge.org/abstract_S0373463309990415'
   DOI: 10.1017/S0373463309990415
   issue: 03
   container-title: Journal of Navigation
@@ -46,7 +46,7 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/euctrl-pru/nvctr.svg?branch=master)](https://travis-ci.org/euctrl-pru/nvctr)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/euctrl-pru/nvctr?branch=master&svg=true)](https://ci.appveyor.com/project/euctrl-pru/nvctr)
 [![Coverage Status](https://codecov.io/gh/euctrl-pru/nvctr/branch/master/graph/badge.svg)](https://codecov.io/gh/euctrl-pru/nvctr)
-[![CRAN version](http://www.r-pkg.org/badges/version/nvctr)](https://cran.r-project.org/package=nvctr)
+[![CRAN version](https://www.r-pkg.org/badges/version/nvctr)](https://cran.r-project.org/package=nvctr)
 
 
 ## Overview
@@ -88,12 +88,12 @@ ones in the [vignette][vignette]):
 
 
 
-[vignette]: <http://nvctr.ansperformance.eu/articles/position-calculations.html> "nvctr vignette"
-[ex5]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-05> "Example 5: Surface distance"
-[ex6]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-6-interpolated-position> "Example 6: Interpolated position"
-[ex8]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-8-a-and-azimuthdistance-to-b> "Example 8: A and azimuth/distance to B"
-[ex9]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-9-intersection-of-two-paths> "Example 9: Intersection of two paths"
-[ex10]: <http://nvctr.ansperformance.eu/articles/position-calculations.html#example-10-cross-track-distance-cross-track-error> "Example 10: Cross track distance (cross track error)"
+[vignette]: <https://nvctr.ansperformance.eu/articles/position-calculations.html> "nvctr vignette"
+[ex5]: <https://nvctr.ansperformance.eu/articles/position-calculations.html#example-05> "Example 5: Surface distance"
+[ex6]: <https://nvctr.ansperformance.eu/articles/position-calculations.html#example-6-interpolated-position> "Example 6: Interpolated position"
+[ex8]: <https://nvctr.ansperformance.eu/articles/position-calculations.html#example-8-a-and-azimuthdistance-to-b> "Example 8: A and azimuth/distance to B"
+[ex9]: <https://nvctr.ansperformance.eu/articles/position-calculations.html#example-9-intersection-of-two-paths> "Example 9: Intersection of two paths"
+[ex10]: <https://nvctr.ansperformance.eu/articles/position-calculations.html#example-10-cross-track-distance-cross-track-error> "Example 10: Cross track distance (cross track error)"
 
 
 
