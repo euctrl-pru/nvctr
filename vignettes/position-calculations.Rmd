@@ -588,8 +588,8 @@ n_EB_E  <- lat_lon2n_E(rad(1), rad(0.1))
 r_Earth <- 6371e3  # mean Earth radius (m)
 ```
 
-Find the unit normal to the great circle between n_EA1_E and n_EA2_E,
-see Figure \@ref(fig:solution-10-fig).
+Find the unit normal to the great circle between n_EA1_E and n_EA2_E
+as shown in the Figure below.
 ```{r}
 c_E <- unit(pracma::cross(n_EA1_E, n_EA2_E))
 ```
