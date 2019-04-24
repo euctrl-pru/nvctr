@@ -588,10 +588,15 @@ n_EB_E  <- lat_lon2n_E(rad(1), rad(0.1))
 r_Earth <- 6371e3  # mean Earth radius (m)
 ```
 
-Find the unit normal to the great circle between n_EA1_E and n_EA2_E
+Find the unit normal to the great circle between n_EA1_E and n_EA2_E,
+see Figure \@ref(fig:solution-10-fig).
 ```{r}
 c_E <- unit(pracma::cross(n_EA1_E, n_EA2_E))
 ```
+```{r solution-10-fig, fig.cap='Vectors for cross track distance  calculation.', fig.pos='hbt', fig.height=4, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::include_graphics("solution10img.png")
+```
+
 
 Find the great circle cross track distance
 ```{r}
