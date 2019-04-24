@@ -3,9 +3,11 @@ title: "Simple and Exact Solutions to Position Calculation"
 author: "Enrico Spinielli"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::html_vignette:
+  bookdown::html_document2:
+    base_format: rmarkdown::html_vignette
     toc: true
     toc_depth: 2
+    number_sections: false
     fig_caption: true
 references:
 - id: gade2010
