@@ -27,6 +27,8 @@ references:
 link-citations: yes
 vignette: >
   %\VignetteIndexEntry{Simple and Exact Solutions to Position Calculation}
+  %\VignetteKeyword{Geodesic}
+  %\VignetteKeyword{Position calculation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
