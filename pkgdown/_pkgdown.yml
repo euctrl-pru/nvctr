@@ -1,3 +1,9 @@
+# as_is is needed to produce vignette output as specified in the YAML
+# (which is usually overridden by pkgdown by using `rmarkdown::html_document()` directly)
+# https://pkgdown.r-lib.org/reference/build_articles.html?q=output%20_%20format#yaml-config
+pkgdown:
+  as_is: true
+
 destination: docs
 url: https://nvctr.ansperformance.eu
 
