@@ -573,8 +573,6 @@ defined by the great circle.
 
 Use Earth radius $6371~\mathrm{km}$.
 
-Finally, find the intersection point on the great circle and
-determine if it is between position $A_1$ and $A_2$.
 
 ```{r example-10-fig,fig.cap='Cross track distance (cross track error).',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
 knitr::include_graphics("ex10img.png")
@@ -611,5 +609,60 @@ Find the Euclidean cross track distance
 (d_xt <- -pracma::dot(c_E, n_EB_E) * r_Earth)
 ```
 
+
+## Example 11: Cross track intersection
+
+Path A is given by the two positions $A_1$ and $A_2$
+(similar to the previous example).
+
+Find the cross track intersection point $C$ between the path A
+(i.e. the great circle through $A_1$ and $A_2$) and
+the position $B$, i.e. the shortest distance point at the surface,
+between the great circle and $B$.
+
+
+```{r example-11-fig,fig.cap='Cross track intersection.',fig.pos='hbt',fig.height=4,echo=FALSE,warning=FALSE,message=FALSE}
+knitr::include_graphics("ex11img.png")
+```
+
+### Solution
+
+Given (note that $B$ doesn't necessarily need to lie in between $A_1$ and $A_2$ as per Figure above)
+```{r}
+n_EA1_E <- lat_lon2n_E(rad(0), rad(3))
+n_EA2_E <- lat_lon2n_E(rad(0),rad(10))
+n_EB_E  <- lat_lon2n_E(rad(-1), rad(-1))
+```
+
+Find the normal to the great circle between n_EA1_E and n_EA2_E:
+
+```{r}
+n_EN_E <- unit(pracma::cross(n_EA1_E, n_EA2_E))
+```
+
+
+Find the intersection points (one antipodal to the other):
+
+```{r}
+n_EC_E_tmp <- unit(
+  pracma::cross(
+    n_EN_E,
+    pracma::cross(n_EN_E, n_EB_E)
+  )
+)
+```
+
+Choose the one closest to B:
+
+```{r}
+n_EC_E <- sign(pracma::dot(n_EC_E_tmp, n_EB_E)) * n_EC_E_tmp
+```
+
+Convert to longitude/latitude
+```{r example-11-conversion}
+(l  <- n_E2lat_lon(n_EC_E) %>% deg())
+(latitude  <- l[1])
+(longitude <- l[2])
+```
 
 # References
