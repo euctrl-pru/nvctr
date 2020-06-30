@@ -82,7 +82,7 @@ NOTE: elevation/altitude is ignored and assumed zero." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nvctr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -172,15 +172,17 @@ a vector of longitude, latitude (in decimal degrees) and elevation (in meters) i
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other utilities: 
-<code>altitude_azimuth_distance()</code></p></div>
+<code>along_track_distance()</code>,
+<code>altitude_azimuth_distance()</code>,
+<code>cross_track_distance()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># aircraft (longitude, latitude, altitude)</span>
 <span class='kw'>b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>8.086135</span>, <span class='fl'>49.973942</span>, <span class='fl'>6401</span>)
-<span class='co'># 07R (longitude, latitude, altitude)</span>
+<span class='co'># EDDF: 07R (longitude, latitude, altitude)</span>
 <span class='kw'>a1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>8.53417</span>, <span class='fl'>50.0275</span>, <span class='fl'>328</span>)
-<span class='co'># 25L</span>
+<span class='co'># EDDF: 25L</span>
 <span class='kw'>a2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>8.58653</span>, <span class='fl'>50.0401</span>, <span class='fl'>362</span>)
 <span class='fu'>cross_track_intersection</span>(<span class='kw'>b</span>, <span class='kw'>a1</span>, <span class='kw'>a2</span>)
 }</div></pre>
