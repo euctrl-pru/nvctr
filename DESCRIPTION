@@ -1,39 +1,45 @@
-Package: nvctr
 Type: Package
-Title: The n-vector Approach to Geographical Position Calculations using an Ellipsoidal Model of Earth
+Package: nvctr
+Title: The n-vector Approach to Geographical Position
+    Calculations using an Ellipsoidal Model of Earth
 Version: 0.1.1
-Authors@R: c(
-  person("Enrico", "Spinielli", email = "enrico.spinielli@eurocontrol.int", role = c("aut", "cre"),
-         comment = c(ORCID = "0000-0001-8584-9131")),
-  person("EUROCONTROL", role = c("cph", "fnd"))
-  )
+Authors@R: 
+    c(person(given = "Enrico",
+             family = "Spinielli",
+             role = c("aut", "cre"),
+             email = "enrico.spinielli@eurocontrol.int",
+             comment = c(ORCID = "0000-0001-8584-9131")),
+      person(given = "EUROCONTROL",
+             role = c("cph", "fnd")))
 Maintainer: Enrico Spinielli <enrico.spinielli@eurocontrol.int>
-Description: The n-vector framework uses the normal vector to the Earth ellipsoid
-  (called n-vector) as a non-singular position representation that turns out to
-  be very convenient for practical position calculations.
-  The n-vector is simple to use and gives exact answers for all global positions,
-  and all distances, for both ellipsoidal and spherical Earth models.
-  This package is a translation of the 'Matlab' library from FFI,
-  the Norwegian Defence Research Establishment, as described in Gade (2010)
-  <doi:10.1017/S0373463309990415>.
+Description: The n-vector framework uses the normal vector to
+    the Earth ellipsoid (called n-vector) as a non-singular position
+    representation that turns out to be very convenient for practical
+    position calculations.  The n-vector is simple to use and gives exact
+    answers for all global positions, and all distances, for both
+    ellipsoidal and spherical Earth models.  This package is a translation
+    of the 'Matlab' library from FFI, the Norwegian Defence Research
+    Establishment, as described in Gade (2010)
+    <doi:10.1017/S0373463309990415>.
+License: MIT + file LICENSE
 URL: https://github.com/euctrl-pru/nvctr
 BugReports: https://github.com/euctrl-pru/nvctr/issues
-License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-Suggests: 
-    testthat,
-    knitr,
-    rmarkdown,
-    bookdown,
-    geosphere,
-    png,
-    knitcitations,
-    covr,
-    spelling
 Imports: 
-    pracma,
-    magrittr
-RoxygenNote: 6.1.1
-VignetteBuilder: knitr
+    magrittr,
+    pracma
+Suggests: 
+    bookdown,
+    covr,
+    geosphere,
+    knitcitations,
+    knitr,
+    png,
+    rmarkdown,
+    spelling,
+    testthat
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
 Language: en-US
+LazyData: true
+RoxygenNote: 7.1.0

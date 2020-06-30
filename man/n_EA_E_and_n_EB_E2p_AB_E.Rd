@@ -4,8 +4,14 @@
 \alias{n_EA_E_and_n_EB_E2p_AB_E}
 \title{Find the delta position from two positions A and B}
 \usage{
-n_EA_E_and_n_EB_E2p_AB_E(n_EA_E, n_EB_E, z_EA = 0, z_EB = 0,
-  a = 6378137, f = 1/298.257223563)
+n_EA_E_and_n_EB_E2p_AB_E(
+  n_EA_E,
+  n_EB_E,
+  z_EA = 0,
+  z_EB = 0,
+  a = 6378137,
+  f = 1/298.257223563
+)
 }
 \arguments{
 \item{n_EA_E}{n-vector of position A, decomposed in E (3x1 vector) (no unit)}

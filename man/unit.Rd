@@ -19,3 +19,9 @@ Make input vector unit length, i.e. norm == 1
 unit(c(1,2,3))
 
 }
+\seealso{
+Other helpers: 
+\code{\link{deg}()},
+\code{\link{rad}()}
+}
+\concept{helpers}

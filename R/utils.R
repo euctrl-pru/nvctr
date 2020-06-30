@@ -4,6 +4,7 @@
 #'
 #' @return angle in radians
 #' @export
+#' @family helpers
 #'
 #' @seealso \code{\link{deg}}.
 #'
@@ -19,6 +20,7 @@ rad <- function(degrees) {
 #'
 #' @return angle in degrees.
 #' @export
+#' @family helpers
 #'
 #' @seealso \code{\link{rad}}.
 #'
@@ -52,6 +54,7 @@ check_length_deviation <- function(n_E) {
 #' @return a unit length vector
 #'
 #' @export
+#' @family helpers
 #'
 #' @examples
 #' unit(c(1,2,3))

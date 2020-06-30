@@ -20,4 +20,9 @@ rad(30)
 }
 \seealso{
 \code{\link{deg}}.
+
+Other helpers: 
+\code{\link{deg}()},
+\code{\link{unit}()}
 }
+\concept{helpers}

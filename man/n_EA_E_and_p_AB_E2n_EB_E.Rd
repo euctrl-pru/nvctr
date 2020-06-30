@@ -4,8 +4,13 @@
 \alias{n_EA_E_and_p_AB_E2n_EB_E}
 \title{Find position B from position A and delta}
 \usage{
-n_EA_E_and_p_AB_E2n_EB_E(n_EA_E, p_AB_E, z_EA = 0, a = 6378137,
-  f = 1/298.257223563)
+n_EA_E_and_p_AB_E2n_EB_E(
+  n_EA_E,
+  p_AB_E,
+  z_EA = 0,
+  a = 6378137,
+  f = 1/298.257223563
+)
 }
 \arguments{
 \item{n_EA_E}{n-vector of position A, decomposed in E (3x1 vector) (no unit)}

@@ -20,4 +20,9 @@ deg(pi/2)
 }
 \seealso{
 \code{\link{rad}}.
+
+Other helpers: 
+\code{\link{rad}()},
+\code{\link{unit}()}
 }
+\concept{helpers}

@@ -20,3 +20,15 @@ development:
 # https://pkgdown.r-lib.org/reference/build_articles.html?q=output%20_%20format#yaml-config
 pkgdown:
   as_is: true
+
+reference:
+- title: Utilities
+  desc: Interesting and useful applications of {nvctr}
+- contents:
+  - has_concept("utilities")
+- title: References
+- contents:
+  - lacks_concepts(c("utilities", "helpers"))
+- title: Helpers
+- contents:
+  - has_concept("helpers")
