@@ -122,13 +122,15 @@ The line-of-sight distance, in meters, from A to B is
 (los_distance <- norm(p_AB_N, type = "2"))
 ```
 
-while the elevation, in decimal degrees, is
+while the [altitude](https://en.wikipedia.org/wiki/Horizontal_coordinate_system)
+(elevation above the horizon), in decimal degrees, is
 ```{r elevation}
 (elevation <- atan2(-p_AB_N[3], p_AB_N[2]) %>% deg())
 ```
 
 
-**Step 5**: Also find the direction (azimuth) to $B$, in decimal degrees, relative to north
+**Step 5**: Also find the direction to $B$ ([azimuth](https://en.wikipedia.org/wiki/Azimuth)),
+in decimal degrees, relative to true North
 ```{r example-01-step05}
 (azimuth <- atan2(p_AB_N[2], p_AB_N[1]) %>%   # positive angle about down-axis
   deg())
