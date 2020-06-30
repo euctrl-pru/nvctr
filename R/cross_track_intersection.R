@@ -33,8 +33,8 @@ cross_track_intersection <- function(b, a1, a2) {
   a2_lon <- a2[1]
   a2_lat <- a2[2]
 
-  b_lat <- b[1]
-  b_lon <- b[2]
+  b_lon <- b[1]
+  b_lat <- b[2]
 
   n_EA1_E <- nvctr::lat_lon2n_E(nvctr::rad(a1_lat), nvctr::rad(a1_lon))
   n_EA2_E <- nvctr::lat_lon2n_E(nvctr::rad(a2_lat), nvctr::rad(a2_lon))
