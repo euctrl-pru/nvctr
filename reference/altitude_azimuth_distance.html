@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Find position B from position A and delta — n_EA_E_and_p_AB_E2n_EB_E • nvctr</title>
+<title>Calculate the altitude, azimuth and distance of B from A — altitude_azimuth_distance • nvctr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,10 +46,12 @@
 
 
 
-<meta property="og:title" content="Find position B from position A and delta — n_EA_E_and_p_AB_E2n_EB_E" />
-<meta property="og:description" content="Given the n-vector for position A (n_EA_E) and the position-vector from position
-A to position B (p_AB_E), the output is the n-vector of position
-B (n_EB_E) and depth of B (z_EB)." />
+<meta property="og:title" content="Calculate the altitude, azimuth and distance of B from A — altitude_azimuth_distance" />
+<meta property="og:description" content="The altitude (elevation from the horizon), azimuth and distance of a point B from A
+are the coordinates of the Topocentric Coordinate System as typically used in astronomy to
+aim your telescope to a heavenly body.
+It can be also of use to know where an airplane is in the sky with respect to an observer
+on Earth." />
 <meta property="og:image" content="https://nvctr.ansperformance.eu/logo.svg" />
 
 
@@ -133,90 +135,53 @@ B (n_EB_E) and depth of B (z_EB)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Find position B from position A and delta</h1>
-    <small class="dont-index">Source: <a href='https://github.com/euctrl-pru/nvctr/blob/master/R/n_EA_E_and_p_AB_E2n_EB_E.R'><code>R/n_EA_E_and_p_AB_E2n_EB_E.R</code></a></small>
-    <div class="hidden name"><code>n_EA_E_and_p_AB_E2n_EB_E.Rd</code></div>
+    <h1>Calculate the altitude, azimuth and distance of B from A</h1>
+    <small class="dont-index">Source: <a href='https://github.com/euctrl-pru/nvctr/blob/master/R/altitude_azimuth_distance.R'><code>R/altitude_azimuth_distance.R</code></a></small>
+    <div class="hidden name"><code>altitude_azimuth_distance.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Given the n-vector for position A (<code>n_EA_E</code>) and the position-vector from position
-A to position B (<code>p_AB_E</code>), the output is the n-vector of position
-B (<code>n_EB_E</code>) and depth of B (<code>z_EB</code>).</p>
+    <p>The altitude (elevation from the horizon), azimuth and distance of a point B from A
+are the coordinates of the Topocentric Coordinate System as typically used in astronomy to
+aim your telescope to a heavenly body.
+It can be also of use to know where an airplane is in the sky with respect to an observer
+on Earth.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>n_EA_E_and_p_AB_E2n_EB_E</span>(
-  <span class='kw'>n_EA_E</span>,
-  <span class='kw'>p_AB_E</span>,
-  z_EA = <span class='fl'>0</span>,
-  a = <span class='fl'>6378137</span>,
-  f = <span class='fl'>1</span><span class='op'>/</span><span class='fl'>298.257223563</span>
-)</pre>
+    <pre class="usage"><span class='fu'>altitude_azimuth_distance</span>(<span class='kw'>a</span>, <span class='kw'>b</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>n_EA_E</th>
-      <td><p>n-vector of position A, decomposed in E (3x1 vector) (no unit)</p></td>
-    </tr>
-    <tr>
-      <th>p_AB_E</th>
-      <td><p>Position vector from A to B, decomposed in E (3x1 vector) (m)</p></td>
-    </tr>
-    <tr>
-      <th>z_EA</th>
-      <td><p>Depth of system A, relative to the ellipsoid (z_EA = -height) (m, default 0)</p></td>
-    </tr>
-    <tr>
       <th>a</th>
-      <td><p>Semi-major axis of the Earth ellipsoid (m, default [WGS-84] 6378137)</p></td>
+      <td><p>the observer position: longitude, latitude (in decimal degrees) and
+altitude (in meters) in WSG84</p></td>
     </tr>
     <tr>
-      <th>f</th>
-      <td><p>Flattening of the Earth ellipsoid (no unit, default [WGS-84] 1/298.257223563)</p></td>
+      <th>b</th>
+      <td><p>the observed position: longitude, latitude (in decimal degrees) and
+altitude (in meters) in WSG84</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list with n-vector of position B, decomposed in E (3x1 vector) (no unit) and
-        the depth of system B, relative to the ellipsoid (z_EB = -height)</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>The calculation is exact, taking the ellipticity of the Earth into account.</p>
-<p>It is also nonsingular as both n-vector and p-vector are nonsingular
-(except for the center of the Earth).
-The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) might be specified.</p>
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
-
-    <p>Kenneth Gade <a href='www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf'>A Nonsingular Horizontal Position Representation</a>.
-<em>The Journal of Navigation</em>, Volume 63, Issue 03, pp 395-417, July 2010.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code>n_EA_E_and_n_EB_E2p_AB_E</code>, <code>p_EB_E2n_EB_E</code> and
-         <code>n_EB_E2p_EB_E</code></p></div>
+    <p>the coordinates in North-East-Up of the observed, B, with respect to the
+        observer A.
+        A vector of [altitude](https://en.wikipedia.org/wiki/Horizontal_coordinate_system)
+        (elevation from the horizon) in decimal degrees,
+        [azimuth](https://en.wikipedia.org/wiki/Azimuth)) in decimal degrees and
+        distance in meters.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>p_BC_B</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3000</span>, <span class='fl'>2000</span>, <span class='fl'>100</span>)
-
-<span class='co'># Position and orientation of B is given:</span>
-<span class='kw'>n_EB_E</span> <span class='op'>&lt;-</span> <span class='fu'>unit</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>))  <span class='co'># unit to get unit length of vector</span>
-<span class='kw'>z_EB</span> <span class='op'>&lt;-</span> <span class='op'>-</span><span class='fl'>400</span>
-<span class='kw'>R_NB</span>  <span class='op'>&lt;-</span> <span class='fu'>zyx2R</span>(<span class='fu'>rad</span>(<span class='fl'>10</span>), <span class='fu'>rad</span>(<span class='fl'>20</span>), <span class='fu'>rad</span>(<span class='fl'>30</span>)) <span class='co'># yaw, pitch, and roll</span>
-<span class='kw'>R_EN</span> <span class='op'>&lt;-</span> <span class='fu'>n_E2R_EN</span>(<span class='kw'>n_EB_E</span>)
-<span class='kw'>R_EB</span> <span class='op'>&lt;-</span> <span class='kw'>R_EN</span> <span class='op'>%*%</span> <span class='kw'>R_NB</span>
-
-<span class='co'># Decompose the delta vector in E:</span>
-<span class='kw'>p_BC_E</span> <span class='op'>&lt;-</span> (<span class='kw'>R_EB</span> <span class='op'>%*%</span> <span class='kw'>p_BC_B</span>) <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span>() <span class='co'># no transpose of R_EB, since the vector is in B</span>
-
-<span class='co'># Find the position of C, using the functions that goes from one</span>
-<span class='co'># position and a delta, to a new position:</span>
-(<span class='kw'>n_EB_E</span> <span class='op'>&lt;-</span> <span class='fu'>n_EA_E_and_p_AB_E2n_EB_E</span>(<span class='kw'>n_EB_E</span>, <span class='kw'>p_BC_E</span>, <span class='kw'>z_EB</span>))</div><div class='output co'>#&gt; $n_EB_E
-#&gt; [1] 0.2667916 0.5343565 0.8020507
-#&gt; 
-#&gt; $z_EB
-#&gt; [1] -406.0072
-#&gt; </div><div class='input'></div></pre>
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># sensor</span>
+<span class='kw'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>49.47</span>, <span class='fl'>7.697</span>, <span class='fl'>274</span>)
+<span class='co'># aircraft</span>
+<span class='kw'>b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>49.52</span>, <span class='fl'>7.803</span>, <span class='fl'>6401</span>)
+<span class='fu'>altitude_azimuth_distance</span>(<span class='kw'>a</span>, <span class='kw'>b</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
