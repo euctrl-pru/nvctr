@@ -28,7 +28,7 @@ Compute the along-track distances of a body, `b` (for example a ground level pro
  `a1` and `a2` (for example an airport's runway thresholds), of a great circle arc.
 }
 \examples{
-\dontrun {
+\dontrun{
 b <- c(8.086135, 49.973942, 6401)
 # EDDF: 07R (longitude, latitude, altitude)
 a1 <- c(8.53417, 50.0275, 328)

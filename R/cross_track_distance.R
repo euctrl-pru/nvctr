@@ -19,7 +19,7 @@
 #' @family utilities
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #' b <- c(8.086135, 49.973942, 6401)
 #' # EDDF: 07R (longitude, latitude, altitude)
 #' a1 <- c(8.53417, 50.0275, 328)

@@ -2,7 +2,7 @@ Type: Package
 Package: nvctr
 Title: The n-vector Approach to Geographical Position
     Calculations using an Ellipsoidal Model of Earth
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     c(person(given = "Enrico",
              family = "Spinielli",
