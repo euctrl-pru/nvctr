@@ -15,21 +15,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,8 +45,8 @@
 
 
 
-<meta property="og:title" content="Create a rotation matrix from 3 angles about new axes in the xyz order. — xyz2R" />
 
+<meta property="og:title" content="Create a rotation matrix from 3 angles about new axes in the xyz order. — xyz2R" />
 <meta property="og:description" content="The rotation matrix R_AB is created based on 3 angles x, y and z
 about new axes (intrinsic) in the order x-y-z.
 The angles (called Euler angles or Tait-Bryan angles) are defined by the following
@@ -51,9 +59,8 @@ Secondly, T is rotated an angle y about the NEW y-axis of T.
 Finally, codeT is rotated an angle z about its NEWEST z-axis.
          The final orientation of T now coincides with the orientation of B.
 The signs of the angles are given by the directions of the axes and the right hand rule." />
+<meta property="og:image" content="https://nvctr.ansperformance.eu/logo.svg" />
 
-<meta property="og:image" content="https://nvctr.ansperformance.eu/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -67,9 +74,10 @@ The signs of the angles are given by the directions of the axes and the right ha
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -91,7 +99,7 @@ The signs of the angles are given by the directions of the axes and the right ha
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -114,11 +122,10 @@ The signs of the angles are given by the directions of the axes and the right ha
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/euctrl-pru/nvctr">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/euctrl-pru/nvctr/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -129,6 +136,7 @@ The signs of the angles are given by the directions of the axes and the right ha
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -140,7 +148,6 @@ The signs of the angles are given by the directions of the axes and the right ha
     </div>
 
     <div class="ref-description">
-    
     <p>The rotation matrix <code>R_AB</code> is created based on 3 angles <code>x</code>, <code>y</code> and <code>z</code>
 about new axes (intrinsic) in the order x-y-z.
 The angles (called Euler angles or Tait-Bryan angles) are defined by the following
@@ -153,11 +160,10 @@ procedure of successive rotations:</p><ol>
 <li><p>Finally, codeT is rotated an angle <code>z</code> about its NEWEST z-axis.
          The final orientation of <code>T</code> now coincides with the orientation of <code>B</code>.</p></li>
 </ol><p>The signs of the angles are given by the directions of the axes and the right hand rule.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>xyz2R</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>z</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>xyz2R</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, <span class='kw'>z</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -174,45 +180,32 @@ procedure of successive rotations:</p><ol>
       <td><p>Angle of rotation about new z axis (rad)</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>3x3 rotation matrix (direction cosine matrix) such that the relation between
         a vector v decomposed in A and B is given by: v_A = R_AB * v_B</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kenneth Gade <a href='www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf'>A Nonsingular Horizontal Position Representation</a>.
 <em>The Journal of Navigation</em>, Volume 63, Issue 03, pp 395-417, July 2010.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='R2xyz.html'>R2xyz</a></code>, <code><a href='zyx2R.html'>zyx2R</a></code> and <code><a href='R2zyx.html'>R2zyx</a></code>.</p></div>
-    
+    <div class='dont-index'><p><code>R2xyz</code>, <code>zyx2R</code> and <code>R2zyx</code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>xyz2R</span>(<span class='fu'><a href='rad.html'>rad</a></span>(<span class='fl'>10</span>), <span class='fu'><a href='rad.html'>rad</a></span>(<span class='fl'>20</span>), <span class='fu'><a href='rad.html'>rad</a></span>(<span class='fl'>30</span>))</div><div class='output co'>#&gt;            [,1]       [,2]       [,3]
+    <pre class="examples"><div class='input'><span class='fu'>xyz2R</span>(<span class='fu'>rad</span>(<span class='fl'>10</span>), <span class='fu'>rad</span>(<span class='fl'>20</span>), <span class='fu'>rad</span>(<span class='fl'>30</span>))</div><div class='output co'>#&gt;            [,1]       [,2]       [,3]
 #&gt; [1,]  0.8137977 -0.4698463  0.3420201
 #&gt; [2,]  0.5438381  0.8231729 -0.1631759
-#&gt; [3,] -0.2048741  0.3187958  0.9254166</div><div class='input'>
-</div></pre>
+#&gt; [3,] -0.2048741  0.3187958  0.9254166</div><div class='input'></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -220,13 +213,16 @@ procedure of successive rotations:</p><ol>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
