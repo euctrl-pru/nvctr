@@ -28,15 +28,17 @@ NOTE: elevation/altitude is ignored and assumed zero.
 \dontrun{
 # aircraft (longitude, latitude, altitude)
 b <- c(8.086135, 49.973942, 6401)
-# 07R (longitude, latitude, altitude)
+# EDDF: 07R (longitude, latitude, altitude)
 a1 <- c(8.53417, 50.0275, 328)
-# 25L
+# EDDF: 25L
 a2 <- c(8.58653, 50.0401, 362)
 cross_track_intersection(b, a1, a2)
 }
 }
 \seealso{
 Other utilities: 
-\code{\link{altitude_azimuth_distance}()}
+\code{\link{along_track_distance}()},
+\code{\link{altitude_azimuth_distance}()},
+\code{\link{cross_track_distance}()}
 }
 \concept{utilities}

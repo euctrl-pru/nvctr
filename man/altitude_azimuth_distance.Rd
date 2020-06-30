@@ -39,6 +39,8 @@ altitude_azimuth_distance(a, b)
 }
 \seealso{
 Other utilities: 
+\code{\link{along_track_distance}()},
+\code{\link{cross_track_distance}()},
 \code{\link{cross_track_intersection}()}
 }
 \concept{utilities}
