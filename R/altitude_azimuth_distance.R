@@ -7,9 +7,9 @@
 #' on Earth.
 #'
 #'
-#' @param a the observer position: longitude, latitude (in decimal degrees) and
+#' @param a the observer position: a vector of longitude, latitude (in decimal degrees) and
 #'          altitude (in meters) in WSG84
-#' @param b the observed position: longitude, latitude (in decimal degrees) and
+#' @param b the observed position: a vector of longitude, latitude (in decimal degrees) and
 #'          altitude (in meters) in WSG84
 #'
 #' @return the coordinates in North-East-Up of the observed, B, with respect to the
@@ -23,9 +23,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' # sensor
+#' # sensor (longitude, latitude, altitude)
 #' a <- c(49.47, 7.697, 274)
-#' # aircraft
+#' # aircraft (longitude, latitude, altitude)
 #' b <- c(49.52, 7.803, 6401)
 #' altitude_azimuth_distance(a, b)
 #' }
