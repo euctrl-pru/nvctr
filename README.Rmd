@@ -43,10 +43,10 @@ knitr::opts_chunk$set(
 
 # nvctr <img src="man/figures/logo.svg" align="right" height="139" />
 
-[![Travis build status](https://travis-ci.org/euctrl-pru/nvctr.svg?branch=master)](https://travis-ci.org/euctrl-pru/nvctr)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/euctrl-pru/nvctr?branch=master&svg=true)](https://ci.appveyor.com/project/euctrl-pru/nvctr)
-[![Coverage Status](https://codecov.io/gh/euctrl-pru/nvctr/branch/master/graph/badge.svg)](https://codecov.io/gh/euctrl-pru/nvctr)
+<!-- badges: start -->
+[![R build status](https://github.com/euctrl-pru/nvctr/workflows/R-CMD-check/badge.svg)](https://github.com/euctrl-pru/nvctr/actions)
 [![CRAN version](https://www.r-pkg.org/badges/version/nvctr)](https://cran.r-project.org/package=nvctr)
+<!-- badges: end -->
 
 
 ## Overview
