@@ -101,7 +101,8 @@
 
     
     
-<p>This vignette contains solutions to various geographical position calculations. It is inspired and follows the 10 examples given at <a href="https://www.navlab.net/nvector/" class="uri">https://www.navlab.net/nvector/</a> .</p>
+<p>This vignette contains solutions to various geographical position calculations.
+It is inspired and follows the 10 examples given at <a href="https://www.navlab.net/nvector/" class="uri">https://www.navlab.net/nvector/</a> .</p>
 <p>Most of the content is based on <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span>.</p>
 <p>The color scheme in the Figures is as follows:</p>
 <ul>
@@ -113,10 +114,14 @@
 <div id="example-01" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-01" class="anchor"></a>Example 1: A and B to delta</h2>
-<p>Given two positions <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, find the exact vector from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> in meters north, east and down, and find the direction (azimuth/bearing) to <span class="math inline">\(B\)</span>, relative to north. Use WGS-84 ellipsoid.</p>
+<p>Given two positions <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, find the exact vector from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> in meters north,
+east and down,
+and find the direction (azimuth/bearing) to <span class="math inline">\(B\)</span>, relative to north.
+Use WGS-84 ellipsoid.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-01-fig"></span>
 <img src="ex1img.png" alt="A and B to delta." width="220px"><p class="caption">
-A and B to delta.
+Figure 1: A and B to delta.
 </p>
 </div>
 <div id="solution" class="section level3">
@@ -166,17 +171,20 @@ A and B to delta.
   <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span>())
 <span class="co">#&gt; [1] 331730.23 332997.87  17404.27</span>
 </pre></div>
-<p>The vector <span class="math inline">\(\mathbf{p}_{AB}^N\)</span> connects A to B in the North-East-Down framework. The line-of-sight distance, in meters, from A to B is</p>
+<p>The vector <span class="math inline">\(\mathbf{p}_{AB}^N\)</span> connects A to B in the North-East-Down framework.
+The line-of-sight distance, in meters, from A to B is</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
 (<span class="kw">los_distance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/norm.html">norm</a></span>(<span class="kw">p_AB_N</span>, type = <span class="st">"2"</span>))
 <span class="co">#&gt; [1] 470356.7</span>
 </pre></div>
-<p>while the <a href="https://en.wikipedia.org/wiki/Horizontal_coordinate_system">altitude</a> (elevation above the horizon), in decimal degrees, is</p>
+<p>while the <a href="https://en.wikipedia.org/wiki/Horizontal_coordinate_system">altitude</a>
+(elevation above the horizon), in decimal degrees, is</p>
 <div class="sourceCode" id="cb7"><pre class="downlit">
 (<span class="kw">elevation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">atan2</a></span>(<span class="op">-</span><span class="kw">p_AB_N</span>[<span class="fl">3</span>], <span class="kw">p_AB_N</span>[<span class="fl">2</span>]) <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/deg.html">deg</a></span>())
 <span class="co">#&gt; [1] -2.991865</span>
 </pre></div>
-<p><strong>Step 5</strong>: Also find the direction to <span class="math inline">\(B\)</span> (<a href="https://en.wikipedia.org/wiki/Azimuth">azimuth</a>), in decimal degrees, relative to true North</p>
+<p><strong>Step 5</strong>: Also find the direction to <span class="math inline">\(B\)</span> (<a href="https://en.wikipedia.org/wiki/Azimuth">azimuth</a>),
+in decimal degrees, relative to true North</p>
 <div class="sourceCode" id="cb8"><pre class="downlit">
 (<span class="kw">azimuth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">atan2</a></span>(<span class="kw">p_AB_N</span>[<span class="fl">2</span>], <span class="kw">p_AB_N</span>[<span class="fl">1</span>]) <span class="op">%&gt;%</span>   <span class="co"># positive angle about down-axis</span>
   <span class="fu"><a href="../reference/deg.html">deg</a></span>())
@@ -187,14 +195,21 @@ A and B to delta.
 <div id="example-02" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-02" class="anchor"></a>Example 2: B and delta to C</h2>
-<p>A radar or sonar attached to a vehicle <span class="math inline">\(B\)</span> (<strong>B</strong>ody coordinate frame) measures the distance and direction to an object <span class="math inline">\(C\)</span>.</p>
-<p>We assume that the distance and two angles (typically bearing and elevation relative to <span class="math inline">\(B\)</span>) are already combined to the vector <span class="math inline">\(\mathbf{p}_{BC}^B\)</span> (i.e. the vector from <span class="math inline">\(B\)</span> to <span class="math inline">\(C\)</span>, decomposed in B).</p>
-<p>The position of <span class="math inline">\(B\)</span> is given as <span class="math inline">\(\mathbf{n}_{EB}^E\)</span> and <span class="math inline">\(z_{EB}\)</span>, and the orientation (attitude) of <span class="math inline">\(B\)</span> is given as <span class="math inline">\(\mathbf{R}_{NB}\)</span> (this rotation matrix can be found from roll/pitch/yaw by using <code>zyx2R</code>).</p>
-<p>Find the exact position of object <span class="math inline">\(C\)</span> as n-vector and depth (<span class="math inline">\(\mathbf{n}_{EC}^E\)</span> and <span class="math inline">\(z_{EC}\)</span>), assuming Earth ellipsoid with semi-major axis <span class="math inline">\(a\)</span> and flattening <span class="math inline">\(f\)</span>.</p>
+<p>A radar or sonar attached to a vehicle <span class="math inline">\(B\)</span> (<strong>B</strong>ody coordinate frame) measures
+the distance and direction to an object <span class="math inline">\(C\)</span>.</p>
+<p>We assume that the distance and two angles (typically bearing and elevation relative to <span class="math inline">\(B\)</span>)
+are already combined to the vector <span class="math inline">\(\mathbf{p}_{BC}^B\)</span> (i.e. the vector from <span class="math inline">\(B\)</span> to <span class="math inline">\(C\)</span>,
+decomposed in B).</p>
+<p>The position of <span class="math inline">\(B\)</span> is given as <span class="math inline">\(\mathbf{n}_{EB}^E\)</span> and <span class="math inline">\(z_{EB}\)</span>, and the orientation (attitude)
+of <span class="math inline">\(B\)</span> is given as <span class="math inline">\(\mathbf{R}_{NB}\)</span> (this rotation matrix can be found from
+roll/pitch/yaw by using <code>zyx2R</code>).</p>
+<p>Find the exact position of object <span class="math inline">\(C\)</span> as n-vector and depth (<span class="math inline">\(\mathbf{n}_{EC}^E\)</span> and <span class="math inline">\(z_{EC}\)</span>),
+assuming Earth ellipsoid with semi-major axis <span class="math inline">\(a\)</span> and flattening <span class="math inline">\(f\)</span>.</p>
 <p>For WGS-72, use <span class="math inline">\(a = 6378135~\mathrm{m}\)</span> and <span class="math inline">\(f = \dfrac{1}{298.26}\)</span>.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-02-fig"></span>
 <img src="ex2img.png" alt="B and delta to C." width="220px"><p class="caption">
-B and delta to C.
+Figure 2: B and delta to C.
 </p>
 </div>
 <div id="solution-1" class="section level3">
@@ -242,7 +257,8 @@ B and delta to C.
 <span class="co">#&gt; [2,] -1052.696</span>
 <span class="co">#&gt; [3,]  1707.295</span>
 </pre></div>
-<p><strong>Step 4</strong>: Find the position of <span class="math inline">\(C\)</span>, using the functions that goes from one position and a delta, to a new position</p>
+<p><strong>Step 4</strong>: Find the position of <span class="math inline">\(C\)</span>, using the functions that goes from one
+position and a delta, to a new position</p>
 <div class="sourceCode" id="cb13"><pre class="downlit">
 <span class="kw">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/n_EA_E_and_p_AB_E2n_EB_E.html">n_EA_E_and_p_AB_E2n_EB_E</a></span>(<span class="kw">n_EB_E</span>, <span class="kw">p_BC_E</span>, <span class="kw">z_EB</span>, <span class="kw">a</span>, <span class="kw">f</span>)
 (<span class="kw">n_EB_E</span> <span class="op">&lt;-</span> <span class="kw">l</span>[[<span class="st">'n_EB_E'</span>]])
@@ -267,11 +283,14 @@ B and delta to C.
 <div id="example-3-ecef-vector-to-geodetic-latitude" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-3-ecef-vector-to-geodetic-latitude" class="anchor"></a>Example 3: ECEF-vector to geodetic latitude</h2>
-<p>Position <span class="math inline">\(B\)</span> is given as an “ECEF-vector” <span class="math inline">\(\mathbf{p}_{EB}^E\)</span> (i.e. a vector from E, the center of the Earth, to <span class="math inline">\(B\)</span>, decomposed in E).</p>
-<p>Find the geodetic latitude, longitude and height (<code>latEB</code>, <code>lonEB</code> and <code>hEB</code>), assuming WGS-84 ellipsoid.</p>
+<p>Position <span class="math inline">\(B\)</span> is given as an “ECEF-vector” <span class="math inline">\(\mathbf{p}_{EB}^E\)</span> (i.e. a vector from E,
+the center of the Earth, to <span class="math inline">\(B\)</span>, decomposed in E).</p>
+<p>Find the geodetic latitude, longitude and height (<code>latEB</code>, <code>lonEB</code> and <code>hEB</code>),
+assuming WGS-84 ellipsoid.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-03-fig"></span>
 <img src="ex3img.png" alt="ECEF-vector to geodetic latitude." width="220px"><p class="caption">
-ECEF-vector to geodetic latitude.
+Figure 3: ECEF-vector to geodetic latitude.
 </p>
 </div>
 <p>Position <span class="math inline">\(B\)</span> is given as <span class="math inline">\(\mathbf{p}_{EB}^E\)</span>, i.e. “ECEF-vector”</p>
@@ -307,10 +326,12 @@ ECEF-vector to geodetic latitude.
 <div id="example-4-geodetic-latitude-to-ecef-vector" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-4-geodetic-latitude-to-ecef-vector" class="anchor"></a>Example 4: Geodetic latitude to ECEF-vector</h2>
-<p>Find the ECEF-vector <span class="math inline">\(\mathbf{p}_{EB}^E\)</span> for the geodetic position <span class="math inline">\(B\)</span> given as latitude <span class="math inline">\(lat_{EB}\)</span>, longitude <span class="math inline">\(lon_{EB}\)</span> and height <span class="math inline">\(h_{EB}\)</span>.</p>
+<p>Find the ECEF-vector <span class="math inline">\(\mathbf{p}_{EB}^E\)</span> for the geodetic position <span class="math inline">\(B\)</span> given as
+latitude <span class="math inline">\(lat_{EB}\)</span>, longitude <span class="math inline">\(lon_{EB}\)</span> and height <span class="math inline">\(h_{EB}\)</span>.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-04-fig"></span>
 <img src="ex4img.png" alt="Geodetic latitude to ECEF-vector." width="220px"><p class="caption">
-Geodetic latitude to ECEF-vector.
+Figure 4: Geodetic latitude to ECEF-vector.
 </p>
 </div>
 <div id="solution-3" class="section level3">
@@ -336,12 +357,18 @@ Geodetic latitude to ECEF-vector.
 <div id="example-05" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-05" class="anchor"></a>Example 5: Surface distance</h2>
-<p>Given two positions <span class="math inline">\(A\)</span> <span class="math inline">\(\mathbf{n}_{EA}^E\)</span> and <span class="math inline">\(B\)</span> <span class="math inline">\(\mathbf{n}_{EB}^E\)</span>, find the surface distance <span class="math inline">\(s_{AB}\)</span> (i.e. great circle distance). The heights of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not relevant (i.e. if they don’t have zero height, we seek the distance between the points that are at the surface of the Earth, directly above/below <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>). Also find the Euclidean distance (chord length) <span class="math inline">\(d_{AB}\)</span> using nonzero heights.</p>
+<p>Given two positions <span class="math inline">\(A\)</span> <span class="math inline">\(\mathbf{n}_{EA}^E\)</span> and <span class="math inline">\(B\)</span> <span class="math inline">\(\mathbf{n}_{EB}^E\)</span>,
+find the surface distance <span class="math inline">\(s_{AB}\)</span> (i.e. great circle distance).
+The heights of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not relevant (i.e. if they don’t have zero height,
+we seek the distance between the points that are at the surface of the Earth,
+directly above/below <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>).
+Also find the Euclidean distance (chord length) <span class="math inline">\(d_{AB}\)</span> using nonzero heights.</p>
 <p>Assume a spherical model of the Earth with radius <span class="math inline">\(r_{Earth} = 6371~\mathrm{km}\)</span>.</p>
 <p>Compare the results with exact calculations for the WGS-84 ellipsoid.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-05-fig"></span>
 <img src="ex5img.png" alt="Surface distance." width="220px"><p class="caption">
-Surface distance.
+Figure 5: Surface distance.
 </p>
 </div>
 <div id="solution-4" class="section level3">
@@ -355,9 +382,13 @@ Surface distance.
 <div id="spherical-model" class="section level4">
 <h4 class="hasAnchor">
 <a href="#spherical-model" class="anchor"></a>Spherical model</h4>
-<p>The great circle distance is given by equations (16) in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span> (the <span class="math inline">\(\arccos\)</span> is ill conditioned for small angles; the <span class="math inline">\(\arcsin\)</span> is ill-conditioned for angles near <span class="math inline">\(\pi/2\)</span>, and not valid for angles greater than <span class="math inline">\(\pi/2\)</span>) where <span class="math inline">\(r_{roc}\)</span> is the radius of curvature, i.e. Earth radius + height:</p>
+<p>The great circle distance is given by equations (16) in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span>
+(the <span class="math inline">\(\arccos\)</span> is ill conditioned for small angles; the <span class="math inline">\(\arcsin\)</span> is ill-conditioned
+for angles near <span class="math inline">\(\pi/2\)</span>, and not valid for angles greater than <span class="math inline">\(\pi/2\)</span>) where <span class="math inline">\(r_{roc}\)</span>
+is the radius of curvature, i.e. Earth radius + height:</p>
 <p><span class="math inline">\(\begin{align} s_{AB} &amp; = r_{roc} \cdot \arccos \!\big(\mathbf{n}_{EA}^E \boldsymbol{\cdot} \mathbf{n}_{EB}^E\big)\\  &amp; = r_{roc} \cdot \arcsin \!\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|\big) \tag{16} \end{align}\)</span></p>
-<p>The formulation via <span class="math inline">\(\operatorname{atan2}\)</span> of equation (6) in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span> is instead well conditioned for all angles:</p>
+<p>The formulation via <span class="math inline">\(\operatorname{atan2}\)</span> of equation (6) in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span> is instead well conditioned
+for all angles:</p>
 <p><span class="math inline">\(s_{AB} = r_{roc} \cdot \operatorname{atan2}\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|,  \mathbf{n}_{EA}^E \boldsymbol{\cdot} \mathbf{n}_{EB}^E\big) \tag{6}\)</span></p>
 <div class="sourceCode" id="cb22"><pre class="downlit">
 (<span class="kw">s_AB</span> <span class="op">&lt;-</span> (<span class="fu"><a href="https://rdrr.io/r/base/Trig.html">atan2</a></span>(<span class="kw">base</span>::<span class="fu"><a href="https://rdrr.io/r/base/norm.html">norm</a></span>(<span class="kw">pracma</span>::<span class="fu"><a href="https://rdrr.io/pkg/pracma/man/cross.html">cross</a></span>(<span class="kw">n_EA_E</span>, <span class="kw">n_EB_E</span>), type = <span class="st">"2"</span>),
@@ -385,11 +416,14 @@ Surface distance.
 <div id="example-6-interpolated-position" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-6-interpolated-position" class="anchor"></a>Example 6: Interpolated position</h2>
-<p>Given the position of <span class="math inline">\(B\)</span> at time <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t_1\)</span>, <span class="math inline">\(\mathbf{n}_{EB}^E(t_0)\)</span> and <span class="math inline">\(\mathbf{n}_{EB}^E(t_1)\)</span>.</p>
-<p>Find an interpolated position at time <span class="math inline">\(t_i\)</span>, <span class="math inline">\(\mathbf{n}_{EB}^E(t_i)\)</span>. All positions are given as n-vectors.</p>
+<p>Given the position of <span class="math inline">\(B\)</span> at time <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t_1\)</span>, <span class="math inline">\(\mathbf{n}_{EB}^E(t_0)\)</span> and
+<span class="math inline">\(\mathbf{n}_{EB}^E(t_1)\)</span>.</p>
+<p>Find an interpolated position at time <span class="math inline">\(t_i\)</span>, <span class="math inline">\(\mathbf{n}_{EB}^E(t_i)\)</span>.
+All positions are given as n-vectors.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-06-fig"></span>
 <img src="ex6img.png" alt="Interpolated position." width="220px"><p class="caption">
-Interpolated position.
+Figure 6: Interpolated position.
 </p>
 </div>
 <div id="solution-5" class="section level3">
@@ -428,24 +462,28 @@ Interpolated position.
 <div id="example-7-mean-position-centermidpoint" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-7-mean-position-centermidpoint" class="anchor"></a>Example 7: Mean position (center/midpoint)</h2>
-<p>Given three positions <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> as n-vectors <span class="math inline">\(\mathbf{n}_{EA}^E\)</span>, <span class="math inline">\(\mathbf{n}_{EB}^E\)</span>, and <span class="math inline">\(\mathbf{n}_{EC}^E\)</span>, find the mean position, <span class="math inline">\(M\)</span>, as n-vector <span class="math inline">\(\mathbf{n}_{EM}^E\)</span>.</p>
+<p>Given three positions <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> as n-vectors <span class="math inline">\(\mathbf{n}_{EA}^E\)</span>, <span class="math inline">\(\mathbf{n}_{EB}^E\)</span>,
+and <span class="math inline">\(\mathbf{n}_{EC}^E\)</span>, find the mean position, <span class="math inline">\(M\)</span>, as n-vector <span class="math inline">\(\mathbf{n}_{EM}^E\)</span>.</p>
 <p>Note that the calculation is independent of the depths of the positions.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-07-fig"></span>
 <img src="ex7img.png" alt="Mean position (center/midpoint)." width="220px"><p class="caption">
-Mean position (center/midpoint).
+Figure 7: Mean position (center/midpoint).
 </p>
 </div>
 <div id="solution-6" class="section level3">
 <h3 class="hasAnchor">
 <a href="#solution-6" class="anchor"></a>Solution</h3>
-<p>The (geographical) mean position <span class="math inline">\(B_{GM}\)</span> is simply given equation (17) in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span> (assuming spherical Earth)</p>
+<p>The (geographical) mean position <span class="math inline">\(B_{GM}\)</span> is simply given equation (17) in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span>
+(assuming spherical Earth)</p>
 <p><span class="math display">\[
 \mathbf{n}_{EB_{GM}}^E = \operatorname{unit}\Big( \sum_{i = 1}^{m} \mathbf{n}_{EB_i}^E \Big) \tag{17}
 \]</span></p>
 <p>and specifically for the three given points</p>
 <p><span class="math display">\[
 \mathbf{n}_{EM}^E = \mathrm{unit}\Big(\mathbf{n}_{EA}^E + \mathbf{n}_{EB}^E + \mathbf{n}_{EC}^E \Big) = \frac{\mathbf{n}_{EA}^E + \mathbf{n}_{EB}^E + \mathbf{n}_{EC}^E}{\Big | \mathbf{n}_{EA}^E + \mathbf{n}_{EB}^E + \mathbf{n}_{EC}^E \Big| }
-\]</span> Given the three n-vectors</p>
+\]</span>
+Given the three n-vectors</p>
 <div class="sourceCode" id="cb28"><pre class="downlit">
 <span class="kw">n_EA_E</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lat_lon2n_E.html">lat_lon2n_E</a></span>(<span class="fu"><a href="../reference/rad.html">rad</a></span>(<span class="fl">90</span>), <span class="fu"><a href="../reference/rad.html">rad</a></span>(<span class="fl">0</span>))
 <span class="kw">n_EB_E</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lat_lon2n_E.html">lat_lon2n_E</a></span>(<span class="fu"><a href="../reference/rad.html">rad</a></span>(<span class="fl">60</span>), <span class="fu"><a href="../reference/rad.html">rad</a></span>(<span class="fl">10</span>))
@@ -470,12 +508,21 @@ Mean position (center/midpoint).
 <div id="example-8-a-and-azimuthdistance-to-b" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-8-a-and-azimuthdistance-to-b" class="anchor"></a>Example 8: A and azimuth/distance to B</h2>
-<p>Given a position <span class="math inline">\(A\)</span> as n-vector <span class="math inline">\(\mathbf{n}_{EA}^E\)</span>, an initial direction of travel as an azimuth (bearing), <span class="math inline">\(\alpha\)</span>, relative to north (clockwise), and finally the distance to travel along a great circle, <span class="math inline">\(s_{AB}\)</span> find the destination point <span class="math inline">\(B\)</span>, given as <span class="math inline">\(\mathbf{n}_{EB}^E\)</span>.</p>
+<p>Given a position <span class="math inline">\(A\)</span> as n-vector <span class="math inline">\(\mathbf{n}_{EA}^E\)</span>, an initial direction of travel
+as an azimuth (bearing), <span class="math inline">\(\alpha\)</span>, relative to north (clockwise),
+and finally the distance to travel along a great circle, <span class="math inline">\(s_{AB}\)</span>
+find the destination point <span class="math inline">\(B\)</span>, given as <span class="math inline">\(\mathbf{n}_{EB}^E\)</span>.</p>
 <p>Use Earth radius <span class="math inline">\(r_{Earth}\)</span>.</p>
-<p>In geodesy this is known as “The first geodetic problem” or “The direct geodetic problem” for a sphere, and we see that this is similar to <a href="#example-02">Example 2</a>, but now the delta is given as an azimuth and a great circle distance. (“The second/inverse geodetic problem” for a sphere is already solved in <a href="#example-01">Examples 1</a> and <a href="#example-05">5</a>.)</p>
+<p>In geodesy this is known as “The first geodetic problem” or
+“The direct geodetic problem” for a sphere,
+and we see that this is similar to <a href="#example-02">Example 2</a>,
+but now the delta is given as an azimuth and a great circle distance.
+(“The second/inverse geodetic problem” for a sphere is already solved in
+<a href="#example-01">Examples 1</a> and <a href="#example-05">5</a>.)</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-08-fig"></span>
 <img src="ex8img.png" alt="A and azimuth/distance to B." width="220px"><p class="caption">
-A and azimuth/distance to B.
+Figure 8: A and azimuth/distance to B.
 </p>
 </div>
 <div id="solution-7" class="section level3">
@@ -488,12 +535,15 @@ A and azimuth/distance to B.
 <span class="kw">s_AB</span> <span class="op">&lt;-</span> <span class="fl">1000</span> <span class="co"># distance (m)</span>
 <span class="kw">r_Earth</span> <span class="op">&lt;-</span> <span class="fl">6371e3</span> <span class="co"># mean Earth radius (m)</span>
 </pre></div>
-<p><strong>Step 1</strong>: Find unit vectors for north and east as per equations (9) and (10) in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span></p>
-<p>$$ <span class="math display">\[\begin{align}
+<p><strong>Step 1</strong>: Find unit vectors for north and east as per equations (9) and (10)
+in <span class="citation">(Gade <a href="#ref-gade2010" role="doc-biblioref">2010</a>)</span></p>
+<p>$$
+<span class="math display">\[\begin{align}
 \mathbf{k}_{east}^E  &amp; =   \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \times \mathbf{n}^E \tag{9} \\
 
 \mathbf{k}_{north}^E &amp; =  \mathbf{n}^E  \times  \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}  \times \mathbf{n}^E \tag{10}
-\end{align}\]</span> $$</p>
+\end{align}\]</span>
+$$</p>
 <div class="sourceCode" id="cb32"><pre class="downlit">
 <span class="kw">k_east_E</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unit.html">unit</a></span>(<span class="kw">pracma</span>::<span class="fu"><a href="https://rdrr.io/pkg/pracma/man/cross.html">cross</a></span>(<span class="kw">base</span>::<span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span>(<span class="fu"><a href="../reference/R_Ee.html">R_Ee</a></span>()) <span class="op">%*%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span>(), <span class="kw">n_EA_E</span>))
 <span class="kw">k_north_E</span> <span class="op">&lt;-</span> <span class="kw">pracma</span>::<span class="fu"><a href="https://rdrr.io/pkg/pracma/man/cross.html">cross</a></span>(<span class="kw">n_EA_E</span>, <span class="kw">k_east_E</span>)
@@ -520,12 +570,14 @@ A and azimuth/distance to B.
 <div id="example-9-intersection-of-two-paths" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-9-intersection-of-two-paths" class="anchor"></a>Example 9: Intersection of two paths</h2>
-<p>Define a path from two given positions (at the surface of a spherical Earth), as the great circle that goes through the two points.</p>
+<p>Define a path from two given positions (at the surface of a spherical Earth),
+as the great circle that goes through the two points.</p>
 <p>Path A is given by <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>, while path B is given by <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>.</p>
 <p>Find the position C where the two great circles intersect.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-09-fig"></span>
 <img src="ex9img.png" alt="Intersection of two paths." width="220px"><p class="caption">
-Intersection of two paths.
+Figure 9: Intersection of two paths.
 </p>
 </div>
 <div id="solution-8" class="section level3">
@@ -549,7 +601,10 @@ Intersection of two paths.
   <span class="kw">pracma</span>::<span class="fu"><a href="https://rdrr.io/pkg/pracma/man/cross.html">cross</a></span>(<span class="kw">n_EA1_E</span>, <span class="kw">n_EA2_E</span>),
   <span class="kw">pracma</span>::<span class="fu"><a href="https://rdrr.io/pkg/pracma/man/cross.html">cross</a></span>(<span class="kw">n_EB1_E</span>, <span class="kw">n_EB2_E</span>)))
 </pre></div>
-<p><span class="math inline">\(\mathbf{n}_{{EC}_{tmp}}^E\)</span> is one of two solutions, the other is <span class="math inline">\(-\mathbf{n}_{{EC}_{tmp}}^E\)</span>. Select the one that is closest to <span class="math inline">\(\mathbf{n}_{EA_1}^E\)</span>, by selecting sign from the dot product between <span class="math inline">\(\mathbf{n}_{{EC}_{tmp}}^E\)</span> and <span class="math inline">\(\mathbf{n}_{EA_1}^E\)</span></p>
+<p><span class="math inline">\(\mathbf{n}_{{EC}_{tmp}}^E\)</span> is one of two solutions,
+the other is <span class="math inline">\(-\mathbf{n}_{{EC}_{tmp}}^E\)</span>.
+Select the one that is closest to <span class="math inline">\(\mathbf{n}_{EA_1}^E\)</span>, by selecting sign from
+the dot product between <span class="math inline">\(\mathbf{n}_{{EC}_{tmp}}^E\)</span> and <span class="math inline">\(\mathbf{n}_{EA_1}^E\)</span></p>
 <div class="sourceCode" id="cb38"><pre class="downlit">
 <span class="kw">n_EC_E</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sign.html">sign</a></span>(<span class="kw">pracma</span>::<span class="fu"><a href="https://rdrr.io/pkg/pracma/man/dot.html">dot</a></span>(<span class="kw">n_EC_E_tmp</span>, <span class="kw">n_EA1_E</span>)) <span class="op">*</span> <span class="kw">n_EC_E_tmp</span>
 </pre></div>
@@ -567,13 +622,19 @@ Intersection of two paths.
 <div id="example-10-cross-track-distance-cross-track-error" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-10-cross-track-distance-cross-track-error" class="anchor"></a>Example 10: Cross track distance (cross track error)</h2>
-<p>Path A is given by the two positions <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> (similar to the previous example).</p>
-<p>Find the cross track distance <span class="math inline">\(s_{xt}\)</span> between the path A (i.e. the great circle through <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>) and the position <span class="math inline">\(B\)</span> (i.e. the shortest distance at the surface, between the great circle and <span class="math inline">\(B\)</span>).</p>
-<p>Also find the Euclidean distance <span class="math inline">\(d_{xt}\)</span> between <span class="math inline">\(B\)</span> and the plane defined by the great circle.</p>
+<p>Path A is given by the two positions <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>
+(similar to the previous example).</p>
+<p>Find the cross track distance <span class="math inline">\(s_{xt}\)</span> between the path A
+(i.e. the great circle through <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>) and
+the position <span class="math inline">\(B\)</span> (i.e. the shortest distance at the surface,
+between the great circle and <span class="math inline">\(B\)</span>).</p>
+<p>Also find the Euclidean distance <span class="math inline">\(d_{xt}\)</span> between <span class="math inline">\(B\)</span> and the plane
+defined by the great circle.</p>
 <p>Use Earth radius <span class="math inline">\(6371~\mathrm{km}\)</span>.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-10-fig"></span>
 <img src="ex10img.png" alt="Cross track distance (cross track error)." width="220px"><p class="caption">
-Cross track distance (cross track error).
+Figure 10: Cross track distance (cross track error).
 </p>
 </div>
 <div id="solution-9" class="section level3">
@@ -587,13 +648,15 @@ Cross track distance (cross track error).
 
 <span class="kw">r_Earth</span> <span class="op">&lt;-</span> <span class="fl">6371e3</span>  <span class="co"># mean Earth radius (m)</span>
 </pre></div>
-<p>Find the unit normal to the great circle between n_EA1_E and n_EA2_E as shown in the Figure @ref(fig:solution-10-fig).</p>
+<p>Find the unit normal to the great circle between n_EA1_E and n_EA2_E
+as shown in the Figure <a href="#fig:solution-10-fig">11</a>.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit">
 <span class="kw">c_E</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unit.html">unit</a></span>(<span class="kw">pracma</span>::<span class="fu"><a href="https://rdrr.io/pkg/pracma/man/cross.html">cross</a></span>(<span class="kw">n_EA1_E</span>, <span class="kw">n_EA2_E</span>))
 </pre></div>
 <div class="figure" style="text-align: center">
+<span id="fig:solution-10-fig"></span>
 <img src="solution10img.png" alt="Vectors for cross track distance  calculation." width="220px"><p class="caption">
-Vectors for cross track distance calculation.
+Figure 11: Vectors for cross track distance calculation.
 </p>
 </div>
 <p>Find the great circle cross track distance</p>
@@ -611,11 +674,16 @@ Vectors for cross track distance calculation.
 <div id="example-11-cross-track-intersection" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-11-cross-track-intersection" class="anchor"></a>Example 11: Cross track intersection</h2>
-<p>Path A is given by the two positions <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> (similar to the previous example).</p>
-<p>Find the cross track intersection point <span class="math inline">\(C\)</span> between the path A (i.e. the great circle through <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>) and the position <span class="math inline">\(B\)</span>, i.e. the shortest distance point at the surface, between the great circle and <span class="math inline">\(B\)</span>.</p>
+<p>Path A is given by the two positions <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>
+(similar to the previous example).</p>
+<p>Find the cross track intersection point <span class="math inline">\(C\)</span> between the path A
+(i.e. the great circle through <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>) and
+the position <span class="math inline">\(B\)</span>, i.e. the shortest distance point at the surface,
+between the great circle and <span class="math inline">\(B\)</span>.</p>
 <div class="figure" style="text-align: center">
+<span id="fig:example-11-fig"></span>
 <img src="ex11img.png" alt="Cross track intersection." width="220px"><p class="caption">
-Cross track intersection.
+Figure 12: Cross track intersection.
 </p>
 </div>
 <div id="solution-10" class="section level3">
