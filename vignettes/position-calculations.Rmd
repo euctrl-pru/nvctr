@@ -4,11 +4,12 @@ author: "Enrico Spinielli"
 date: "`r Sys.Date()`"
 output:
   bookdown::html_document2:
-    base_format: rmarkdown::html_vignette
     toc: true
     toc_depth: 2
     number_sections: false
     fig_caption: true
+pkgdown:
+  as_is: true
 references:
 - id: gade2010
   title: A Nonsingular Horizontal Position Representation
