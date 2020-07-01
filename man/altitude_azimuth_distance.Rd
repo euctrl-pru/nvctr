@@ -16,9 +16,9 @@ altitude (in meters) in WSG84}
 \value{
 the coordinates in North-East-Up of the observed, B, with respect to the
         observer A.
-        A vector of [altitude](https://en.wikipedia.org/wiki/Horizontal_coordinate_system)
+        A vector of \href{https://en.wikipedia.org/wiki/Horizontal_coordinate_system}{altitude}
         (elevation from the horizon) in decimal degrees,
-        [azimuth](https://en.wikipedia.org/wiki/Azimuth)) in decimal degrees and
+        \href{https://en.wikipedia.org/wiki/Azimuth}{azimuth}) in decimal degrees and
         distance in meters.
 }
 \description{

@@ -20,9 +20,17 @@ a vector of longitude, latitude (in decimal degrees) and elevation (in meters) i
 a WSG84 vector with longitude and latitude (decimal degrees)
 }
 \description{
-The cross-track intersection between the position of a body (i.e. aircraft) and a great circle
-(as defined for example by a runway thresholds).
-NOTE: elevation/altitude is ignored and assumed zero.
+Calculate the cross-track intersection between the position of a body (i.e. an aircraft) and
+a great circle arc as defined by two points (i.e. the runway's thresholds).
+}
+\details{
+The cross-track intersection between the position of a body, B, (i.e. an aircraft) and
+a great circle arc as defined by two points, A1 and A2, (i.e. the runway's thresholds)
+is the intersection, X, of the above arc with the great circle arc passing through
+the ground projection of B, G, and perpendicular to A1-A2.
+
+\if{html}{\figure{cross-track.svg}{options: width="80\%" alt="cross-track intersection"}}
+\if{latex}{\figure{cross-track.png}{options: width=5cm}}
 }
 \examples{
 \dontrun{
