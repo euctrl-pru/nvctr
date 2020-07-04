@@ -29,7 +29,7 @@
 #' }
 along_track_distance <- function(b, a1, a2) {
   x <- cross_track_intersection(b, a1, a2)
-  d1 <- geosphere::distGeo(x, a1)
-  d2 <- geosphere::distGeo(x, a2)
+  d1 <- geosphere::distGeo(x, a1[1:2])
+  d2 <- geosphere::distGeo(x, a2[1:2])
   c(d1, d2)
 }
