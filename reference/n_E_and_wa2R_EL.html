@@ -146,7 +146,7 @@ When <code>wander_azimuth = 0</code>, we have that N = L (See Table 2 in Gade (2
 details)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>n_E_and_wa2R_EL</span>(<span class='kw'>n_E</span>, <span class='kw'>wander_azimuth</span>)</pre>
+    <pre class="usage"><span class='fu'>n_E_and_wa2R_EL</span>(<span class='no'>n_E</span>, <span class='no'>wander_azimuth</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,16 +170,17 @@ details)</p>
 <em>The Journal of Navigation</em>, Volume 63, Issue 03, pp 395-417, July 2010.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>R_EL2n_E</code>, <code>R_EN2n_E</code> and <code>n_E2R_EN</code>.</p></div>
+    <div class='dont-index'><p><code><a href='R_EL2n_E.html'>R_EL2n_E</a></code>, <code><a href='R_EN2n_E.html'>R_EN2n_E</a></code> and <code><a href='n_E2R_EN.html'>n_E2R_EN</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Calculates the rotation matrix (direction cosine matrix) R_EL</span>
 <span class='co'># using n-vector (n_E) and the wander azimuth angle.</span>
-<span class='kw'>n_E</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>)
-(<span class='kw'>R_EL</span> <span class='op'>&lt;-</span>  <span class='fu'>n_E_and_wa2R_EL</span>(<span class='kw'>n_E</span>, wander_azimuth = <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt;              [,1]          [,2] [,3]
+<span class='no'>n_E</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>)
+(<span class='no'>R_EL</span> <span class='kw'>&lt;-</span>  <span class='fu'>n_E_and_wa2R_EL</span>(<span class='no'>n_E</span>, <span class='kw'>wander_azimuth</span> <span class='kw'>=</span> <span class='no'>pi</span> / <span class='fl'>2</span>))</div><div class='output co'>#&gt;              [,1]          [,2] [,3]
 #&gt; [1,] 0.000000e+00  0.000000e+00   -1
 #&gt; [2,] 1.000000e+00  6.123234e-17    0
-#&gt; [3,] 6.123234e-17 -1.000000e+00    0</div><div class='input'></div></pre>
+#&gt; [3,] 6.123234e-17 -1.000000e+00    0</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -195,7 +196,7 @@ details)</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

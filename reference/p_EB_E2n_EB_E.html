@@ -142,7 +142,7 @@ as cartesian position vector p_EB_E, in meters (&quot;ECEF-vector&quot;)." />
 as cartesian position vector p_EB_E, in meters ("ECEF-vector").</p>
     </div>
 
-    <pre class="usage"><span class='fu'>p_EB_E2n_EB_E</span>(<span class='kw'>p_EB_E</span>, a = <span class='fl'>6378137</span>, f = <span class='fl'>1</span><span class='op'>/</span><span class='fl'>298.257223563</span>)</pre>
+    <pre class="usage"><span class='fu'>p_EB_E2n_EB_E</span>(<span class='no'>p_EB_E</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>6378137</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>298.257223563</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -178,17 +178,18 @@ The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) mi
 <em>The Journal of Navigation</em>, Volume 63, Issue 03, pp 395-417, July 2010.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>n_EB_E2p_EB_E</code>, <code>n_EA_E_and_p_AB_E2n_EB_E</code> and
-         <code>n_EA_E_and_n_EB_E2p_AB_E</code></p></div>
+    <div class='dont-index'><p><code><a href='n_EB_E2p_EB_E.html'>n_EB_E2p_EB_E</a></code>, <code><a href='n_EA_E_and_p_AB_E2n_EB_E.html'>n_EA_E_and_p_AB_E2n_EB_E</a></code> and
+         <code><a href='n_EA_E_and_n_EB_E2p_AB_E.html'>n_EA_E_and_n_EB_E2p_AB_E</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>p_EB_E</span> <span class='op'>&lt;-</span> <span class='fl'>6371e3</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.9</span>, <span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1.1</span>)
-(<span class='kw'>n_EB_E</span> <span class='op'>&lt;-</span> <span class='fu'>p_EB_E2n_EB_E</span>(<span class='kw'>p_EB_E</span>))</div><div class='output co'>#&gt; $n_EB_E
+    <pre class="examples"><div class='input'><span class='no'>p_EB_E</span> <span class='kw'>&lt;-</span> <span class='fl'>6371e3</span> * <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.9</span>, -<span class='fl'>1</span>, <span class='fl'>1.1</span>)
+(<span class='no'>n_EB_E</span> <span class='kw'>&lt;-</span> <span class='fu'>p_EB_E2n_EB_E</span>(<span class='no'>p_EB_E</span>))</div><div class='output co'>#&gt; $n_EB_E
 #&gt; [1]  0.5170890 -0.5745433  0.6344439
 #&gt; 
 #&gt; $z_EB
 #&gt; [1] -4702060
-#&gt; </div><div class='input'></div></pre>
+#&gt; </div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -204,7 +205,7 @@ The default ellipsoid model used is WGS-84, but other ellipsoids (or spheres) mi
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
