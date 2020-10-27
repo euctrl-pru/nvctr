@@ -1,5 +1,10 @@
 # nvctr 0.1.3
 
+* removed `knitcitations`, now missing from CRAN
+* fixed spelling typos
+
+# nvctr 0.1.3
+
 * added cross-track functions
 
 
