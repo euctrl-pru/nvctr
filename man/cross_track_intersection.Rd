@@ -8,16 +8,16 @@ cross_track_intersection(b, a1, a2)
 }
 \arguments{
 \item{b}{coordinates of the body, b:
-a vector of longitude, latitude (in decimal degrees) and altitude (in meters) in WSG84}
+a vector of longitude, latitude (in decimal degrees) and altitude (in meters) in WGS84}
 
 \item{a1}{first coordinate of a great circle arc:
-a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WSG84}
+a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WGS84}
 
 \item{a2}{second coordinate of a great circle arc:
-a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WSG84}
+a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WGS84}
 }
 \value{
-a WSG84 vector with longitude and latitude (decimal degrees)
+a WGS84 vector with longitude and latitude (decimal degrees)
 }
 \description{
 Calculate the cross-track intersection between the position of a body (i.e. an aircraft) and

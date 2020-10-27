@@ -12,13 +12,13 @@
 #' \if{latex}{\figure{cross-track.png}{options: width=5cm}}
 #'
 #' @param b  coordinates of the body, b:
-#'           a vector of longitude, latitude (in decimal degrees) and altitude (in meters) in WSG84
+#'           a vector of longitude, latitude (in decimal degrees) and altitude (in meters) in WGS84
 #' @param a1 first coordinate of a great circle arc:
-#'           a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WSG84
+#'           a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WGS84
 #' @param a2 second coordinate of a great circle arc:
-#'           a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WSG84
+#'           a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WGS84
 #'
-#' @return a WSG84 vector with longitude and latitude (decimal degrees)
+#' @return a WGS84 vector with longitude and latitude (decimal degrees)
 #' @export
 #' @family utilities
 #'

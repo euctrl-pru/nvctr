@@ -8,10 +8,10 @@ altitude_azimuth_distance(a, b)
 }
 \arguments{
 \item{a}{the observer position: a vector of longitude, latitude (in decimal degrees) and
-altitude (in meters) in WSG84}
+altitude (in meters) in WGS84}
 
 \item{b}{the observed position: a vector of longitude, latitude (in decimal degrees) and
-altitude (in meters) in WSG84}
+altitude (in meters) in WGS84}
 }
 \value{
 the coordinates in North-East-Up of the observed, B, with respect to the

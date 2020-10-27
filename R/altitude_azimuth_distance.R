@@ -8,9 +8,9 @@
 #'
 #'
 #' @param a the observer position: a vector of longitude, latitude (in decimal degrees) and
-#'          altitude (in meters) in WSG84
+#'          altitude (in meters) in WGS84
 #' @param b the observed position: a vector of longitude, latitude (in decimal degrees) and
-#'          altitude (in meters) in WSG84
+#'          altitude (in meters) in WGS84
 #'
 #' @return the coordinates in North-East-Up of the observed, B, with respect to the
 #'         observer A.
