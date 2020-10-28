@@ -16,7 +16,7 @@
 #' @seealso \code{\link{n_E2R_EN}}, \code{\link{R_EL2n_E}} and \code{\link{n_E_and_wa2R_EL}}.
 #'
 #' @references
-#' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+#' Kenneth Gade \href{https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
 #' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
 #'
 R_EL2n_E <- function(R_EL) {

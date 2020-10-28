@@ -27,7 +27,7 @@
 #'          \code{\link{n_EA_E_and_n_EB_E2p_AB_E}}
 #'
 #' @references
-#' Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+#' Kenneth Gade \href{https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
 #' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
 #'
 p_EB_E2n_EB_E <- function(p_EB_E, a = 6378137, f = 1/298.257223563) {

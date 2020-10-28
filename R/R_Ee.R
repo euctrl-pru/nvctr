@@ -39,7 +39,7 @@
 #' R_Ee()
 #'
 #' @references
-#' Kenneth Gade (2010) \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+#' Kenneth Gade (2010) \href{https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
 #' \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
 
 R_Ee <- function(axes = "e") {

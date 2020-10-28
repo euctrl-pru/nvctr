@@ -18,7 +18,7 @@ references:
     given: Kenneth
   container-title: The Journal of Navigation
   volume: 63
-  URL: 'www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf'
+  URL: 'https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf'
   issue: 03
   page: 395-417
   type: article-journal
