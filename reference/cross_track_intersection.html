@@ -81,7 +81,7 @@ a great circle arc as defined by two points (i.e. the runway's thresholds)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nvctr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
       </span>
     </div>
 
@@ -142,7 +142,7 @@ a great circle arc as defined by two points (i.e. the runway's thresholds)." />
 a great circle arc as defined by two points (i.e. the runway's thresholds).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cross_track_intersection</span>(<span class='no'>b</span>, <span class='no'>a1</span>, <span class='no'>a2</span>)</pre>
+    <pre class="usage"><span class='fu'>cross_track_intersection</span><span class='op'>(</span><span class='va'>b</span>, <span class='va'>a1</span>, <span class='va'>a2</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,23 +150,23 @@ a great circle arc as defined by two points (i.e. the runway's thresholds).</p>
     <tr>
       <th>b</th>
       <td><p>coordinates of the body, b:
-a vector of longitude, latitude (in decimal degrees) and altitude (in meters) in WSG84</p></td>
+a vector of longitude, latitude (in decimal degrees) and altitude (in meters) in WGS84</p></td>
     </tr>
     <tr>
       <th>a1</th>
       <td><p>first coordinate of a great circle arc:
-a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WSG84</p></td>
+a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WGS84</p></td>
     </tr>
     <tr>
       <th>a2</th>
       <td><p>second coordinate of a great circle arc:
-a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WSG84</p></td>
+a vector of longitude, latitude (in decimal degrees) and elevation (in meters) in WGS84</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a WSG84 vector with longitude and latitude (decimal degrees)</p>
+    <p>a WGS84 vector with longitude and latitude (decimal degrees)</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The cross-track intersection between the position of a body, B, (i.e. an aircraft) and
@@ -182,15 +182,16 @@ the ground projection of B, G, and perpendicular to A1-A2.</p>
 <code><a href='cross_track_distance.html'>cross_track_distance</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># aircraft (longitude, latitude, altitude)</span>
-<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>8.086135</span>, <span class='fl'>49.973942</span>, <span class='fl'>6401</span>)
+<span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>8.086135</span>, <span class='fl'>49.973942</span>, <span class='fl'>6401</span><span class='op'>)</span>
 <span class='co'># EDDF: 07R (longitude, latitude, altitude)</span>
-<span class='no'>a1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>8.53417</span>, <span class='fl'>50.0275</span>, <span class='fl'>328</span>)
+<span class='va'>a1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>8.53417</span>, <span class='fl'>50.0275</span>, <span class='fl'>328</span><span class='op'>)</span>
 <span class='co'># EDDF: 25L</span>
-<span class='no'>a2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>8.58653</span>, <span class='fl'>50.0401</span>, <span class='fl'>362</span>)
-<span class='fu'>cross_track_intersection</span>(<span class='no'>b</span>, <span class='no'>a1</span>, <span class='no'>a2</span>)
-}</div></pre>
+<span class='va'>a2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>8.58653</span>, <span class='fl'>50.0401</span>, <span class='fl'>362</span><span class='op'>)</span>
+<span class='fu'>cross_track_intersection</span><span class='op'>(</span><span class='va'>b</span>, <span class='va'>a1</span>, <span class='va'>a2</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -206,7 +207,7 @@ the ground projection of B, G, and perpendicular to A1-A2.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
