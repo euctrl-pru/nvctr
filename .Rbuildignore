@@ -12,3 +12,4 @@
 ^\.Rproj\.user$
 ^cran-comments\.md$
 ^\.github$
+^CRAN-RELEASE$

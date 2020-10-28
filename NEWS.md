@@ -1,4 +1,8 @@
-# nvctr 0.1.3
+# nvctr 0.1.5
+
+
+
+# nvctr 0.1.4
 
 * removed `knitcitations`, now missing from CRAN
 * fixed spelling typos
