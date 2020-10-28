@@ -25,7 +25,7 @@ R_EL2n_E(R_EN)
 
 }
 \references{
-Kenneth Gade \href{www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
+Kenneth Gade \href{https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf}{A Nonsingular Horizontal Position Representation}.
 \emph{The Journal of Navigation}, Volume 63, Issue 03, pp 395-417, July 2010.
 }
 \seealso{
