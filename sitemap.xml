@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://nvctr.ansperformance.eu/404.html</loc>
+  </url>
+  <url>
+    <loc>https://nvctr.ansperformance.eu/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://nvctr.ansperformance.eu/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://nvctr.ansperformance.eu/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nvctr.ansperformance.eu/articles/position-calculations.html</loc>
+  </url>
+  <url>
+    <loc>https://nvctr.ansperformance.eu/authors.html</loc>
+  </url>
+  <url>
     <loc>https://nvctr.ansperformance.eu/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nvctr.ansperformance.eu/news/index.html</loc>
   </url>
   <url>
     <loc>https://nvctr.ansperformance.eu/reference/R2xyz.html</loc>
@@ -32,6 +53,9 @@
   </url>
   <url>
     <loc>https://nvctr.ansperformance.eu/reference/deg.html</loc>
+  </url>
+  <url>
+    <loc>https://nvctr.ansperformance.eu/reference/index.html</loc>
   </url>
   <url>
     <loc>https://nvctr.ansperformance.eu/reference/lat_lon2n_E.html</loc>
@@ -74,8 +98,5 @@
   </url>
   <url>
     <loc>https://nvctr.ansperformance.eu/reference/zyx2R.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/articles/position-calculations.html</loc>
   </url>
 </urlset>
