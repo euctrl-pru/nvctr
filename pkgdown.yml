@@ -3,7 +3,7 @@ pkgdown: 2.0.8
 pkgdown_sha: ~
 articles:
   position-calculations: position-calculations.html
-last_built: 2024-04-12T09:28Z
+last_built: 2024-04-12T09:32Z
 urls:
   reference: https://nvctr.ansperformance.eu/reference
   article: https://nvctr.ansperformance.eu/articles
