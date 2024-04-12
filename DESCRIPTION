@@ -22,7 +22,7 @@ Description: The n-vector framework uses the normal vector to
     Establishment, as described in Gade (2010)
     <doi:10.1017/S0373463309990415>.
 License: MIT + file LICENSE
-URL: https://github.com/euctrl-pru/nvctr
+URL: https://nvctr.ansperformance.eu, https://github.com/euctrl-pru/nvctr
 BugReports: https://github.com/euctrl-pru/nvctr/issues
 Imports: 
     magrittr,
