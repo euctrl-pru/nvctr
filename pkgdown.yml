@@ -1,10 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.0.8
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   position-calculations: position-calculations.html
-last_built: 2024-04-12T09:39Z
+last_built: 2025-11-17T17:02Z
 urls:
   reference: https://nvctr.ansperformance.eu/reference
   article: https://nvctr.ansperformance.eu/articles
-

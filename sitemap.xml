@@ -1,102 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://nvctr.ansperformance.eu/404.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/articles/position-calculations.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/index.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/R2xyz.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/R2zyx.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/R_EL2n_E.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/R_EN2n_E.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/R_Ee.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/along_track_distance.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/altitude_azimuth_distance.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/cross_track_distance.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/cross_track_intersection.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/deg.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/lat_lon2n_E.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/n_E2R_EN.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/n_E2lat_lon.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/n_EA_E_and_n_EB_E2p_AB_E.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/n_EA_E_and_p_AB_E2n_EB_E.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/n_EB_E2p_EB_E.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/n_E_and_wa2R_EL.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/nvctr.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/p_EB_E2n_EB_E.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/rad.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/unit.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/xyz2R.html</loc>
-  </url>
-  <url>
-    <loc>https://nvctr.ansperformance.eu/reference/zyx2R.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://nvctr.ansperformance.eu/404.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/LICENSE-text.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/LICENSE.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/articles/index.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/articles/position-calculations.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/authors.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/index.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/news/index.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/R2xyz.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/R2zyx.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/R_EL2n_E.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/R_EN2n_E.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/R_Ee.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/along_track_distance.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/altitude_azimuth_distance.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/cross_track_distance.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/cross_track_intersection.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/deg.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/index.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/lat_lon2n_E.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/n_E2R_EN.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/n_E2lat_lon.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/n_EA_E_and_n_EB_E2p_AB_E.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/n_EA_E_and_p_AB_E2n_EB_E.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/n_EB_E2p_EB_E.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/n_E_and_wa2R_EL.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/nvctr.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/p_EB_E2n_EB_E.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/pipe.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/rad.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/unit.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/xyz2R.html</loc></url>
+<url><loc>https://nvctr.ansperformance.eu/reference/zyx2R.html</loc></url>
 </urlset>
+
