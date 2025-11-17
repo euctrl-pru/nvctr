@@ -8,7 +8,7 @@
 #' is the intersection, X, of the above arc with the great circle arc passing through
 #' the ground projection of B, G, and perpendicular to A1-A2.
 #'
-#' \if{html}{\figure{cross-track.svg}{options: width="80\%" alt="cross-track intersection"}}
+#' \if{html}{\figure{cross-track.svg}{options: style="width=80\%" alt="cross-track intersection"}}
 #' \if{latex}{\figure{cross-track.png}{options: width=5cm}}
 #'
 #' @param b  coordinates of the body, b:
@@ -59,7 +59,9 @@ cross_track_intersection <- function(b, a1, a2) {
 
   # choose the one closest to B
   n_EC_E <- sign(pracma::dot(n_EC_E_tmp, n_EB_E)) * n_EC_E_tmp
-  x  <- nvctr::n_E2lat_lon(n_EC_E) %>% nvctr::deg() %>% `names<-`(c("latitude", "longitude"))
+  x <- nvctr::n_E2lat_lon(n_EC_E) %>%
+    nvctr::deg() %>%
+    `names<-`(c("latitude", "longitude"))
   x <- c(x[2], x[1])
   x
 }

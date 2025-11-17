@@ -1,6 +1,8 @@
 # nvctr 0.1.5
 
 * fixed missing `\` for `\code{}` item in documentation of `xyz2R()` function.
+* added url for relevant pkgdown-generated website
+* fixed width of figure for HTML output according to CSS requirements.
 
 # nvctr 0.1.4
 
