@@ -2,8 +2,8 @@
 % Please edit documentation in R/nvctr-package.R
 \docType{package}
 \name{nvctr}
-\alias{nvctr}
 \alias{nvctr-package}
+\alias{nvctr}
 \title{nvctr: non-singular geographical position calculations}
 \description{
 nvctr provides functions to calculate geographical
@@ -16,6 +16,7 @@ Kenneth Gade \href{https://www.navlab.net/Publications/A_Nonsingular_Horizontal_
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://nvctr.ansperformance.eu}
   \item \url{https://github.com/euctrl-pru/nvctr}
   \item Report bugs at \url{https://github.com/euctrl-pru/nvctr/issues}
 }
