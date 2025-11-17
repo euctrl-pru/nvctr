@@ -46,6 +46,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R build status](https://github.com/euctrl-pru/nvctr/workflows/R-CMD-check/badge.svg)](https://github.com/euctrl-pru/nvctr/actions)
 [![CRAN version](https://www.r-pkg.org/badges/version/nvctr)](https://cran.r-project.org/package=nvctr)
+[![R-CMD-check](https://github.com/euctrl-pru/nvctr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/euctrl-pru/nvctr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 
