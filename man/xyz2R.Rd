@@ -28,7 +28,7 @@ procedure of successive rotations:
          In order to make \code{T} align with \code{B}, we first rotate \code{T}
          an angle \code{x} about its x-axis (common axis for both \code{A} and \code{T}).
    \item Secondly, \code{T} is rotated an angle \code{y} about the NEW y-axis of \code{T}.
-   \item Finally, code{T} is rotated an angle \code{z} about its NEWEST z-axis.
+   \item Finally, \code{T} is rotated an angle \code{z} about its NEWEST z-axis.
          The final orientation of \code{T} now coincides with the orientation of \code{B}.
 }
 The signs of the angles are given by the directions of the axes and the right hand rule.

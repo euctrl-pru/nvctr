@@ -1,6 +1,6 @@
 # nvctr 0.1.5
 
-
+* fixed missing `\` for `\code{}` item in documentation of `xyz2R()` function.
 
 # nvctr 0.1.4
 
