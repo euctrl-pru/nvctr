@@ -10,6 +10,7 @@ output:
     fig_caption: true
 pkgdown:
   as_is: true
+csl: ieee-with-url.csl
 references:
 - id: gade2010
   title: A Nonsingular Horizontal Position Representation
@@ -18,7 +19,8 @@ references:
     given: Kenneth
   container-title: The Journal of Navigation
   volume: 63
-  URL: 'https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf'
+  DOI: '10.1017/S0373463309990415'
+  URL: 'https://www.ffi.no/en/publications-archive/a-non-singular-horizontal-position-representation'
   issue: 03
   page: 395-417
   type: article-journal
@@ -47,7 +49,7 @@ library(nvctr)
 ```
 
 This vignette contains solutions to various geographical position calculations.
-It is inspired and follows the 10 examples given at https://www.navlab.net/nvector/ .
+It is inspired and follows the 10 examples given at https://www.ffi.no/en/research/n-vector/ .
 
 Most of the content is based on [@gade2010].
 

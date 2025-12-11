@@ -29,7 +29,7 @@ a great circle arc as defined by two points, A1 and A2, (i.e. the runway's thres
 is the intersection, X, of the above arc with the great circle arc passing through
 the ground projection of B, G, and perpendicular to A1-A2.
 
-\if{html}{\figure{cross-track.svg}{options: style="width=80\%" alt="cross-track intersection"}}
+\if{html}{\figure{cross-track.svg}{options: style="width=80\%;" alt="cross-track intersection"}}
 \if{latex}{\figure{cross-track.png}{options: width=5cm}}
 }
 \examples{
