@@ -2,9 +2,9 @@
 
 This vignette contains solutions to various geographical position
 calculations. It is inspired and follows the 10 examples given at
-<https://www.navlab.net/nvector/> .
+<https://www.ffi.no/en/research/n-vector/> .
 
-Most of the content is based on ([Gade 2010](#ref-gade2010)).
+Most of the content is based on [\[1\]](#ref-gade2010).
 
 The color scheme in the Figures is as follows:
 
@@ -317,8 +317,8 @@ r_Earth <- 6371e3
 
 ##### Spherical model
 
-The great circle distance is given by equations (16) in ([Gade
-2010](#ref-gade2010)) (the \\\arccos\\ is ill conditioned for small
+The great circle distance is given by equations (16) in
+[\[1\]](#ref-gade2010) (the \\\arccos\\ is ill conditioned for small
 angles; the \\\arcsin\\ is ill-conditioned for angles near \\\pi/2\\,
 and not valid for angles greater than \\\pi/2\\) where \\r\_{roc}\\ is
 the radius of curvature, i.e. Earth radius + height:
@@ -328,8 +328,8 @@ the radius of curvature, i.e. Earth radius + height:
 = r\_{roc} \cdot \arcsin \\\big(\big\|\mathbf{n}\_{EA}^E
 \boldsymbol{\times} \mathbf{n}\_{EB}^E\big\|\big) \tag{16} \end{align}\\
 
-The formulation via \\\operatorname{atan2}\\ of equation (6) in ([Gade
-2010](#ref-gade2010)) is instead well conditioned for all angles:
+The formulation via \\\operatorname{atan2}\\ of equation (6) in
+[\[1\]](#ref-gade2010) is instead well conditioned for all angles:
 
 \\s\_{AB} = r\_{roc} \cdot
 \operatorname{atan2}\big(\big\|\mathbf{n}\_{EA}^E \boldsymbol{\times}
@@ -428,7 +428,7 @@ Figure 7: Mean position (center/midpoint).
 #### Solution
 
 The (geographical) mean position \\B\_{GM}\\ is simply given equation
-(17) in ([Gade 2010](#ref-gade2010)) (assuming spherical Earth)
+(17) in [\[1\]](#ref-gade2010) (assuming spherical Earth)
 
 \\ \mathbf{n}\_{EB\_{GM}}^E = \operatorname{unit}\Big( \sum\_{i = 1}^{m}
 \mathbf{n}\_{EB_i}^E \Big) \tag{17} \\
@@ -498,7 +498,7 @@ r_Earth <- 6371e3 # mean Earth radius (m)
 ```
 
 **Step 1**: Find unit vectors for north and east as per equations (9)
-and (10) in ([Gade 2010](#ref-gade2010))
+and (10) in [\[1\]](#ref-gade2010)
 
 \$\$ \\\begin{align} \mathbf{k}\_{east}^E & = \begin{bmatrix} 1 \\ 0 \\
 0 \end{bmatrix} \times \mathbf{n}^E \tag{9} \\ \mathbf{k}\_{north}^E & =
@@ -707,6 +707,10 @@ Convert to longitude/latitude
 
 ## References
 
-Gade, Kenneth. 2010. “A Nonsingular Horizontal Position Representation.”
-*The Journal of Navigation* 63 (3): 395–417.
-<https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf>.
+\[1\]
+
+K. Gade, “A Nonsingular Horizontal Position Representation,” *The
+Journal of Navigation*, vol. 63, no. 3, pp. 395–417, Jul. 2010, doi:
+[10.1017/S0373463309990415](https://doi.org/10.1017/S0373463309990415).
+Available:
+<https://www.ffi.no/en/publications-archive/a-non-singular-horizontal-position-representation>

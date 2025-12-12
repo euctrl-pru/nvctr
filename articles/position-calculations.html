@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nvctr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.4.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
       <img src="../logo.svg" class="logo" alt=""><h1>Simple and Exact Solutions to Position Calculation</h1>
                         <h4 data-toc-skip class="author">Enrico Spinielli</h4>
             
-            <h4 data-toc-skip class="date">2025-11-17</h4>
+            <h4 data-toc-skip class="date">2025-12-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/euctrl-pru/nvctr/blob/master/vignettes/position-calculations.Rmd" class="external-link"><code>vignettes/position-calculations.Rmd</code></a></small>
       <div class="d-none name"><code>position-calculations.Rmd</code></div>
@@ -70,8 +70,8 @@
     
     
 <p>This vignette contains solutions to various geographical position calculations.
-It is inspired and follows the 10 examples given at <a href="https://www.navlab.net/nvector/" class="external-link uri">https://www.navlab.net/nvector/</a> .</p>
-<p>Most of the content is based on <span class="citation">(<a href="#ref-gade2010">Gade 2010</a>)</span>.</p>
+It is inspired and follows the 10 examples given at <a href="https://www.ffi.no/en/research/n-vector/" class="external-link uri">https://www.ffi.no/en/research/n-vector/</a> .</p>
+<p>Most of the content is based on <span class="citation"><a href="#ref-gade2010">[1]</a></span>.</p>
 <p>The color scheme in the Figures is as follows:</p>
 <ul>
 <li>
@@ -329,7 +329,7 @@ Figure 5: Surface distance.
 <div class="section level5">
 <h5 id="spherical-model">Spherical model<a class="anchor" aria-label="anchor" href="#spherical-model"></a>
 </h5>
-<p>The great circle distance is given by equations (16) in <span class="citation">(<a href="#ref-gade2010">Gade 2010</a>)</span>
+<p>The great circle distance is given by equations (16) in <span class="citation"><a href="#ref-gade2010">[1]</a></span>
 (the <span class="math inline">\(\arccos\)</span> is ill conditioned for small angles; the <span class="math inline">\(\arcsin\)</span> is ill-conditioned
 for angles near <span class="math inline">\(\pi/2\)</span>, and not valid for angles greater than <span class="math inline">\(\pi/2\)</span>) where <span class="math inline">\(r_{roc}\)</span>
 is the radius of curvature, i.e. Earth radius + height:</p>
@@ -337,7 +337,7 @@ is the radius of curvature, i.e. Earth radius + height:</p>
 s_{AB} &amp; = r_{roc} \cdot  \arccos \!\big(\mathbf{n}_{EA}^E \boldsymbol{\cdot} \mathbf{n}_{EB}^E\big)\\
        &amp; = r_{roc} \cdot \arcsin \!\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|\big) \tag{16}
 \end{align}\)</span></p>
-<p>The formulation via <span class="math inline">\(\operatorname{atan2}\)</span> of equation (6) in <span class="citation">(<a href="#ref-gade2010">Gade 2010</a>)</span> is instead well conditioned
+<p>The formulation via <span class="math inline">\(\operatorname{atan2}\)</span> of equation (6) in <span class="citation"><a href="#ref-gade2010">[1]</a></span> is instead well conditioned
 for all angles:</p>
 <p><span class="math inline">\(s_{AB} = r_{roc} \cdot  \operatorname{atan2}\big(\big|\mathbf{n}_{EA}^E \boldsymbol{\times} \mathbf{n}_{EB}^E\big|,
     \mathbf{n}_{EA}^E \boldsymbol{\cdot} \mathbf{n}_{EB}^E\big) \tag{6}\)</span></p>
@@ -419,7 +419,7 @@ Figure 7: Mean position (center/midpoint).
 <div class="section level4">
 <h4 id="solution-6">Solution<a class="anchor" aria-label="anchor" href="#solution-6"></a>
 </h4>
-<p>The (geographical) mean position <span class="math inline">\(B_{GM}\)</span> is simply given equation (17) in <span class="citation">(<a href="#ref-gade2010">Gade 2010</a>)</span>
+<p>The (geographical) mean position <span class="math inline">\(B_{GM}\)</span> is simply given equation (17) in <span class="citation"><a href="#ref-gade2010">[1]</a></span>
 (assuming spherical Earth)</p>
 <p><span class="math display">\[
 \mathbf{n}_{EB_{GM}}^E = \operatorname{unit}\Big( \sum_{i = 1}^{m} \mathbf{n}_{EB_i}^E \Big) \tag{17}
@@ -477,7 +477,7 @@ Figure 8: A and azimuth/distance to B.
 <span><span class="va">s_AB</span> <span class="op">&lt;-</span> <span class="fl">1000</span> <span class="co"># distance (m)</span></span>
 <span><span class="va">r_Earth</span> <span class="op">&lt;-</span> <span class="fl">6371e3</span> <span class="co"># mean Earth radius (m)</span></span></code></pre></div>
 <p><strong>Step 1</strong>: Find unit vectors for north and east as per equations (9) and (10)
-in <span class="citation">(<a href="#ref-gade2010">Gade 2010</a>)</span></p>
+in <span class="citation"><a href="#ref-gade2010">[1]</a></span></p>
 <p>$$
 <span class="math display">\[\begin{align}
 \mathbf{k}_{east}^E  &amp; =   \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \times \mathbf{n}^E \tag{9} \\
@@ -650,9 +650,11 @@ Figure 12: Cross track intersection.
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body" entry-spacing="0">
 <div id="ref-gade2010" class="csl-entry">
-Gade, Kenneth. 2010. <span>“A Nonsingular Horizontal Position Representation.”</span> <em>The Journal of Navigation</em> 63 (3): 395–417. <a href="https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf" class="external-link">https://www.navlab.net/Publications/A_Nonsingular_Horizontal_Position_Representation.pdf</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">K. Gade, <span>“A Nonsingular Horizontal Position Representation,”</span> <em>The Journal of Navigation</em>, vol. 63, no. 3, pp. 395–417, Jul. 2010, doi: <a href="https://doi.org/10.1017/S0373463309990415" class="external-link">10.1017/S0373463309990415</a>. Available: <a href="https://www.ffi.no/en/publications-archive/a-non-singular-horizontal-position-representation" class="external-link">https://www.ffi.no/en/publications-archive/a-non-singular-horizontal-position-representation</a>
+</div>
 </div>
 </div>
 </div>
