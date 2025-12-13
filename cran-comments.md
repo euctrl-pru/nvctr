@@ -2,12 +2,14 @@
 This is a resubmission.
 As request by the CRAN maintainer in this version I have:
 
-* fixed a CSS style attribute from
+* I tried to fix a CSS style attribute from
   >  \figure{FILENAME}{options: width="25\%"}
   to
   >  \figure{FILENAME}{options: style="width: 25\%;"}
-  `devtools::check_win_devel()` still reports this as a NOTE.
-* fixed redirected URLs
+  as suggested by CRAN mainteiner but
+  `devtools::check_win_devel()` still reports this as a NOTE
+  and resubmission failed due to getting again a NOTE.
+  So I resorted to use pixels.
 
 
 ## Test environments
