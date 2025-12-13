@@ -1,5 +1,14 @@
 # Changelog
 
+## nvctr 0.1.6
+
+Resubmission due to redirected URLs. I have:
+
+1.  fixed redirected URLs
+2.  tested on MacOS 26.1
+3.  tested ok (again) via `devtools::check_win_devel()`
+4.  tested ok (again) via `revdepcheck::revdep_check(num_workers = 4)`
+
 ## nvctr 0.1.5
 
 - fixed missing `\` for `\code{}` item in documentation of

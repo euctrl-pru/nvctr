@@ -15,12 +15,12 @@ Source:
 
 Spinielli E (2025). *nvctr: The n-vector Approach to Geographical
 Position Calculations using an Ellipsoidal Model of Earth*. R package
-version 0.1.5, <https://nvctr.ansperformance.eu>.
+version 0.1.6, <https://nvctr.ansperformance.eu>.
 
     @Manual{,
       title = {nvctr: The n-vector Approach to Geographical Position Calculations using an Ellipsoidal Model of Earth},
       author = {Enrico Spinielli},
       year = {2025},
-      note = {R package version 0.1.5},
+      note = {R package version 0.1.6},
       url = {https://nvctr.ansperformance.eu},
     }
