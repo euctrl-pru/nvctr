@@ -1,5 +1,10 @@
 # Changelog
 
+## nvctr 0.1.7
+
+Resubmission. I resort to use pixels width despite the suggestion from
+CRAN maintainer: I still get a NOTE that blocks submission.
+
 ## nvctr 0.1.6
 
 Resubmission due to redirected URLs. I have:
