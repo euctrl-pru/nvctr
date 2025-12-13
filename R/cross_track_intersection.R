@@ -8,7 +8,7 @@
 #' is the intersection, X, of the above arc with the great circle arc passing through
 #' the ground projection of B, G, and perpendicular to A1-A2.
 #'
-#' \if{html}{\figure{cross-track.svg}{options: style="width=80\%;" alt="cross-track intersection"}}
+#' \if{html}{\figure{cross-track.svg}{options: width=380 alt="cross-track intersection"}}
 #' \if{latex}{\figure{cross-track.png}{options: width=5cm}}
 #'
 #' @param b  coordinates of the body, b:
