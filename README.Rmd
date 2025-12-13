@@ -20,7 +20,7 @@ references:
   pages: 395-417
 - id: navigationgroupatffi_2010
   title: The N-Vector Page
-  URL: 'https://www.navlab.net/nvector/'
+  URL: 'https://www.ffi.no/en/research/n-vector/'
   issued:
     year: 2010
 #    month: 07
@@ -57,7 +57,7 @@ ellipsoidal model of Earth as described in [@gade_2010].
 
 
 Implementations in various computer languages can be found at the 
-[n-vector page](https://www.navlab.net/nvector/) [@navigationgroupatffi_2010].
+[n-vector page](https://www.ffi.no/en/research/n-vector/) [@navigationgroupatffi_2010].
 
 
 ## Installation

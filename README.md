@@ -19,8 +19,8 @@ position calculations using an ellipsoidal model of Earth as described
 in ([Gade 2010](#ref-gade_2010)).
 
 Implementations in various computer languages can be found at the
-[n-vector page](https://www.navlab.net/nvector/) ([Navigation Group
-2010](#ref-navigationgroupatffi_2010)).
+[n-vector page](https://www.ffi.no/en/research/n-vector/) ([Navigation
+Group 2010](#ref-navigationgroupatffi_2010)).
 
 ## Installation
 
@@ -59,21 +59,20 @@ install.packages("nvctr")
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-gade_2010" class="csl-entry">
 
 Gade, Kenneth. 2010. “A Non-Singular Horizontal Position
-Representation.” *Journal of Navigation*.
+Representation.” In *Journal of Navigation*, vol. 63. no. 3.
 <https://doi.org/10.1017/S0373463309990415>.
 
 </div>
 
 <div id="ref-navigationgroupatffi_2010" class="csl-entry">
 
-Navigation Group, FFI. 2010. “The N-Vector Page.”
-<https://www.navlab.net/nvector/>.
+Navigation Group, FFI. 2010. *The N-Vector Page*.
+<https://www.ffi.no/en/research/n-vector/>.
 
 </div>
 
